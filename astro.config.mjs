@@ -2,6 +2,5 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://soyasis.github.io',
-  base: '/cai-landingpage',
+  site: 'https://getcai.app',
 });
