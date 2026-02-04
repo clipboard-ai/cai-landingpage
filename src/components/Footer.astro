@@ -4,14 +4,11 @@ import discordLogo from '../assets/images/discord-white-icon.png';
 import raycastLogo from '../assets/images/logo-raycast.png';
 
 const footerLinks = [
-  { name: "Why Us", url: "#" },
-  { name: "Guide", url: "#" },
-  { name: "Community", url: "#" },
-  { name: "Roadmap", url: "#" },
-  { name: "Blog", url: "#" },
-  { name: "Support", url: "#" },
-  { name: "Discord", url: "#" },
-  { name: "Privacy", url: "#" }
+  { name: "Guide", url: "https://github.com/soyasis/cai-clipboard-ai#-installation" },
+  { name: "Community", url: "https://www.raycast.com/community" },
+  { name: "Raycast Store", url: "https://www.raycast.com/store" },
+  { name: "Imprint", url: "#imprint" },
+  { name: "Privacy", url: "#privacy" }
 ];
 ---
 
@@ -25,7 +22,7 @@ const footerLinks = [
           <img src={raycastLogo.src} alt="Raycast" class="button-logo" />
           <span>Download for Raycast</span>
         </a>
-        <a href="https://github.com" class="github-button" target="_blank" rel="noopener noreferrer" aria-label="View on GitHub">
+        <a href="https://github.com/soyasis/cai-clipboard-ai" class="github-button" target="_blank" rel="noopener noreferrer" aria-label="View on GitHub">
           <img src={githubLogo.src} alt="GitHub" class="github-logo" />
         </a>
       </div>
@@ -43,7 +40,7 @@ const footerLinks = [
 
       <div class="footer-social">
         <a
-          href="https://github.com"
+          href="https://github.com/soyasis/cai-clipboard-ai"
           class="social-link"
           aria-label="GitHub"
           target="_blank"
@@ -52,7 +49,7 @@ const footerLinks = [
           <img src={githubLogo.src} alt="GitHub" width="20" height="20" />
         </a>
 
-        <a
+        <!-- <a
           href="https://discord.com"
           class="social-link"
           aria-label="Discord"
@@ -60,7 +57,7 @@ const footerLinks = [
           rel="noopener noreferrer"
         >
           <img src={discordLogo.src} alt="Discord" width="20" height="20" />
-        </a>
+        </a> -->
       </div>
 
       <div class="footer-logo">
@@ -269,8 +266,6 @@ const footerLinks = [
     font-size: 2rem;
     font-weight: 800;
     color: white;
-    border: 3px solid white;
-    border-radius: 12px;
     padding: 0.35rem 1rem;
     letter-spacing: -0.02em;
     transition: all 0.3s ease;
@@ -278,7 +273,6 @@ const footerLinks = [
 
   .logo-text:hover {
     transform: scale(1.05);
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
   }
 
   @media (max-width: 968px) {
