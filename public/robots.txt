@@ -1,0 +1,9 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Disallow legal pages from being indexed
+Disallow: /imprint/
+Disallow: /privacy/
+
+Sitemap: https://getcai.app/sitemap.xml
