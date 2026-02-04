@@ -1,5 +1,5 @@
 ---
-import githubLogo from '../assets/images/GitHub_Invertocat_White.svg';
+import githubLogo from '../assets/images/GitHub_Invertocat_Black.svg';
 import discordLogo from '../assets/images/discord-white-icon.png';
 import raycastLogo from '../assets/images/logo-raycast.png';
 import caiLogoBorder from '../assets/images/cai-logo-border.svg';
@@ -18,14 +18,15 @@ const footerLinks = [
   <div class="container">
     <!-- CTA Section -->
     <div class="footer-cta">
-      <h2 class="cta-title">Start using Cai today</h2>
+      <h2 class="cta-title">Get Cai</h2>
       <div class="cta-actions">
         <a href="https://raycast.com" class="cta-button" target="_blank" rel="noopener noreferrer">
           <img src={raycastLogo.src} alt="Raycast" class="button-logo" />
-          <span>Download for Raycast</span>
+          <span>Download from Raycast</span>
         </a>
-        <a href="https://github.com/soyasis/cai-clipboard-ai" class="github-button" target="_blank" rel="noopener noreferrer" aria-label="View on GitHub">
-          <img src={githubLogo.src} alt="GitHub" class="github-logo" />
+        <a href="https://github.com/soyasis/cai-clipboard-ai" class="cta-button github-button" target="_blank" rel="noopener noreferrer">
+          <img src={githubLogo.src} alt="GitHub" class="button-logo" />
+          <span>Download from GitHub</span>
         </a>
       </div>
     </div>
@@ -134,55 +135,32 @@ const footerLinks = [
     align-items: center;
     justify-content: center;
     gap: 1.5rem;
+    flex-wrap: wrap;
   }
 
   .cta-button {
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    background: white;
-    color: #2A2A2A;
+    background: #FFFFFF;
+    color: #1A1A1A;
     padding: 0.85rem 1.75rem;
     border-radius: 12px;
     font-weight: 600;
     font-size: 0.95rem;
     transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   }
 
   .cta-button:hover {
     transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-    background: #f5f5f5;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    background: #F5F5F5;
   }
 
   .button-logo {
     width: 20px;
     height: 20px;
-    object-fit: contain;
-  }
-
-  .github-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 0.85rem 0.95rem;
-    border-radius: 12px;
-    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
-  }
-
-  .github-button:hover {
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-    background: rgba(255, 255, 255, 0.15);
-  }
-
-  .github-logo {
-    width: 22px;
-    height: 22px;
     object-fit: contain;
   }
 
