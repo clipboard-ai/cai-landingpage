@@ -9,6 +9,20 @@ import Footer from '../components/Footer.astro';
 
 import quickActionsImage from '../assets/images/Cai-datetimeActions.png';
 import customCommandsImage from '../assets/images/Cai-customActionResponse.png';
+
+const quickActions = [
+  { name: "Explain", description: "Get a clear explanation of selected text" },
+  { name: "Summarize", description: "Create a concise summary" },
+  { name: "Define", description: "Translate text to another language" },
+  { name: "Translate", description: "Translate text to another language" },
+  { name: "Open in Maps", description: "Open address in Maps app" },
+  { name: "Create Calendar Event", description: "Create calendar event from text" },
+  { name: "Beautify JSON", description: "Format and beautify JSON data" },
+  { name: "URL", description: "Extract and open URLs" },
+  { name: "Code", description: "Extract and open URLs" },
+  { name: "Search", description: "Open address in Maps app" },
+  { name: "Custom Action", description: "Extract and open URLs" },
+];
 ---
 
 <Layout title="Cai: Local Clipboard AI">
@@ -16,12 +30,13 @@ import customCommandsImage from '../assets/images/Cai-customActionResponse.png';
   <Hero />
   <FeatureCards />
   <LLMProviders />
-  
+
   <!-- Demo Section 1: Run quick actions -->
   <DemoSection
     id="quick-actions"
     title="Smart actions, ready-to-use."
     subtitle="Cai instantly identifies text types—like meetings, addresses, JSON, or code—and suggests the best actions for your selection."
+    actions={quickActions}
     mediaSrc={quickActionsImage}
     mediaAlt="Run quick actions demo"
     backgroundColor="#111111"

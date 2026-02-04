@@ -1,0 +1,197 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+---
+
+<Layout title="Privacy Policy - Cai">
+  <Navbar />
+  <main class="legal-page">
+    <div class="container">
+      <h1 class="page-title">Privacy Policy</h1>
+
+      <section class="legal-section">
+        <h2>1. Data Protection at a Glance</h2>
+        <h3>General Information</h3>
+        <p>
+          The following information provides a simple overview of what happens to your personal data when you use Cai.
+          Personal data is any data that can be used to identify you personally.
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2>2. Privacy-First Philosophy</h2>
+        <p>
+          Cai is built with privacy as a core principle. All AI processing happens locally on your machine. Your clipboard
+          data and text selections never leave your computer. We do not collect, transmit, or store any of your personal
+          content or clipboard data.
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2>3. Data Collection on Our Website</h2>
+        <h3>Server Log Files</h3>
+        <p>
+          The website provider automatically collects and stores information in server log files that your browser
+          automatically transmits to us. These include:
+        </p>
+        <ul>
+          <li>Browser type and version</li>
+          <li>Operating system used</li>
+          <li>Referrer URL</li>
+          <li>Hostname of the accessing computer</li>
+          <li>Time of the server request</li>
+          <li>IP address</li>
+        </ul>
+        <p>
+          This data is not merged with other data sources. The data is collected on the basis of Art. 6 para. 1 lit. f GDPR.
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2>4. Local Data Processing</h2>
+        <p>
+          When you use Cai, all text processing and AI interactions occur locally on your device. The extension communicates
+          only with your locally installed AI model (LM Studio, Ollama, etc.). No data is sent to our servers or any
+          third-party services.
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2>5. Third-Party Services</h2>
+        <p>
+          This website is hosted on GitHub Pages. Please refer to
+          <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" class="link" target="_blank" rel="noopener noreferrer">GitHub's Privacy Statement</a>
+          for information about their data processing practices.
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2>6. Your Rights</h2>
+        <p>
+          You have the right to information about your stored personal data, its origin and recipients, and the purpose
+          of data processing at any time free of charge. You also have the right to request the correction or deletion
+          of this data. For this purpose and for further questions on the subject of data protection, you can contact
+          us at any time.
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2>7. Contact</h2>
+        <p>
+          If you have questions about data protection, please contact us at:<br />
+          Email: <a href="mailto:privacy@example.com" class="link">privacy@example.com</a>
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <p class="last-updated">Last updated: February 2026</p>
+      </section>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .legal-page {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #0A0A0A 0%, #111111 100%);
+    padding: 10rem 0 6rem;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .page-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 3rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .legal-section {
+    margin-bottom: 3rem;
+  }
+
+  .legal-section h2 {
+    font-size: 1.5rem;
+    color: #FFFFFF;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .legal-section h3 {
+    font-size: 1.25rem;
+    color: #E0E0E0;
+    margin-bottom: 0.75rem;
+    margin-top: 1.5rem;
+    font-weight: 600;
+  }
+
+  .legal-section p {
+    color: #B0B0B0;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+  }
+
+  .legal-section ul {
+    color: #B0B0B0;
+    line-height: 1.8;
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+  }
+
+  .legal-section li {
+    margin-bottom: 0.5rem;
+  }
+
+  .link {
+    color: var(--accent-light);
+    text-decoration: underline;
+    transition: color 0.3s ease;
+  }
+
+  .link:hover {
+    color: var(--accent-pink);
+  }
+
+  .last-updated {
+    color: #808080;
+    font-size: 0.95rem;
+    font-style: italic;
+  }
+
+  @media (max-width: 768px) {
+    .legal-page {
+      padding: 7rem 0 4rem;
+    }
+
+    .page-title {
+      margin-bottom: 2rem;
+    }
+
+    .legal-section {
+      margin-bottom: 2rem;
+    }
+
+    .legal-section h2 {
+      font-size: 1.25rem;
+    }
+
+    .legal-section h3 {
+      font-size: 1.1rem;
+    }
+
+    .legal-section p,
+    .legal-section ul {
+      font-size: 1rem;
+    }
+  }
+</style>
