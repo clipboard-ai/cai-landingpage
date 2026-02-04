@@ -1,5 +1,4 @@
 ---
-import heroImage from '../assets/images/Cai-textActions.png';
 import raycastLogo from '../assets/images/logo-raycast.png';
 ---
 
@@ -22,11 +21,19 @@ import raycastLogo from '../assets/images/logo-raycast.png';
     </div>
 
     <div class="hero-demo">
-      <img
-        src={heroImage.src}
-        alt="Cai clipboard AI demo"
-        class="demo-image"
-      />
+      <video
+        class="demo-video"
+        autoplay
+        loop
+        muted
+        playsinline
+        poster="/videos/cai-hero-poster.webp"
+        aria-label="Cai clipboard AI demo"
+        data-lazy-video
+      >
+        <source src="/videos/cai-hero.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
     </div>
   </div>
 </section>
@@ -107,19 +114,20 @@ import raycastLogo from '../assets/images/logo-raycast.png';
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
-    color: white;
+    background: #FFFFFF;
+    color: #1A1A1A;
     padding: 0.85rem 1.75rem;
     border-radius: 12px;
     font-weight: 600;
     font-size: 0.95rem;
     transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    box-shadow: 0 4px 15px rgba(167, 139, 250, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   }
 
   .cta-button:hover {
     transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 8px 25px rgba(211, 128, 195, 0.4);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    background: #F5F5F5;
   }
 
   .button-logo {
@@ -149,7 +157,7 @@ import raycastLogo from '../assets/images/logo-raycast.png';
     border-color: rgba(255, 255, 255, 0.2);
   }
 
-  .demo-image {
+  .demo-video {
     width: 100%;
     height: auto;
     display: block;

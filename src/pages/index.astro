@@ -7,21 +7,19 @@ import LLMProviders from '../components/LLMProviders.astro';
 import DemoSection from '../components/DemoSection.astro';
 import Footer from '../components/Footer.astro';
 
-import quickActionsImage from '../assets/images/Cai-datetimeActions.png';
-import customCommandsImage from '../assets/images/Cai-customActionResponse.png';
-
 const quickActions = [
   { name: "Explain", description: "Get a clear explanation of selected text" },
   { name: "Summarize", description: "Create a concise summary" },
-  { name: "Define", description: "Translate text to another language" },
+  { name: "Define", description: "Define a word" },
   { name: "Translate", description: "Translate text to another language" },
   { name: "Open in Maps", description: "Open address in Maps app" },
   { name: "Create Calendar Event", description: "Create calendar event from text" },
   { name: "Beautify JSON", description: "Format and beautify JSON data" },
   { name: "URL", description: "Extract and open URLs" },
-  { name: "Code", description: "Extract and open URLs" },
-  { name: "Search", description: "Open address in Maps app" },
-  { name: "Custom Action", description: "Extract and open URLs" },
+  // { name: "Code", description: "Explain a code snippets" },
+  { name: "Wikipedia", description: "Search something on Wikipedia" },
+  { name: "Search the Web", description: "Search something on the web" },
+  { name: "Custom Action", description: "Excute a custom prompt" },
 ];
 ---
 
@@ -37,7 +35,9 @@ const quickActions = [
     title="Smart actions, ready-to-use."
     subtitle="Cai instantly identifies text types—like meetings, addresses, JSON, or code—and suggests the best actions for your selection."
     actions={quickActions}
-    mediaSrc={quickActionsImage}
+    mediaType="video"
+    mediaSrc="/videos/cai-builtin-actions.mp4"
+    posterSrc="/videos/cai-builtin-actions-poster.webp"
     mediaAlt="Run quick actions demo"
     backgroundColor="#111111"
   />
@@ -47,7 +47,9 @@ const quickActions = [
     id="custom-commands"
     title="Run custom AI commands"
     subtitle="Run on-the-fly prompts against any text you highlight for specialized tasks, like 'Create an ingredients list for 2 from this recipe'."
-    mediaSrc={customCommandsImage}
+    mediaType="video"
+    mediaSrc="/videos/cai-custom-actions.mp4"
+    posterSrc="/videos/cai-custom-actions-poster.webp"
     mediaAlt="Execute custom commands demo"
     backgroundColor="#0F0F0F"
   />

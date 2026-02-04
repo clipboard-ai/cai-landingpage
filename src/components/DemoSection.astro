@@ -6,6 +6,7 @@ interface Props {
   subtitle?: string;
   mediaType?: 'image' | 'video';
   mediaSrc: any;
+  posterSrc?: string;
   mediaAlt?: string;
   backgroundColor?: string;
   id?: string;
@@ -17,6 +18,7 @@ const {
   subtitle,
   mediaType = 'image',
   mediaSrc,
+  posterSrc,
   mediaAlt = 'Demo screenshot',
   backgroundColor = '#ffffff',
   id,
@@ -37,13 +39,16 @@ const imageSrc = typeof mediaSrc === 'string' ? mediaSrc : mediaSrc.src;
     <div class="demo-media">
       {mediaType === 'video' ? (
         <video
-          src={imageSrc}
           class="media-element"
-          controls
+          autoplay
           loop
           muted
           playsinline
+          poster={posterSrc}
+          aria-label={mediaAlt}
+          data-lazy-video
         >
+          <source src={imageSrc} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       ) : (
