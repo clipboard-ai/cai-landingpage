@@ -1,0 +1,200 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+---
+
+<Layout title="Terms of Service - Cai" noIndex={true}>
+  <Navbar />
+  <main class="legal-page">
+    <div class="container">
+      <h1 class="page-title">Terms of Service</h1>
+
+      <section class="legal-section">
+        <h2>1. About Cai</h2>
+        <p>
+          Cai is free, open-source software distributed under the
+          <a href="https://github.com/soyasis/cai/blob/main/LICENSE" class="link" target="_blank" rel="noopener noreferrer">MIT License</a>.
+          The source code is publicly available on <a href="https://github.com/soyasis/cai" class="link" target="_blank" rel="noopener noreferrer">GitHub</a>.
+          By downloading, installing, or using Cai, you agree to these terms.
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2>2. Open Source License</h2>
+        <p>
+          Cai is provided under the MIT License. You are free to use, copy, modify, merge, publish, distribute,
+          sublicense, and/or sell copies of the software, subject to the conditions of the MIT License.
+          The full license text is included with the software and available in the
+          <a href="https://github.com/soyasis/cai/blob/main/LICENSE" class="link" target="_blank" rel="noopener noreferrer">project repository</a>.
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2>3. Disclaimer of Warranty</h2>
+        <p>
+          Cai is provided "as is", without warranty of any kind, express or implied, including but not limited to
+          the warranties of merchantability, fitness for a particular purpose, and noninfringement. The entire risk
+          as to the quality and performance of the software is with you.
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2>4. Limitation of Liability</h2>
+        <p>
+          In no event shall the authors or copyright holders be liable for any claim, damages, or other liability,
+          whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the
+          software or the use or other dealings in the software.
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2>5. AI Providers and Third-Party Services</h2>
+        <p>
+          Cai connects to AI language model providers that you configure (such as LM Studio, Ollama, or cloud-based services).
+          You are solely responsible for your use of these third-party services and for complying with their respective
+          terms of service and privacy policies. Cai does not control and is not responsible for the output generated
+          by any AI model.
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2>6. User Responsibility</h2>
+        <p>
+          You are responsible for how you use Cai and any content processed through it. Do not use Cai for any
+          purpose that is unlawful or prohibited by these terms.
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2>7. Website</h2>
+        <p>
+          This website (getcai.app) is provided for informational purposes. We strive to keep the information accurate
+          and up to date, but make no guarantees about the completeness or accuracy of the content.
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2>8. Changes to These Terms</h2>
+        <p>
+          We may update these terms from time to time. Changes will be posted on this page with an updated date.
+          Continued use of Cai after changes constitutes acceptance of the updated terms.
+        </p>
+      </section>
+
+      <section class="legal-section">
+        <h2>9. Contact</h2>
+        <p>
+          If you have questions about these terms, please contact us at:<br />
+          Email: <span id="email-address"></span>
+        </p>
+      </section>
+
+      <script>
+        const user = "web";
+        const domain = "getcai.app";
+        const element = document.getElementById("email-address");
+        if (element) {
+          element.innerHTML = `<a href="mailto:${user}@${domain}" class="link">${user}@${domain}</a>`;
+        }
+      </script>
+
+      <section class="legal-section">
+        <p class="last-updated">Last updated: February 2026</p>
+      </section>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .legal-page {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #0A0A0A 0%, #111111 100%);
+    padding: 10rem 0 6rem;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .page-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 3rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .legal-section {
+    margin-bottom: 3rem;
+  }
+
+  .legal-section h2 {
+    font-size: 1.5rem;
+    color: #FFFFFF;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .legal-section p {
+    color: #B0B0B0;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+  }
+
+  .legal-section ul {
+    color: #B0B0B0;
+    line-height: 1.8;
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+  }
+
+  .legal-section li {
+    margin-bottom: 0.5rem;
+  }
+
+  .link {
+    color: var(--accent-light);
+    text-decoration: underline;
+    transition: color 0.3s ease;
+  }
+
+  .link:hover {
+    color: var(--accent-pink);
+  }
+
+  .last-updated {
+    color: #808080;
+    font-size: 0.95rem;
+    font-style: italic;
+  }
+
+  @media (max-width: 768px) {
+    .legal-page {
+      padding: 7rem 0 4rem;
+    }
+
+    .page-title {
+      margin-bottom: 2rem;
+    }
+
+    .legal-section {
+      margin-bottom: 2rem;
+    }
+
+    .legal-section h2 {
+      font-size: 1.25rem;
+    }
+
+    .legal-section p,
+    .legal-section ul {
+      font-size: 1rem;
+    }
+  }
+</style>
