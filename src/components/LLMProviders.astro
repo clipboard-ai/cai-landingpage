@@ -1,34 +1,26 @@
 ---
 import lmStudioLogo from '../assets/images/logo-lm-studio.png';
 import ollamaLogo from '../assets/images/logo-ollama.png';
-import janAiLogo from '../assets/images/logo-jan-ai.png';
-import localAiLogo from '../assets/images/logo-local-ai.png';
-import vllmLogo from '../assets/images/logo-vllm.png';
-import textGenLogo from '../assets/images/logo-text-generation-web-ui.png';
-import anythingLlmLogo from '../assets/images/logo-anything-llm.png';
-import mstyAiLogo from '../assets/images/logo-msty-AI.png';
-import openWebUiLogo from '../assets/images/logo-open-webui.png';
 import gpt4allLogo from '../assets/images/logo-gpt4all.png';
+import openaiLogo from '../assets/images/logo-openai.png';
+import claudeLogo from '../assets/images/logo-claude.png';
+import janAiLogo from '../assets/images/logo-jan-ai.png';
 
 const providers = [
   { name: "LM Studio", logo: lmStudioLogo },
   { name: "Ollama", logo: ollamaLogo },
-  { name: "Jan AI", logo: janAiLogo },
-  { name: "Local AI", logo: localAiLogo },
-  { name: "vLLM", logo: vllmLogo },
-  { name: "Text Generation Web UI", logo: textGenLogo },
-  { name: "Anything LLM", logo: anythingLlmLogo },
-  { name: "Msty AI", logo: mstyAiLogo },
-  { name: "Open WebUI", logo: openWebUiLogo },
-  { name: "GPT4All", logo: gpt4allLogo }
+  { name: "GPT4All", logo: gpt4allLogo },
+  { name: "OpenAI", logo: openaiLogo },
+  { name: "Claude", logo: claudeLogo },
+  { name: "Jan AI", logo: janAiLogo }
 ];
 ---
 
 <section class="llm-providers">
   <div class="container">
-    <h2 class="section-title">Bring Your Own Brain</h2>
+    <h2 class="section-title">Bring Your Own <span class="highlight">Brain</span></h2>
     <p class="section-subtitle">
-      Cai doesn't lock you in. It plugs into the local AI ecosystem you already use.
+      Cai doesn't lock you in. It works with the AI tools you already use — local or cloud.
     </p>
 
     <div class="provider-grid">
@@ -45,6 +37,8 @@ const providers = [
         </div>
       ))}
     </div>
+
+    <p class="provider-more">+ any OpenAI-compatible model</p>
   </div>
 </section>
 
@@ -62,14 +56,18 @@ const providers = [
 
   .section-title {
     font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #FFFFFF;
     text-align: center;
     margin-bottom: 1rem;
     font-weight: 700;
     letter-spacing: -0.02em;
+  }
+
+  .highlight {
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .section-subtitle {
@@ -83,9 +81,9 @@ const providers = [
 
   .provider-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    max-width: 1200px;
+    max-width: 800px;
     margin: 0 auto;
     align-items: stretch;
   }
@@ -150,11 +148,13 @@ const providers = [
     word-wrap: break-word;
   }
 
-  @media (max-width: 1100px) {
-    .provider-grid {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-    }
+  .provider-more {
+    text-align: center;
+    color: #606060;
+    font-size: 0.95rem;
+    margin-top: 2rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
   }
 
   @media (max-width: 768px) {
