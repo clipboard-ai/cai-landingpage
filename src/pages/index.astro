@@ -19,9 +19,16 @@ const quickActions = [
   { name: "Beautify JSON", description: "Format and beautify JSON data" },
   { name: "URL", description: "Extract and open URLs" },
   // { name: "Code", description: "Explain a code snippets" },
-  { name: "Wikipedia", description: "Search something on Wikipedia" },
   { name: "Search the Web", description: "Search something on the web" },
-  { name: "Custom Action", description: "Excute a custom prompt" },
+  { name: "Custom Action", description: "Execute a custom prompt" },
+];
+
+const customFeatures = [
+  { name: "On-the-fly Prompts", description: "Run any AI instruction against your clipboard text", highlight: true },
+  { name: "Saved Prompt Shortcuts", description: "Save prompts you use often for one-tap access", highlight: true },
+  { name: "URL Shortcuts", description: "Create URL templates with %s — search Reddit, Google Translate, Wikipedia, and more", highlight: true },
+  { name: "Type to Filter", description: "Just start typing to find your shortcuts instantly" },
+  { name: "⌘1–9 to Execute", description: "Launch any shortcut by number, no mouse needed" },
 ];
 ---
 
@@ -45,15 +52,16 @@ const quickActions = [
     backgroundColor="#111111"
   />
 
-  <!-- Demo Section 2: Execute custom commands -->
+  <!-- Demo Section 2: Custom commands & shortcuts -->
   <DemoSection
     id="custom-commands"
-    title='Run <span class="highlight">custom AI</span> commands'
-    subtitle="Run on-the-fly prompts against any text you highlight for specialized tasks, like 'Create an ingredients list for 2 from this recipe'."
+    title='Make it <span class="highlight">yours</span>'
+    subtitle="Run on-the-fly AI prompts, or save your own shortcuts for prompts and URLs."
+    actions={customFeatures}
     mediaType="video"
     mediaSrc="/videos/cai-custom-actions.mp4"
     posterSrc="/videos/cai-custom-actions-poster.webp"
-    mediaAlt="Execute custom commands demo"
+    mediaAlt="Custom commands and shortcuts demo"
     backgroundColor="#0F0F0F"
   />
   
