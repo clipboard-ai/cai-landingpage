@@ -67,34 +67,48 @@ body {
   border-right: 1px solid rgba(167, 139, 250, 0.1) !important;
 }
 
-/* Logo + name in sidebar */
+/* Hide docsify's default empty name link */
 .app-name-link {
+  display: none !important;
+}
+
+/* Sidebar header: logo (→ main site) + Docs (→ docs home) */
+.sidebar-header {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 0.6rem;
   padding: 1.2rem 0 1rem 1rem;
-  text-decoration: none !important;
+}
+
+.sidebar-logo-link {
+  display: flex;
   transition: opacity 0.2s ease;
 }
 
-.app-name-link:hover {
-  opacity: 0.8;
+.sidebar-logo-link:hover {
+  opacity: 0.7;
 }
 
-.app-name-link img.app-logo {
+.sidebar-logo-link img.app-logo {
   width: 36px;
   height: 36px;
   border-radius: 8px;
   display: block;
 }
 
-.app-name-text {
+.sidebar-docs-link {
   font-family: 'Outfit', sans-serif;
   font-size: 1rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--text-primary) !important;
   letter-spacing: -0.02em;
+  text-decoration: none !important;
+  transition: color 0.2s ease;
+}
+
+.sidebar-docs-link:hover {
+  color: var(--theme-color) !important;
 }
 
 /* Sidebar section headings */

@@ -33,7 +33,7 @@
           '/.*/_sidebar.md': '/_sidebar.md',
         },
         subMaxLevel: 2,
-        name: '<img src="cai-logo.png" alt="Cai" class="app-logo"><span class="app-name-text">Cai Docs</span>',
+        name: '',
         nameLink: '/',
         search: {
           maxAge: 86400000,
@@ -63,10 +63,24 @@
         fixTitle();
         window.addEventListener('hashchange', function () { setTimeout(fixTitle, 50); });
 
-        // Inject Download CTA into sidebar
+        // Inject sidebar header (split logo + docs link) and Download CTA
         var observer = new MutationObserver(function () {
           var sidebar = document.querySelector('.sidebar');
-          if (sidebar && !sidebar.querySelector('.sidebar-cta')) {
+          if (sidebar && !sidebar.querySelector('.sidebar-header')) {
+            // Replace empty app-name with split links
+            var nameLink = sidebar.querySelector('.app-name-link');
+            var header = document.createElement('div');
+            header.className = 'sidebar-header';
+            header.innerHTML =
+              '<a href="/" class="sidebar-logo-link"><img src="/docs/cai-logo.png" alt="Cai" class="app-logo"></a>' +
+              '<a href="#/" class="sidebar-docs-link">Docs</a>';
+            if (nameLink) {
+              nameLink.replaceWith(header);
+            } else {
+              sidebar.prepend(header);
+            }
+
+            // Download CTA
             var cta = document.createElement('a');
             cta.href = 'https://github.com/soyasis/cai/releases/latest';
             cta.target = '_blank';
