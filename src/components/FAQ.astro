@@ -2,23 +2,23 @@
 const faqs = [
   {
     question: "Is Cai secure?",
-    answer: "Yes. Cai runs 100% locally on your Mac. Your clipboard data and AI conversations never leave your machine — unless you explicitly configure a cloud model provider."
+    answer: "<p>Yes. Cai runs 100% locally on your Mac. Your clipboard data and AI conversations never leave your machine — unless you explicitly configure a cloud model provider.</p>"
   },
   {
     question: "Why does Cai need Accessibility permissions?",
-    answer: "Cai uses the system hotkey ⌥C to copy your selected text via a simulated ⌘C. macOS requires Accessibility access for apps that interact with system-level keyboard commands. This is what allows Cai to work seamlessly across all apps."
+    answer: "<p>Cai uses the system hotkey ⌥C to copy your selected text via a simulated ⌘C. macOS requires Accessibility access for apps that interact with system-level keyboard commands. This is what allows Cai to work seamlessly across all apps.</p><p>To enable it: open <strong>System Settings → Privacy & Security → Accessibility</strong> and toggle Cai on.</p>"
   },
   {
     question: "Do I need a model provider?",
-    answer: "For AI-powered actions (Summarize, Reply, Translate, etc.), yes — you need a local model server like LM Studio or Ollama running. However, some built-in actions like Open in Maps, Create Calendar Event, Search the Web and Beautify JSON work without any model."
+    answer: "<p>For AI-powered actions (Summarize, Reply, Translate, etc.), yes — you need a local model server like LM Studio or Ollama running. However, some built-in actions like Open in Maps, Create Calendar Event, Search the Web and Beautify JSON work without any model.</p>"
   },
   {
     question: "How do I create custom actions?",
-    answer: "Open Cai's settings from the menu bar icon and go to Custom Actions. You can create prompt shortcuts (saved AI instructions) or URL shortcuts (templates with %s for your selected text). Once saved, they appear in your action list for one-tap access."
+    answer: "<p>Open Cai's settings from the menu bar icon and go to Custom Actions. You can create prompt shortcuts (saved AI instructions) or URL shortcuts (templates with %s for your selected text). Once saved, they appear in your action list for one-tap access.</p>"
   },
   {
     question: "Does Cai work with cloud AI providers?",
-    answer: "Yes. While Cai is designed for local-first AI, you can point it at any OpenAI-compatible endpoint — including cloud providers. Just enter the API URL in settings under \"Custom\" provider."
+    answer: `<p>Yes. While Cai is designed for local-first AI, you can point it at any OpenAI-compatible endpoint — including cloud providers. Just enter the API URL in settings under "Custom" provider.</p>`
   }
 ];
 ---
@@ -34,9 +34,7 @@ const faqs = [
             <span>{faq.question}</span>
             <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </summary>
-          <div class="faq-answer">
-            <p>{faq.answer}</p>
-          </div>
+          <div class="faq-answer" set:html={faq.answer} />
         </details>
       ))}
     </div>
@@ -138,10 +136,19 @@ const faqs = [
     padding: 0 0 1.5rem;
   }
 
-  .faq-answer p {
+  .faq-answer :global(p) {
     color: #909090;
     font-size: 0.95rem;
     line-height: 1.7;
+  }
+
+  .faq-answer :global(p + p) {
+    margin-top: 0.75rem;
+  }
+
+  .faq-answer :global(strong) {
+    color: #C4B5FD;
+    font-weight: 600;
   }
 
   @media (max-width: 768px) {
@@ -154,7 +161,7 @@ const faqs = [
       padding: 1.25rem 0;
     }
 
-    .faq-answer p {
+    .faq-answer :global(p) {
       font-size: 0.9rem;
     }
   }
