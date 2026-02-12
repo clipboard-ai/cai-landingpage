@@ -19,7 +19,7 @@ On first launch, Cai will ask for Accessibility permission. This is required so 
 
 **Step 1** — Click **Open System Settings** when prompted.
 
-**Step 2** — Toggle Cai **on** in the Accessibility list. macOS will ask for your password or Touch ID to confirm.
+**Step 2** — Toggle Cai **on** in the Accessibility list.
 
 You're all set! Press **⌥C** with any text selected to start using Cai.
 
