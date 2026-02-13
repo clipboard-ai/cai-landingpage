@@ -6,7 +6,7 @@
 2. Press **⌥C** (Option+C)
 3. Cai detects the content type and shows relevant actions
 4. Pick an action with **↑↓** arrows or **⌘1–9**
-5. The result is auto-copied to your clipboard — just **⌘V** to paste
+5. The result is auto-copied to your clipboard — just **⌘V** to paste. Or send it to an [output destination](usage/destinations.md) like Slack, Bear, or a webhook.
 
 ## Content Types & Actions
 

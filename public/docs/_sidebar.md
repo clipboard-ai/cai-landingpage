@@ -10,6 +10,7 @@
   - [Keyboard Shortcuts](usage/keyboard-shortcuts.md)
   - [Custom Actions](usage/custom-actions.md)
   - [Custom Shortcuts](usage/shortcuts.md)
+  - [Output Destinations](usage/destinations.md)
 
 - **Troubleshooting**
 
