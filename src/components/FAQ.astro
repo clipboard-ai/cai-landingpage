@@ -2,7 +2,7 @@
 const faqs = [
   {
     question: "Is Cai secure?",
-    answer: "<p>Yes. Cai runs 100% locally on your Mac. Your clipboard data and AI conversations never leave your machine — unless you explicitly configure a cloud model provider.</p>"
+    answer: "<p>Yes. Cai runs 100% locally on your Mac. Your clipboard data and AI conversations never leave your machine.</p>"
   },
   {
     question: "Why does Cai need Accessibility permissions?",
@@ -10,15 +10,11 @@ const faqs = [
   },
   {
     question: "Do I need a model provider?",
-    answer: "<p>For AI-powered actions (Summarize, Reply, Translate, etc.), yes — you need a local model server like LM Studio or Ollama running. However, some built-in actions like Open in Maps, Create Calendar Event, Search the Web and Beautify JSON work without any model.</p>"
+    answer: "<p>No — Cai ships with a built-in model (Ministral 3B) that you can download on first launch. It works out of the box with no setup needed.</p><p>If you want to use a different or larger model, you can connect an external provider like LM Studio or Ollama in settings.</p>"
   },
   {
     question: "How do I create custom actions?",
     answer: "<p>Open Cai's settings from the menu bar icon and go to Custom Actions. You can create prompt shortcuts (saved AI instructions) or URL shortcuts (templates with %s for your selected text). Once saved, they appear in your action list for one-tap access.</p>"
-  },
-  {
-    question: "Does Cai work with cloud AI providers?",
-    answer: `<p>Yes. While Cai is designed for local-first AI, you can point it at any OpenAI-compatible endpoint — including cloud providers. Just enter the API URL in settings under "Custom" provider.</p>`
   }
 ];
 ---

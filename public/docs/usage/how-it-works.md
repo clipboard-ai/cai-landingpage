@@ -19,8 +19,8 @@ Cai automatically detects what you copied and offers the right actions:
 | **Meeting** | Date/time references | Create Calendar Event, Open in Maps |
 | **Address** | Street patterns, "at [Place Name]" | Open in Maps |
 | **Word** | 1–2 words | Define, Explain, Translate, Search |
-| **Short Text** | Less than 100 characters | Explain, Reply, Translate, Search |
-| **Long Text** | 100+ characters | Summarize, Reply, Translate, Search |
+| **Short Text** | Less than 100 characters | Explain, Reply, Proofread, Translate, Search |
+| **Long Text** | 100+ characters | Summarize, Reply, Proofread, Translate, Search |
 
 All text types also get **Custom Action** (⌘1) for free-form AI prompts.
 
@@ -46,9 +46,10 @@ Cai is context-aware — it detects what app you're in (email, Slack, code edito
 - Web search
 - Pretty print JSON
 
-**AI actions** require a [local LLM server](getting-started/llm-setup.md):
+**AI actions** use the [built-in model](getting-started/llm-setup.md) by default, or a connected external provider:
 - Summarize / Explain
 - Reply (context-aware responses)
+- Proofread
 - Translate
 - Define
 - Custom Action (your own prompt)
@@ -62,5 +63,5 @@ Left-click the Cai menu bar icon to access Preferences:
 | **Translation Language** | Target language for translations | English |
 | **Search URL** | Base URL for web searches | Brave Search |
 | **Maps Provider** | Apple Maps or Google Maps | Apple Maps |
-| **Model Provider** | LM Studio, Ollama, or Custom | LM Studio |
+| **Model Provider** | Built-in, LM Studio, Ollama, or Custom | Built-in |
 | **Launch at Login** | Start Cai automatically | On |

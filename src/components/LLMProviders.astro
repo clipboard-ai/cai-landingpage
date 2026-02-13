@@ -20,7 +20,8 @@ const providers = [
   <div class="container">
     <h2 class="section-title">Bring Your Own <span class="highlight">Brain</span></h2>
     <p class="section-subtitle">
-      Cai doesn't lock you in. It works with the AI tools and models you already use.
+      Cai works out of the box with a built-in model.<br />
+      Prefer a different one? Bring your own.
     </p>
 
     <div class="provider-grid">
@@ -39,6 +40,9 @@ const providers = [
     </div>
 
     <div class="model-badges">
+      <span class="model-badge built-in">Ministral 3B <span class="badge-tag">built-in</span></span>
+    </div>
+    <div class="model-badges model-badges--secondary">
       <span class="model-badge">Llama</span>
       <span class="model-badge">Mistral</span>
       <span class="model-badge">Qwen</span>
@@ -162,6 +166,10 @@ const providers = [
     margin-top: 2.5rem;
   }
 
+  .model-badges--secondary {
+    margin-top: 0.75rem;
+  }
+
   .model-badge {
     padding: 0.4rem 1rem;
     border-radius: 100px;
@@ -170,6 +178,25 @@ const providers = [
     color: #B0B0B0;
     font-size: 0.85rem;
     font-weight: 500;
+  }
+
+  .model-badge.built-in {
+    border-color: rgba(167, 139, 250, 0.3);
+    color: #C4B5FD;
+    background: rgba(167, 139, 250, 0.08);
+  }
+
+  .badge-tag {
+    font-size: 0.65rem;
+    padding: 0.1rem 0.45rem;
+    border-radius: 100px;
+    background: rgba(167, 139, 250, 0.2);
+    color: #C4B5FD;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-left: 0.25rem;
+    vertical-align: middle;
   }
 
   .model-badge.more {

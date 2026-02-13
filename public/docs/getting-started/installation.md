@@ -5,13 +5,13 @@
 1. Download the `.dmg` from the [latest release](https://github.com/soyasis/cai/releases/latest)
 2. Open the DMG and drag **Cai.app** to your Applications folder
 3. Open the app and grant Accessibility permission (see [First Launch Setup](#first-launch-setup) below)
-4. Configure your LLM server in Preferences (left-click the menu bar icon)
+4. Cai's built-in model downloads automatically — or configure your own LLM server in Preferences
 
 ## Requirements
 
 - **macOS 13.0** (Ventura) or later
 - **Accessibility permission** (for the global hotkey ⌥C)
-- **Local LLM server** (optional — only needed for AI-powered actions)
+- **Local LLM server** (optional — Cai includes a built-in model, but you can connect your own via LM Studio, Ollama, etc.)
 
 ## First Launch Setup
 
