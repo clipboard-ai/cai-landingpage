@@ -11,7 +11,7 @@
 
 - **macOS 13.0** (Ventura) or later
 - **Accessibility permission** (for the global hotkey ⌥C)
-- **Local LLM server** (optional — Cai includes a built-in model, but you can connect your own via LM Studio, Ollama, etc.)
+- **Local LLM server** (optional — Cai includes a built-in model, but you can connect your own local or cloud server)
 
 ## First Launch Setup
 

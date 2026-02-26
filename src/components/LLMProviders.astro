@@ -1,18 +1,21 @@
 ---
 import lmStudioLogo from '../assets/images/logo-lm-studio.png';
 import ollamaLogo from '../assets/images/logo-ollama.png';
-import gpt4allLogo from '../assets/images/logo-gpt4all.png';
 import janAiLogo from '../assets/images/logo-jan-ai.png';
-import openWebUiLogo from '../assets/images/logo-open-webui.png';
-import mstyAiLogo from '../assets/images/logo-msty-AI.png';
+import openaiLogo from '../assets/images/logo-openai.png';
+import geminiLogo from '../assets/images/logo-gemini.png';
+import mistralLogo from '../assets/images/logo-mistral.webp';
 
-const providers = [
+const localProviders = [
   { name: "LM Studio", logo: lmStudioLogo },
   { name: "Ollama", logo: ollamaLogo },
-  { name: "GPT4All", logo: gpt4allLogo },
-  { name: "Jan AI", logo: janAiLogo },
-  { name: "Open WebUI", logo: openWebUiLogo },
-  { name: "Msty AI", logo: mstyAiLogo }
+  { name: "Jan AI", logo: janAiLogo }
+];
+
+const cloudProviders = [
+  { name: "OpenAI", logo: openaiLogo },
+  { name: "Gemini", logo: geminiLogo },
+  { name: "Mistral", logo: mistralLogo }
 ];
 ---
 
@@ -21,12 +24,27 @@ const providers = [
     <h2 class="section-title">Bring Your Own <span class="highlight">Brain</span></h2>
     <p class="section-subtitle">
       Cai works out of the box with a built-in model.<br />
-      Prefer a different one? Bring your own.
+      You can also connect to your favorite local server or a cloud provider.
     </p>
 
     <div class="provider-grid">
-      {providers.map((provider, index) => (
+      {localProviders.map((provider, index) => (
         <div class="provider-card" style={`animation-delay: ${index * 0.1}s`}>
+          <div class="provider-logo-wrapper">
+            <img
+              src={provider.logo.src}
+              alt={provider.name}
+              class="provider-logo"
+            />
+          </div>
+          <span class="provider-name">{provider.name}</span>
+        </div>
+      ))}
+    </div>
+
+    <div class="provider-grid">
+      {cloudProviders.map((provider, index) => (
+        <div class="provider-card" style={`animation-delay: ${(index + 3) * 0.1}s`}>
           <div class="provider-logo-wrapper">
             <img
               src={provider.logo.src}
@@ -91,8 +109,18 @@ const providers = [
     color: #909090;
     font-size: clamp(1.05rem, 2vw, 1.2rem);
     max-width: 720px;
-    margin: 0 auto 4rem;
+    margin: 0 auto 3rem;
     line-height: 1.65;
+  }
+
+  .provider-group-label {
+    text-align: center;
+    color: #606060;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
   }
 
   .provider-grid {
@@ -100,7 +128,7 @@ const providers = [
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     max-width: 800px;
-    margin: 0 auto;
+    margin: 0 auto 2.5rem;
     align-items: stretch;
   }
 

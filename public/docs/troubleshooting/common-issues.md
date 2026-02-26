@@ -1,10 +1,10 @@
 # Common Issues
 
-## Global shortcut ⌥C doesn't work
+## Global hotkey doesn't work
 
 - Open **System Settings → Privacy & Security → Accessibility** and make sure Cai is listed and **enabled**
 - If it's listed but still not working, remove Cai from the list, then re-add it
-- Check that no other app is using ⌥C (e.g., Raycast, Alfred, BetterTouchTool)
+- Check that no other app is using ⌥C (or your custom hotkey) — e.g., Raycast, Alfred, BetterTouchTool
 
 ## LLM not connecting
 

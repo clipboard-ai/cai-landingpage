@@ -12,7 +12,7 @@ AI-powered clipboard assistant for macOS. Select any text, get smart actions.
 
 Cai is a native macOS menu bar app that detects what's on your clipboard and offers context-aware actions. Copy a meeting invite and it creates a calendar event. Copy an address and it opens Maps. Copy any text and ask your local AI to summarize, translate, or do anything you want — all without leaving your keyboard.
 
-- **Works locally** — connects to local LLM providers like Ollama, LM Studio, and more
+- **Flexible** — built-in model, local servers, or cloud providers
 - **Privacy first** — your clipboard data never leaves your machine
 - **Context aware** — detects what app you're in and tailors actions to fit (e.g. Reply in email vs Slack)
 - **Keyboard driven** — trigger with ⌥C, navigate and execute with keyboard shortcuts

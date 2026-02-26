@@ -6,7 +6,7 @@ Cai is designed to be used entirely from the keyboard.
 
 | Shortcut | Action |
 |---|---|
-| **⌥C** | Trigger Cai (works anywhere on macOS) |
+| **⌥C** | Trigger Cai (works anywhere on macOS, customizable in settings) |
 
 ## Action Window
 

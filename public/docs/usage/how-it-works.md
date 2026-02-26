@@ -63,5 +63,5 @@ Left-click the Cai menu bar icon to access Preferences:
 | **Translation Language** | Target language for translations | English |
 | **Search URL** | Base URL for web searches | Brave Search |
 | **Maps Provider** | Apple Maps or Google Maps | Apple Maps |
-| **Model Provider** | Built-in, LM Studio, Ollama, or Custom | Built-in |
+| **Model Provider** | Built-in, LM Studio, Ollama, Cloud, or Custom | Built-in |
 | **Launch at Login** | Start Cai automatically | On |

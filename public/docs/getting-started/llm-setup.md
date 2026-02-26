@@ -8,7 +8,7 @@ The built-in model handles all AI-powered actions out of the box: Summarize, Rep
 
 ## Using an External Provider
 
-Want to use a different or larger model? Cai works with any local OpenAI-compatible server. Just switch the provider in settings.
+Want to use a different or larger model? Cai works with any OpenAI-compatible server — local or remote. Just switch the provider in settings.
 
 ### Supported Providers
 
@@ -20,7 +20,10 @@ Want to use a different or larger model? Cai works with any local OpenAI-compati
 | **LocalAI** | `http://127.0.0.1:8080/v1` | [Setup guide](https://localai.io) |
 | **Open WebUI** | `http://127.0.0.1:8080/v1` | [Install](https://openwebui.com) → Enable OpenAI API |
 | **GPT4All** | `http://127.0.0.1:4891/v1` | [Download](https://gpt4all.io) → Enable API server |
-| **Custom** | User-defined | Any local OpenAI-compatible server |
+| **OpenAI** | `https://api.openai.com/v1` | [Get API key](https://platform.openai.com) → Enter in Cai settings |
+| **Google Gemini** | `https://generativelanguage.googleapis.com/v1beta/openai` | [Get API key](https://aistudio.google.com/apikey) → Enter in Cai settings |
+| **Mistral** | `https://api.mistral.ai/v1` | [Get API key](https://console.mistral.ai) → Enter in Cai settings |
+| **Custom** | User-defined | Any OpenAI-compatible server (local or cloud) |
 
 ### How to Configure
 
@@ -29,6 +32,10 @@ Want to use a different or larger model? Cai works with any local OpenAI-compati
 3. If using **Custom**, enter your server's full URL
 
 That's it — Cai will use your external LLM instead of the built-in model.
+
+### API Key (Optional)
+
+If your server requires authentication (e.g., cloud providers), enter your API key in Cai's settings. The key is stored locally on your Mac and sent only to the server you configure — never to Cai or any third party.
 
 ## Recommended Models
 
@@ -49,4 +56,4 @@ curl http://127.0.0.1:11434/v1/models
 If you get a JSON response listing models, your server is ready.
 
 > [!NOTE]
-> Cai uses the OpenAI-compatible `/v1/chat/completions` endpoint. Any local server that implements this API will work.
+> Cai uses the OpenAI-compatible `/v1/chat/completions` endpoint. Any server (local or cloud) that implements this API will work.
