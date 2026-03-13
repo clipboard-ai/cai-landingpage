@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Cai Updates</title>
+    <link>https://getcai.app</link>
+    <description>Cai changelog and updates</description>
+    <language>en</language>
+
+    <!-- Add new <item> entries here when releasing updates.
+         Use Sparkle's sign_update tool to generate edSignature:
+           ./bin/sign_update Cai-X.Y.Z-macos.dmg
+         Then fill in the enclosure attributes below. -->
+
+  </channel>
+</rss>
