@@ -1,3 +1,8 @@
+---
+title: "Community Extensions"
+description: "Browse and install community-built extensions for Cai. Pre-built shortcuts and destinations shared by other users."
+---
+
 # Community Extensions
 
 Community extensions are pre-built shortcuts and destinations shared by other Cai users. You can browse and install them from the [cai-extensions](https://github.com/clipboard-ai/cai-extensions) repository.
@@ -19,8 +24,7 @@ Cai takes a cautious approach to community extensions:
 - **AppleScript and shell types are blocked** — Extensions cannot install AppleScript or shell command destinations. Only safe types (prompt shortcuts, URL shortcuts, webhooks, URL schemes) are allowed via clipboard install.
 - **No auto-execution** — Extensions are never run automatically. You must explicitly trigger them like any other action.
 
-> [!CAUTION]
-> Only install extensions from sources you trust. While dangerous types are blocked, webhook destinations can still send your text to external servers. Always review the extension details before installing.
+> **Caution:** Only install extensions from sources you trust. While dangerous types are blocked, webhook destinations can still send your text to external servers. Always review the extension details before installing.
 
 ## Browse Extensions
 

@@ -1,10 +1,13 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
+
 interface Props {
   title: string;
   description?: string;
   keywords?: string;
   noIndex?: boolean;
   ogImage?: string;
+  viewTransitions?: boolean;
 }
 
 const {
@@ -12,7 +15,8 @@ const {
   description = "Cai is a free, open-source macOS menu bar app that runs AI actions on your clipboard — summarize, translate, OCR, reply & more. 100% local with built-in AI. No cloud required.",
   keywords = "clipboard AI, clipboard manager mac, AI clipboard tool, local AI mac, local LLM, privacy AI assistant, text actions mac, OCR mac app, macOS AI app, AI menu bar app, clipboard automation, LM Studio, Ollama, open source AI, offline AI mac, AI text processing, Apple Intelligence, Apple Intelligence clipboard, Apple Intelligence mac app",
   noIndex = false,
-  ogImage = "/images/social-media-sharing.png?v=2"
+  ogImage = "/images/social-media-sharing.png?v=2",
+  viewTransitions = false
 } = Astro.props;
 
 const siteUrl = "https://getcai.app";
@@ -101,6 +105,7 @@ const organizationData = {
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=General+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
 
     <title>{title}</title>
+    {viewTransitions && <ViewTransitions />}
   </head>
   <body style="background:#0A0A0A; opacity:0">
     <script is:inline>

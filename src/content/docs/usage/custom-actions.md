@@ -1,3 +1,8 @@
+---
+title: "Custom Actions"
+description: "Run any AI prompt on your clipboard content with Cai's Custom Action. Free-form text processing with your local LLM."
+---
+
 # Custom Actions
 
 Custom Action is Cai's most flexible feature — it lets you run any prompt against your clipboard content using your local LLM. You can also press **⌘N** in the action window to start a new chat without clipboard content — useful for asking the LLM anything directly.
@@ -25,7 +30,6 @@ Custom Action is Cai's most flexible feature — it lets you run any prompt agai
 
 ## Requirements
 
-Custom Action requires a running [local LLM server](getting-started/llm-setup.md). If no server is connected, you'll see an error with a hint to check your settings.
+Custom Action requires a running [local LLM server](/docs/getting-started/llm-setup/). If no server is connected, you'll see an error with a hint to check your settings.
 
-> [!TIP]
-> Custom Action appears for **every** content type, so it's always available as ⌘1 regardless of what you copied.
+> **Tip:** Custom Action appears for **every** content type, so it's always available as ⌘1 regardless of what you copied.

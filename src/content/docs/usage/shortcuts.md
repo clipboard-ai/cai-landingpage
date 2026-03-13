@@ -1,3 +1,8 @@
+---
+title: "Custom Shortcuts"
+description: "Save frequently-used AI prompts and URL templates as shortcuts in Cai. Instant access to your most common clipboard actions."
+---
+
 # Custom Shortcuts
 
 Shortcuts let you save frequently-used prompts and URL templates for instant access. Type to filter your actions and shortcuts appear inline — no menus, no setup each time.
@@ -24,8 +29,7 @@ Save a URL template with `%s` as a placeholder. When triggered, Cai replaces `%s
 - `https://en.wikipedia.org/wiki/%s`
 - `https://maps.google.com/maps?q=%s`
 
-> [!TIP]
-> The clipboard text is automatically URL-encoded, so spaces and special characters are handled for you.
+> **Tip:** The clipboard text is automatically URL-encoded, so spaces and special characters are handled for you.
 
 ## Creating Shortcuts
 
@@ -52,5 +56,5 @@ Shortcuts appear when you **type to filter** in the action window:
 
 ## Requirements
 
-- **Prompt shortcuts** require a running [local LLM server](getting-started/llm-setup.md)
+- **Prompt shortcuts** require a running [local LLM server](/docs/getting-started/llm-setup/)
 - **URL shortcuts** work without any LLM — they just open your browser

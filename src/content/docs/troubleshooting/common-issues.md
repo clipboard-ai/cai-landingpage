@@ -1,3 +1,8 @@
+---
+title: "Common Issues"
+description: "Troubleshoot common Cai issues. Fix global hotkey problems, LLM connection errors, date detection, and formatting issues."
+---
+
 # Common Issues
 
 ## Global hotkey doesn't work

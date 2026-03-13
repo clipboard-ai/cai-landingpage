@@ -1,3 +1,8 @@
+---
+title: "LLM Setup"
+description: "Set up AI models for Cai. Use the built-in Ministral 3B, Apple Intelligence, LM Studio, Ollama, or any OpenAI-compatible provider."
+---
+
 # LLM Setup
 
 ## Built-in Model
@@ -65,5 +70,4 @@ curl http://127.0.0.1:11434/v1/models
 
 If you get a JSON response listing models, your server is ready.
 
-> [!NOTE]
-> Cai uses the OpenAI-compatible `/v1/chat/completions` endpoint. Any server (local or cloud) that implements this API will work.
+> **Note:** Cai uses the OpenAI-compatible `/v1/chat/completions` endpoint. Any server (local or cloud) that implements this API will work.

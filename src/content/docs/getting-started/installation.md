@@ -1,3 +1,8 @@
+---
+title: "Installation"
+description: "Download and install Cai on macOS. Requirements, first launch setup, accessibility permissions, and building from source."
+---
+
 # Installation
 
 ## Download
@@ -35,5 +40,4 @@ In Xcode:
 1. Select the **Cai** scheme and **My Mac** as destination
 2. **Product → Run** (⌘R)
 
-> [!NOTE]
-> The app requires Accessibility permission and runs without App Sandbox (required for global hotkey and CGEvent posting).
+> **Note:** The app requires Accessibility permission and runs without App Sandbox (required for global hotkey and CGEvent posting).

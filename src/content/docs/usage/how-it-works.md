@@ -1,3 +1,8 @@
+---
+title: "How It Works"
+description: "Learn how Cai detects clipboard content, offers smart actions, and processes text with AI. Content types, context awareness, and settings."
+---
+
 # How It Works
 
 ## The Core Flow
@@ -6,7 +11,7 @@
 2. Press **⌥C** (Option+C)
 3. Cai detects the content type and shows relevant actions
 4. Pick an action with **↑↓** arrows or **⌘1–9**
-5. The result is auto-copied to your clipboard — just **⌘V** to paste. Or send it to an [output destination](usage/destinations.md) like Slack, Bear, or a webhook.
+5. The result is auto-copied to your clipboard — just **⌘V** to paste. Or send it to an [output destination](/docs/usage/destinations/) like Slack, Bear, or a webhook.
 
 ## Content Types & Actions
 
@@ -48,7 +53,7 @@ Cai is context-aware — it detects what app you're in (email, Slack, code edito
 - Pretty print JSON
 - Extract text from images (OCR via Apple Vision)
 
-**AI actions** use the [built-in model](getting-started/llm-setup.md) by default, or a connected external provider:
+**AI actions** use the [built-in model](/docs/getting-started/llm-setup/) by default, or a connected external provider:
 - Summarize / Explain
 - Reply (context-aware responses)
 - Fix Grammar

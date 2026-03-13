@@ -1,0 +1,342 @@
+---
+import caiTextLogo from '../assets/images/cai-logo-fill-white.svg';
+import Search from 'astro-pagefind/components/Search';
+
+interface Props {
+  currentSlug: string;
+}
+
+const { currentSlug } = Astro.props;
+
+const navigation = [
+  {
+    label: "Getting Started",
+    links: [
+      { title: "Introduction", slug: "" },
+      { title: "Installation", slug: "getting-started/installation" },
+      { title: "LLM Setup", slug: "getting-started/llm-setup" },
+    ]
+  },
+  {
+    label: "Usage",
+    links: [
+      { title: "How It Works", slug: "usage/how-it-works" },
+      { title: "Keyboard Shortcuts", slug: "usage/keyboard-shortcuts" },
+      { title: "Custom Actions", slug: "usage/custom-actions" },
+      { title: "Custom Shortcuts", slug: "usage/shortcuts" },
+      { title: "Output Destinations", slug: "usage/destinations" },
+      { title: "Community Extensions", slug: "usage/extensions" },
+    ]
+  },
+  {
+    label: "Troubleshooting",
+    links: [
+      { title: "Common Issues", slug: "troubleshooting/common-issues" },
+    ]
+  }
+];
+
+function isActive(slug: string): boolean {
+  return currentSlug === slug;
+}
+---
+
+<aside class="docs-sidebar" id="docs-sidebar">
+  <div class="sidebar-inner">
+    <!-- Header -->
+    <div class="sidebar-header">
+      <a href="/" class="sidebar-logo-link">
+        <img src={caiTextLogo.src} alt="Cai" class="sidebar-logo" />
+      </a>
+      <a href="/docs/" class="sidebar-title">Docs</a>
+    </div>
+
+    <!-- Search -->
+    <div class="sidebar-search">
+      <Search id="docs-search" className="pagefind-search" uiOptions={{ showImages: false, showSubResults: false, resetStyles: false }} />
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sidebar-nav">
+      {navigation.map((group) => (
+        <div class="nav-group">
+          <span class="nav-group-label">{group.label}</span>
+          <ul class="nav-group-links">
+            {group.links.map((link) => (
+              <li>
+                <a
+                  href={link.slug === "" ? "/docs/" : `/docs/${link.slug}/`}
+                  class:list={["nav-link", { active: isActive(link.slug) }]}
+                >
+                  {link.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </nav>
+
+    <!-- Download CTA -->
+    <a href="https://github.com/clipboard-ai/cai/releases/download/v1.2.0/Cai-1.2.0-macos.dmg" class="sidebar-cta" target="_blank" rel="noopener noreferrer">
+      <svg width="14" height="14" viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+      <span>Download for Mac</span>
+    </a>
+  </div>
+</aside>
+
+<!-- Mobile overlay -->
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<style>
+  .docs-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    border-right: 1px solid rgba(167, 139, 250, 0.1);
+    z-index: 50;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar-inner {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    padding: 0 0 1.5rem;
+  }
+
+  /* Header */
+  .sidebar-header {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.6rem;
+    padding: 1.2rem 1.5rem 1rem;
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    z-index: 1;
+  }
+
+  .sidebar-logo-link {
+    display: flex;
+    transition: opacity 0.2s ease;
+  }
+
+  .sidebar-logo-link:hover {
+    opacity: 0.7;
+  }
+
+  .sidebar-logo {
+    height: 22px;
+    width: auto;
+    filter: invert(1);
+  }
+
+  .sidebar-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #2A2A2A;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .sidebar-title:hover {
+    color: #A78BFA;
+  }
+
+  /* Search */
+  .sidebar-search {
+    padding: 0 1.5rem 0.5rem;
+  }
+
+  /* Navigation */
+  .sidebar-nav {
+    flex: 1;
+    padding: 0.5rem 1.5rem;
+  }
+
+  .nav-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .nav-group-label {
+    display: block;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #6B6B6B;
+    margin-bottom: 0.5rem;
+  }
+
+  .nav-group-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.9rem;
+    color: #2A2A2A;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    border-right: 2px solid transparent;
+  }
+
+  .nav-link:hover {
+    color: #A78BFA;
+    background: rgba(167, 139, 250, 0.06);
+  }
+
+  .nav-link.active {
+    color: #A78BFA;
+    font-weight: 600;
+    background: rgba(167, 139, 250, 0.08);
+    border-right-color: #A78BFA;
+  }
+
+  /* Download CTA */
+  .sidebar-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 1rem 1.5rem 0;
+    padding: 0.7rem 1rem;
+    background: linear-gradient(135deg, #A78BFA, #D380C3, #F78595);
+    background-size: 200% 200%;
+    animation: gradient-shift 6s ease infinite;
+    color: white;
+    font-family: 'General Sans', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 14px rgba(167, 139, 250, 0.3);
+    text-decoration: none;
+  }
+
+  .sidebar-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(167, 139, 250, 0.4);
+    color: white;
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* Mobile overlay */
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 40;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .sidebar-overlay.active {
+    display: block;
+    opacity: 1;
+  }
+
+  /* Mobile responsive */
+  @media (max-width: 968px) {
+    .docs-sidebar {
+      transform: translateX(-100%);
+    }
+
+    .docs-sidebar.open {
+      transform: translateX(0);
+    }
+  }
+</style>
+
+<!-- Pagefind search styles -->
+<style is:global>
+  .sidebar-search .pagefind-ui,
+  .sidebar-search .pagefind-search {
+    --pagefind-ui-scale: 0.8;
+    --pagefind-ui-primary: #A78BFA;
+    --pagefind-ui-text: #2A2A2A;
+    --pagefind-ui-background: rgba(255, 255, 255, 0.8);
+    --pagefind-ui-border: rgba(167, 139, 250, 0.2);
+    --pagefind-ui-border-width: 1px;
+    --pagefind-ui-border-radius: 10px;
+    --pagefind-ui-font: 'General Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  .sidebar-search .pagefind-ui__search-input {
+    padding: 0.55rem 0.8rem !important;
+    font-size: 0.85rem !important;
+    background: rgba(255, 255, 255, 0.8) !important;
+    border: 1px solid rgba(167, 139, 250, 0.2) !important;
+    border-radius: 10px !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .sidebar-search .pagefind-ui__search-input:focus {
+    border-color: #A78BFA !important;
+    box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.12) !important;
+    outline: none;
+  }
+
+  .sidebar-search .pagefind-ui__search-clear {
+    top: calc(50% - 9px) !important;
+    right: 0.5rem !important;
+  }
+
+  .sidebar-search .pagefind-ui__results-area {
+    margin-top: 0.5rem;
+  }
+
+  .sidebar-search .pagefind-ui__result {
+    padding: 0.5rem 0 !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
+  }
+
+  .sidebar-search .pagefind-ui__result-link {
+    color: #A78BFA !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+  }
+
+  .sidebar-search .pagefind-ui__result-link:hover {
+    color: #F78595 !important;
+  }
+
+  .sidebar-search .pagefind-ui__result-excerpt {
+    font-size: 0.8rem !important;
+    color: #6B6B6B !important;
+    line-height: 1.5 !important;
+  }
+
+  .sidebar-search .pagefind-ui__message {
+    font-size: 0.8rem !important;
+    color: #6B6B6B !important;
+    padding: 0.5rem 0 !important;
+  }
+
+  .sidebar-search .pagefind-ui__form::before {
+    display: none !important;
+  }
+</style>
+

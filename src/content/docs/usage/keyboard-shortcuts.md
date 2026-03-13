@@ -1,3 +1,8 @@
+---
+title: "Keyboard Shortcuts"
+description: "Complete keyboard shortcut reference for Cai. Global hotkey, action window navigation, custom prompts, and menu bar controls."
+---
+
 # Keyboard Shortcuts
 
 Cai is designed to be used entirely from the keyboard.

@@ -1,11 +1,15 @@
+---
+title: "Output Destinations"
+description: "Send Cai results to any app or service. Configure webhooks, AppleScript, URL schemes, and shell commands for automated workflows."
+---
+
 # Output Destinations
 
 By default, Cai copies results to your clipboard. Output destinations let you send text to any app or service instead — post to Slack, save to Bear, create a GitHub issue, and more.
 
 Destinations can receive AI-processed text (after an action runs) or your raw clipboard text directly.
 
-> [!CAUTION]
-> **Shell Command and AppleScript destinations execute code on your Mac with your user-level permissions.** They can modify files, send network requests, and control other applications. Only create these destinations if you understand exactly what the script does. Never paste commands from untrusted sources. The authors of Cai are not responsible for any damage or data loss caused by user-created scripts.
+> **Caution:** Shell Command and AppleScript destinations execute code on your Mac with your user-level permissions. They can modify files, send network requests, and control other applications. Only create these destinations if you understand exactly what the script does. Never paste commands from untrusted sources. The authors of Cai are not responsible for any damage or data loss caused by user-created scripts.
 
 ## Destination Types
 

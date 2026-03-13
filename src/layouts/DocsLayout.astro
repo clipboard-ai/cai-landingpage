@@ -1,0 +1,349 @@
+---
+import Layout from './Layout.astro';
+import DocsSidebar from '../components/DocsSidebar.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  currentSlug: string;
+}
+
+const { title, description, currentSlug } = Astro.props;
+const pageTitle = `${title} — Cai Docs`;
+---
+
+<Layout title={pageTitle} description={description} viewTransitions={true}>
+  <div class="docs-wrapper">
+    <div transition:persist="docs-sidebar">
+      <DocsSidebar currentSlug={currentSlug} />
+    </div>
+
+    <main class="docs-main">
+      <!-- Mobile menu toggle -->
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle sidebar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+
+      <article class="docs-content" data-pagefind-body>
+        <slot />
+      </article>
+    </main>
+  </div>
+</Layout>
+
+<!-- Sidebar scripts (mobile toggle + active link update for View Transitions) -->
+<script is:inline>
+  function initSidebar() {
+    var btn = document.getElementById('mobile-menu-btn');
+    var sidebar = document.getElementById('docs-sidebar');
+    var overlay = document.getElementById('sidebar-overlay');
+
+    function toggleSidebar() {
+      sidebar.classList.toggle('open');
+      overlay.classList.toggle('active');
+    }
+
+    function closeSidebar() {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('active');
+    }
+
+    if (btn) {
+      btn.removeEventListener('click', toggleSidebar);
+      btn.addEventListener('click', toggleSidebar);
+    }
+    if (overlay) {
+      overlay.removeEventListener('click', closeSidebar);
+      overlay.addEventListener('click', closeSidebar);
+    }
+
+    // Update active sidebar link after View Transitions navigation
+    var links = document.querySelectorAll('.nav-link');
+    var path = window.location.pathname;
+    links.forEach(function(link) {
+      var href = link.getAttribute('href');
+      link.classList.toggle('active', href === path);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initSidebar);
+  document.addEventListener('astro:after-swap', initSidebar);
+</script>
+
+<style is:global>
+  /* Override dark body background for docs pages */
+  body {
+    background: linear-gradient(
+      165deg,
+      #ffffff 0%,
+      #faf8ff 30%,
+      #f5f0ff 50%,
+      #fdf2f4 70%,
+      #ffffff 100%
+    ) !important;
+    background-attachment: fixed !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+
+</style>
+
+<style>
+  .docs-wrapper {
+    display: flex;
+    min-height: 100vh;
+  }
+
+  .docs-main {
+    flex: 1;
+    margin-left: 280px;
+    padding: 2rem 2.5rem 3rem;
+    min-width: 0;
+  }
+
+  .docs-content {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  /* Mobile menu button */
+  .mobile-menu-btn {
+    display: none;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 30;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(167, 139, 250, 0.2);
+    border-radius: 10px;
+    padding: 0.6rem;
+    cursor: pointer;
+    color: #2A2A2A;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .mobile-menu-btn:hover {
+    border-color: #A78BFA;
+    box-shadow: 0 2px 12px rgba(167, 139, 250, 0.15);
+  }
+
+  @media (max-width: 968px) {
+    .docs-main {
+      margin-left: 0;
+      padding: 2rem 1.5rem 3rem;
+    }
+
+    .mobile-menu-btn {
+      display: flex;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .docs-main {
+      padding: 2rem 1rem 2rem;
+    }
+  }
+</style>
+
+<!-- Markdown prose styles -->
+<style is:global>
+  .docs-content h1,
+  .docs-content h2,
+  .docs-content h3,
+  .docs-content h4 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #2A2A2A;
+  }
+
+  .docs-content h1 {
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .docs-content h2 {
+    font-size: 1.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .docs-content h3 {
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .docs-content h4 {
+    font-size: 1.05rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .docs-content p {
+    color: #2A2A2A;
+    line-height: 1.8;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .docs-content a {
+    color: #A78BFA;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .docs-content a:hover {
+    color: #F78595;
+  }
+
+  .docs-content strong {
+    font-weight: 600;
+    color: #1A1A1A;
+  }
+
+  /* Lists */
+  .docs-content ul,
+  .docs-content ol {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    color: #2A2A2A;
+    line-height: 1.8;
+  }
+
+  .docs-content li {
+    margin-bottom: 0.35rem;
+  }
+
+  .docs-content li > ul,
+  .docs-content li > ol {
+    margin-top: 0.35rem;
+    margin-bottom: 0;
+  }
+
+  /* Inline code */
+  .docs-content code {
+    background: rgba(167, 139, 250, 0.08);
+    color: #A78BFA;
+    border-radius: 4px;
+    padding: 0.15em 0.4em;
+    font-size: 0.88em;
+  }
+
+  /* Code blocks */
+  .docs-content pre {
+    margin: 1.25rem 0;
+    border-radius: 10px;
+    overflow-x: auto;
+  }
+
+  .docs-content pre > code {
+    display: block;
+    background: #1e1e2e !important;
+    color: #cdd6f4 !important;
+    border-radius: 10px;
+    padding: 1.2rem;
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  /* Tables */
+  .docs-content table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 0.9rem;
+    margin: 1.25rem 0;
+  }
+
+  .docs-content th {
+    background: rgba(167, 139, 250, 0.08);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    text-align: left;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-bottom: 2px solid rgba(167, 139, 250, 0.15);
+    color: #2A2A2A;
+  }
+
+  .docs-content td {
+    padding: 0.65rem 1rem;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    color: #2A2A2A;
+  }
+
+  .docs-content tr:last-child td {
+    border-bottom: none;
+  }
+
+  /* Blockquotes */
+  .docs-content blockquote {
+    border-left: 4px solid #A78BFA;
+    background: rgba(167, 139, 250, 0.08);
+    border-radius: 0 8px 8px 0;
+    padding: 0.8rem 1.2rem;
+    margin: 1.25rem 0;
+  }
+
+  .docs-content blockquote p {
+    margin-bottom: 0;
+    color: #4A4A4A;
+  }
+
+  .docs-content blockquote p:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+
+  /* Horizontal rule */
+  .docs-content hr {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    margin: 2rem 0;
+  }
+
+  /* Images */
+  .docs-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 1rem 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .docs-content h1 {
+      font-size: 1.6rem;
+    }
+
+    .docs-content h2 {
+      font-size: 1.3rem;
+    }
+
+    .docs-content pre > code {
+      font-size: 0.8rem;
+      padding: 1rem;
+    }
+
+    .docs-content table {
+      font-size: 0.8rem;
+    }
+
+    .docs-content th,
+    .docs-content td {
+      padding: 0.5rem 0.65rem;
+    }
+  }
+</style>
