@@ -2,7 +2,7 @@
 
 ## Download
 
-1. Download the `.dmg` from the [latest release](https://github.com/soyasis/cai/releases/latest)
+1. Download the `.dmg` from the [latest release](https://github.com/clipboard-ai/cai/releases/latest)
 2. Open the DMG and drag **Cai.app** to your Applications folder
 3. Open the app and grant Accessibility permission (see [First Launch Setup](#first-launch-setup) below)
 4. Cai's built-in model downloads automatically — or configure your own LLM server in Preferences
@@ -26,7 +26,7 @@ You're all set! Press **⌥C** with any text selected to start using Cai.
 ## Build from Source
 
 ```bash
-git clone https://github.com/soyasis/cai.git
+git clone https://github.com/clipboard-ai/cai.git
 cd cai/Cai
 open Cai.xcodeproj
 ```
