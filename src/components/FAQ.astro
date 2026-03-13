@@ -27,9 +27,38 @@ const faqs = [
   {
     question: "How do I create custom actions?",
     answer: "<p>Open Cai's settings from the menu bar icon and go to Custom Actions. You can create prompt shortcuts (saved AI instructions) or URL shortcuts (templates with %s for your selected text). Once saved, they appear in your action list for one-tap access.</p><p>You can also browse and install actions shared by the community at <a href='https://github.com/clipboard-ai/cai-extensions' target='_blank' rel='noopener noreferrer'>cai-extensions</a>.</p>"
+  },
+  {
+    question: "What models does Cai support?",
+    answer: "<p>Cai ships with Ministral 3B built in — no setup needed. It also supports Apple Intelligence on macOS 26+, local servers like LM Studio, Ollama, and Jan AI, and cloud providers like OpenAI, Google Gemini, Mistral, and OpenRouter. You can also load your own GGUF models.</p>"
+  },
+  {
+    question: "Does Cai work offline?",
+    answer: "<p>Yes. With the built-in Ministral 3B model or any local provider (LM Studio, Ollama), Cai works completely offline with no internet connection required.</p>"
+  },
+  {
+    question: "Is Cai really free?",
+    answer: "<p>Yes — Cai is 100% free and open source under the MIT license. No subscriptions, no premium tiers, no telemetry. It's free forever.</p>"
   }
 ];
+
+
+// Generate FAQPage structured data
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer.replace(/<[^>]*>/g, '')
+    }
+  }))
+};
 ---
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify(faqStructuredData)} />
 
 <section class="faq">
   <div class="container">

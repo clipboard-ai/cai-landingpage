@@ -5,5 +5,22 @@ Allow: /
 # Disallow legal pages from being indexed
 Disallow: /imprint/
 Disallow: /privacy/
+Disallow: /terms/
+
+# AI search crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
 
 Sitemap: https://getcai.app/sitemap.xml

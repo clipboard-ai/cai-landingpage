@@ -9,13 +9,14 @@ interface Props {
 
 const {
   title,
-  description = "Run intelligent actions privately from your clipboard. Powered locally by your favorite model.",
-  keywords = "local LLM, clipboard AI, privacy AI, offline AI assistant, macOS app, LM Studio, Ollama, local language model, clipboard assistant, Mac AI tool, AI text processing, clipboard automation, AI shortcuts",
+  description = "Cai is a free, open-source macOS menu bar app that runs AI actions on your clipboard — summarize, translate, OCR, reply & more. 100% local with built-in AI. No cloud required.",
+  keywords = "clipboard AI, clipboard manager mac, AI clipboard tool, local AI mac, local LLM, privacy AI assistant, text actions mac, OCR mac app, macOS AI app, AI menu bar app, clipboard automation, LM Studio, Ollama, open source AI, offline AI mac, AI text processing, Apple Intelligence, Apple Intelligence clipboard, Apple Intelligence mac app",
   noIndex = false,
   ogImage = "/images/social-media-sharing.png?v=2"
 } = Astro.props;
 
 const siteUrl = "https://getcai.app";
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
 const fullOgImage = new URL(ogImage, siteUrl).toString();
 
 // Structured data for rich snippets
@@ -33,17 +34,24 @@ const structuredData = {
   "description": description,
   "url": siteUrl,
   "image": fullOgImage,
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5",
-    "ratingCount": "1"
-  },
   "featureList": [
     "Local AI processing",
     "Privacy-focused clipboard automation",
     "Smart text actions",
     "Custom AI commands",
     "Works with LM Studio, Ollama, and more"
+  ]
+};
+
+const organizationData = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Cai",
+  "url": siteUrl,
+  "logo": new URL("/images/social-media-sharing.png", siteUrl).toString(),
+  "sameAs": [
+    "https://github.com/clipboard-ai/cai",
+    "https://www.linkedin.com/company/clipboard-ai"
   ]
 };
 ---
@@ -58,6 +66,7 @@ const structuredData = {
     <meta name="author" content="Cai" />
     <meta name="theme-color" content="#A78BFA" />
     {noIndex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
 
@@ -81,6 +90,7 @@ const structuredData = {
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(organizationData)} />
 
     <!-- Umami Analytics (Privacy-friendly, no cookies) -->
 +    <script defer src="https://cloud.umami.is/script.js" data-website-id="cc687e05-dd44-46b7-9fdd-64a7f96ebd3f" is:inline></script>
