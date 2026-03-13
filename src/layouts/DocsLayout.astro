@@ -10,9 +10,48 @@ interface Props {
 
 const { title, description, currentSlug } = Astro.props;
 const pageTitle = `${title} — Cai Docs`;
+
+// Build BreadcrumbList structured data from slug
+const siteUrl = "https://getcai.app";
+const breadcrumbItems = [
+  { name: "Cai", url: siteUrl },
+  { name: "Docs", url: `${siteUrl}/docs/` },
+];
+
+if (currentSlug) {
+  const parts = currentSlug.split('/');
+  if (parts.length >= 2) {
+    // Add section breadcrumb (e.g., "Getting Started", "Usage", "Troubleshooting")
+    const sectionLabels: Record<string, string> = {
+      'getting-started': 'Getting Started',
+      'usage': 'Usage',
+      'troubleshooting': 'Troubleshooting',
+    };
+    const section = parts[0];
+    if (sectionLabels[section]) {
+      breadcrumbItems.push({ name: sectionLabels[section], url: '' });
+    }
+  }
+  // Add current page
+  breadcrumbItems.push({ name: title, url: `${siteUrl}/docs/${currentSlug}/` });
+}
+
+const breadcrumbData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": breadcrumbItems
+    .filter(item => item.url) // Only items with URLs
+    .map((item, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": item.name,
+      "item": item.url,
+    })),
+};
 ---
 
 <Layout title={pageTitle} description={description} viewTransitions={true}>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbData)} />
   <div class="docs-wrapper">
     <div transition:persist="docs-sidebar">
       <DocsSidebar currentSlug={currentSlug} />
