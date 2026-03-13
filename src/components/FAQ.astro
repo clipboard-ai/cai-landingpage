@@ -5,32 +5,20 @@ const faqs = [
     answer: "<p>Yes. Cai runs locally on your Mac by default. If you choose to connect a cloud model, your text is sent to that provider — but this is entirely opt-in. By default, everything stays on your machine.</p>"
   },
   {
-    question: "How is Cai different from clipboard managers?",
-    answer: "<p>Clipboard managers are built to store and organize what you copy. Cai is built to act on it — summarize, reply, translate, extract text from images, or run any AI prompt on your clipboard content, right where you are. It's a text action layer, not a clipboard organizer.</p>"
-  },
-  {
-    question: "How is Cai different from ChatGPT or other AI tools?",
-    answer: "<p>Most AI tools require you to switch to a separate app or browser tab. Cai works directly on your selected text, in any app, without breaking your flow — and everything runs locally on your Mac by default.</p>"
+    question: "How is Cai different from other tools?",
+    answer: "<p>Clipboard managers store and organize what you copy — Cai acts on it. And unlike ChatGPT or other AI tools that require switching to a separate app, Cai works directly on your selected text in any app, without breaking your flow. It's an AI text action layer that runs locally on your Mac by default.</p>"
   },
   {
     question: "Why does Cai need Accessibility permissions?",
     answer: "<p>Cai uses the system hotkey ⌥C to copy your selected text via a simulated ⌘C. macOS requires Accessibility access for apps that interact with system-level keyboard commands. This is what allows Cai to work seamlessly across all apps.</p><p>To enable it: open <strong>System Settings → Privacy & Security → Accessibility</strong> and toggle Cai on.</p>"
   },
   {
-    question: "Do I need a model provider?",
-    answer: "<p>No — Cai ships with a built-in model (Ministral 3B) that you can download on first launch. It works out of the box with no setup needed.</p><p>You can also add your own GGUF models — just drop them into <code>~/Library/Application Support/Cai/models/</code>.</p><p>If you want to use a different provider, you can connect a local server (LM Studio, Ollama, etc.) or a cloud provider (OpenAI, Gemini, Mistral, OpenRouter, etc.) in settings.</p>"
-  },
-  {
-    question: "Does Cai work with Apple Intelligence?",
-    answer: "<p>Yes. Cai supports Apple Intelligence as a built-in model provider on Macs with an M1 chip or later running macOS 26+. If Apple Intelligence is active on your Mac, Cai will suggest it automatically after install.</p><p>You can also enable it manually in <strong>Settings → Model → Apple Intelligence</strong>. Make sure Apple Intelligence is enabled on your Mac under <strong>System Settings → Apple Intelligence & Siri</strong>.</p>"
+    question: "What models does Cai support?",
+    answer: "<p>Cai ships with Ministral 3B built in — no setup needed. It also supports Apple Intelligence on macOS 26+ (M1 or later), local servers like LM Studio, Ollama, and Jan AI, and cloud providers like OpenAI, Google Gemini, Mistral, and OpenRouter.</p><p>You can also load your own GGUF models by dropping them into <code>~/Library/Application Support/Cai/models/</code>.</p>"
   },
   {
     question: "How do I create custom actions?",
     answer: "<p>Open Cai's settings from the menu bar icon and go to Custom Actions. You can create prompt shortcuts (saved AI instructions) or URL shortcuts (templates with %s for your selected text). Once saved, they appear in your action list for one-tap access.</p><p>You can also browse and install actions shared by the community at <a href='https://github.com/clipboard-ai/cai-extensions' target='_blank' rel='noopener noreferrer'>cai-extensions</a>.</p>"
-  },
-  {
-    question: "What models does Cai support?",
-    answer: "<p>Cai ships with Ministral 3B built in — no setup needed. It also supports Apple Intelligence on macOS 26+, local servers like LM Studio, Ollama, and Jan AI, and cloud providers like OpenAI, Google Gemini, Mistral, and OpenRouter. You can also load your own GGUF models.</p>"
   },
   {
     question: "Does Cai work offline?",
