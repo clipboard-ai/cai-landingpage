@@ -11,6 +11,7 @@ import FAQ from '../components/FAQ.astro';
 import Footer from '../components/Footer.astro';
 
 const quickActions = [
+  { name: "Ask AI", description: "Run any prompt on your clipboard content", highlight: true },
   { name: "Reply", description: "Context-aware reply for emails, messages, and more", highlight: true },
   { name: "Image to Text (OCR)", description: "Extract text from images and screenshots", highlight: true },
   { name: "Create Calendar Event", description: "Create calendar event from text", highlight: true },
@@ -18,15 +19,14 @@ const quickActions = [
   { name: "Summarize", description: "Create a concise summary" },
   { name: "Fix Grammar", description: "Fix grammar, spelling, and punctuation" },
   { name: "Translate", description: "Translate text to another language" },
-  { name: "Ask AI", description: "Run any prompt on your clipboard content" },
   { name: "...", description: "And more" },
 ];
 
 const customFeatures = [
-  { name: "On-the-fly Prompts", description: "Run any AI instruction against your clipboard text", highlight: true },
-  { name: "Save Prompts", description: "Save prompts you use often for one-tap access", highlight: true },
-  { name: "URL Actions", description: "Create URL templates with %s — search Reddit, Google Translate, Wikipedia, and more", highlight: true },
-  { name: "Custom Destinations", description: "Send results to Slack, Bear, Notion, or any app via webhooks, AppleScript, URL schemes, and shell commands", highlight: true },
+  { name: "Ask AI", description: "Run any AI instruction against your clipboard text", highlight: true },
+  { name: "Saved Actions", description: "Save prompts and URL actions you use often for one-tap access", highlight: true },
+  { name: "Web Search Actions", description: "Create URL templates with %s — search Reddit, Google Translate, Wikipedia, and more", highlight: true },
+  { name: "Send Anywhere", description: "Route results to Slack, Bear, Notion, or any app via webhooks, deeplinks, AppleScript, and shell commands", highlight: true },
   { name: "Type to Filter", description: "Just start typing to find your actions instantly", secondary: true },
   { name: "⌘1–9 to Execute", description: "Launch any action by number, no mouse needed", secondary: true },
 ];
