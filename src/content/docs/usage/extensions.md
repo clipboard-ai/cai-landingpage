@@ -176,8 +176,24 @@ Reference them in your templates with `{{key_name}}`.
 
 ## Submitting an Extension
 
+### Share from Cai (recommended)
+
+The easiest way to share a shortcut or destination you've built:
+
+1. Open **Settings > Custom Shortcuts** (or **Output Destinations**)
+2. Click the **share icon** (↗) on the shortcut or destination you want to share
+3. Cai copies the extension YAML to your clipboard and opens the community repo
+4. Fork the repo, create a folder under `extensions/` with a kebab-case name (e.g. `professional-email`)
+5. Paste the YAML as `extension.yaml` and open a pull request
+
+The generated YAML includes all the required fields. You just need to update `author` to your GitHub username, write a short `description`, and add relevant `tags`.
+
+### Create manually
+
+You can also write the YAML by hand:
+
 1. Fork the [cai-extensions](https://github.com/clipboard-ai/cai-extensions) repository
-2. Create a folder under `extensions/` with a kebab-case name (e.g. `professional-email`)
+2. Create a folder under `extensions/` with a kebab-case name
 3. Add an `extension.yaml` file inside it (must start with `# cai-extension`)
 4. Open a pull request
 
