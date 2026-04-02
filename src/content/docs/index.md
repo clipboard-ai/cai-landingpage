@@ -1,11 +1,11 @@
 ---
 title: "Cai Documentation"
-description: "Documentation for Cai, the AI-powered clipboard assistant for macOS. Installation, LLM setup, custom actions, GitHub & Linear connectors, and keyboard shortcuts."
+description: "Documentation for Cai, the AI-powered action layer for macOS. Installation, LLM setup, custom actions, GitHub & Linear connectors, and keyboard shortcuts."
 ---
 
 # Cai Documentation
 
-AI-powered clipboard assistant for macOS. Select any text, get smart actions.
+Turn your clipboard into an AI hub. Select any text, get smart actions.
 
 ## Quick Start
 

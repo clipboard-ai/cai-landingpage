@@ -11,7 +11,7 @@ import FAQ from '../components/FAQ.astro';
 import Footer from '../components/Footer.astro';
 
 const quickActions = [
-  { name: "Ask AI", description: "Run any prompt on your clipboard content", highlight: true },
+  { name: "Ask AI", description: "Run any prompt on your selected text", highlight: true },
   { name: "Reply", description: "Context-aware reply for emails, messages, and more", highlight: true },
   { name: "Image to Text (OCR)", description: "Extract text from images and screenshots", highlight: true },
   { name: "Create GitHub Issue", description: "Turn errors and text into GitHub issues with AI-generated titles", highlight: true },
@@ -26,7 +26,7 @@ const quickActions = [
 const customFeatures = [
   { name: "Custom Prompts", description: "Save AI prompts and shell commands for one-tap access", highlight: true },
   { name: "URL Actions", description: "Search Google Drive, Jira, Stack Overflow — any URL with %s becomes an action", highlight: true },
-  { name: "Shell Commands", description: "Run scripts and CLI tools directly from your clipboard", highlight: true },
+  { name: "Shell Commands", description: "Run scripts and CLI tools on your selected text", highlight: true },
   { name: "Custom Destinations", description: "Route results to Slack, Notion, or any app via webhooks, deeplinks, and AppleScript", highlight: true },
   { name: "GitHub & Linear", description: "Create issues and tickets with AI-generated context", highlight: true },
   { name: "Community Extensions", description: "Browse and install actions shared by others", secondary: true },
@@ -34,7 +34,7 @@ const customFeatures = [
 ];
 ---
 
-<Layout title="Cai: AI Clipboard Assistant for macOS | Free & Open Source">
+<Layout title="Cai: The AI Action Layer for macOS | Free & Open Source">
   <Navbar />
   <Hero />
 
@@ -42,7 +42,7 @@ const customFeatures = [
   <section class="definition">
     <div class="definition-container">
       <p class="definition-text">
-        <strong>Cai</strong> is a free, open-source clipboard AI assistant for macOS. It lives in your menu bar and lets you select any text or image, press <kbd>⌥C</kbd>, and instantly run AI-powered actions — summarize, translate, extract text from images (OCR), draft replies, create GitHub issues, file Linear tickets, and more. It runs 100% locally with a built-in AI engine, supports Apple Intelligence on macOS 26+, and connects to providers like LM Studio and Ollama. No cloud required.
+        <strong>Cai</strong> is a free, open-source AI action layer for macOS. It lives in your menu bar and lets you select any text or image, press <kbd>⌥C</kbd>, and instantly run AI-powered actions — summarize, translate, extract text from images (OCR), draft replies, create GitHub issues, file Linear tickets, and more. It runs 100% locally with a built-in AI engine, supports Apple Intelligence on macOS 26+, and connects to providers like LM Studio and Ollama. No cloud required.
       </p>
     </div>
   </section>
@@ -75,7 +75,7 @@ const customFeatures = [
     posterSrc="/videos/cai-custom-actions-poster.webp"
     mediaAlt="Custom commands and actions demo"
     backgroundColor="#0F0F0F"
-    linkHref="https://github.com/clipboard-ai/cai-extensions"
+    linkHref="https://github.com/cai-layer/cai-extensions"
     linkText="Browse community extensions →"
   />
 

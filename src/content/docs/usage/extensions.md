@@ -5,7 +5,7 @@ description: "Browse and install community-built extensions for Cai. Pre-built c
 
 # Community Extensions
 
-Community extensions are pre-built [custom actions](/docs/usage/saved-actions) and [destinations](/docs/usage/destinations) shared by other Cai users. Browse and install them directly from the in-app extension browser, or from the [cai-extensions](https://github.com/clipboard-ai/cai-extensions) repository on GitHub.
+Community extensions are pre-built [custom actions](/docs/usage/saved-actions) and [destinations](/docs/usage/destinations) shared by other Cai users. Browse and install them directly from the in-app extension browser, or from the [cai-extensions](https://github.com/cai-layer/cai-extensions) repository on GitHub.
 
 ## How to Install
 
@@ -194,7 +194,7 @@ The generated YAML includes all the required fields. You just need to update `au
 
 You can also write the YAML by hand:
 
-1. Fork the [cai-extensions](https://github.com/clipboard-ai/cai-extensions) repository
+1. Fork the [cai-extensions](https://github.com/cai-layer/cai-extensions) repository
 2. Create a folder under `extensions/` with a kebab-case name
 3. Add an `extension.yaml` file inside it (must start with `# cai-extension`)
 4. Open a pull request

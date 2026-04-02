@@ -12,8 +12,8 @@ interface Props {
 
 const {
   title,
-  description = "Cai is a free, open-source macOS menu bar app. Select text, press ⌥C, and run AI actions — summarize, translate, OCR, create GitHub issues & Linear tickets. 100% local. No cloud required.",
-  keywords = "clipboard AI, clipboard AI mac, AI clipboard tool, local AI mac, local LLM, macOS AI app, AI menu bar app, clipboard automation, GitHub issue creator, Linear ticket automation, OCR mac app, privacy AI assistant, text actions mac, open source AI, offline AI mac, Apple Intelligence, LM Studio, Ollama, AI text processing, clipboard manager mac, AI shortcuts mac",
+  description = "Cai is a free, open-source AI action layer for macOS. Select any text or image, press ⌥C, and run AI actions — summarize, translate, OCR, create GitHub issues & Linear tickets. 100% local. No cloud required.",
+  keywords = "AI action layer mac, AI actions macOS, AI action layer, local AI mac, local LLM, macOS AI app, AI menu bar app, AI automation macOS, local AI actions, text actions mac, GitHub issue creator, Linear ticket automation, OCR mac app, privacy AI assistant, open source AI, offline AI mac, Apple Intelligence, LM Studio, Ollama, AI text processing, clipboard AI, clipboard manager mac",
   noIndex = false,
   ogImage = "/images/social-media-sharing.png?v=2",
   viewTransitions = false
@@ -38,9 +38,18 @@ const structuredData = {
   "description": description,
   "url": siteUrl,
   "image": fullOgImage,
+  "downloadUrl": "https://github.com/cai-layer/cai/releases/latest",
+  "softwareVersion": "1.2.1",
+  "datePublished": "2025-01-01",
+  "author": {
+    "@type": "Organization",
+    "name": "Cai",
+    "url": siteUrl
+  },
+  "screenshot": new URL("/images/social-media-sharing.png", siteUrl).toString(),
   "featureList": [
     "Local AI processing with built-in model",
-    "Create GitHub issues and Linear tickets from clipboard",
+    "Create GitHub issues and Linear tickets from any selected text or image",
     "Image to text OCR",
     "Smart context-aware text actions",
     "Custom prompts, shell commands, and URL actions",
@@ -56,8 +65,8 @@ const organizationData = {
   "url": siteUrl,
   "logo": new URL("/images/social-media-sharing.png", siteUrl).toString(),
   "sameAs": [
-    "https://github.com/clipboard-ai/cai",
-    "https://www.linkedin.com/company/clipboard-ai"
+    "https://github.com/cai-layer/cai",
+    "https://www.linkedin.com/company/cai-layer"
   ]
 };
 ---
@@ -85,7 +94,7 @@ const organizationData = {
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content="image/png" />
-    <meta property="og:site_name" content="Cai: AI Clipboard Assistant for macOS" />
+    <meta property="og:site_name" content="Cai: The AI Action Layer for macOS" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />

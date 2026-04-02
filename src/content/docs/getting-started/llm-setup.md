@@ -60,7 +60,7 @@ If your server requires authentication (e.g., cloud providers), enter your API k
 
 ## Recommended Models
 
-Not sure which model to use? See our [recommended models](https://github.com/clipboard-ai/cai#recommended-models) for tested suggestions based on your hardware and use case.
+Not sure which model to use? See our [recommended models](https://github.com/cai-layer/cai#recommended-models) for tested suggestions based on your hardware and use case.
 
 ## Verify Your Server
 
