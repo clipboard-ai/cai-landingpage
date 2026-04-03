@@ -1,0 +1,360 @@
+---
+interface Feature {
+  name: string;
+  cai: boolean | string;
+  competitor: boolean | string;
+}
+
+interface Props {
+  competitor: { name: string; url: string };
+  tldr: string;
+  features: Feature[];
+  whenCompetitor: { heading: string; points: string[] };
+  whenCai: { heading: string; points: string[] };
+  relatedComparisons: { name: string; slug: string }[];
+}
+
+const { competitor, tldr, features, whenCompetitor, whenCai, relatedComparisons } = Astro.props;
+
+const siteUrl = "https://getcai.app";
+const pageUrl = `${siteUrl}/vs/${competitor.name.toLowerCase().replace(/\s+/g, '-')}/`;
+
+const breadcrumbData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Cai", "item": siteUrl },
+    { "@type": "ListItem", "position": 2, "name": `Cai vs ${competitor.name}`, "item": pageUrl },
+  ]
+};
+---
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbData)} />
+
+<main class="comparison-page">
+  <div class="container">
+
+    <!-- Hero -->
+    <section class="hero-section">
+      <h1 class="page-title">Cai vs <span class="competitor-name">{competitor.name}</span></h1>
+      <p class="tldr">{tldr}</p>
+    </section>
+
+    <!-- When to use sections -->
+    <div class="when-sections">
+      <section class="when-section when-cai">
+        <h2>{whenCai.heading}</h2>
+        <ul>
+          {whenCai.points.map((point) => (
+            <li>{point}</li>
+          ))}
+        </ul>
+      </section>
+
+      <section class="when-section when-competitor">
+        <h2>{whenCompetitor.heading}</h2>
+        <ul>
+          {whenCompetitor.points.map((point) => (
+            <li>{point}</li>
+          ))}
+        </ul>
+      </section>
+    </div>
+
+    <!-- Feature comparison table -->
+    <section class="table-section">
+      <h2>Feature comparison</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th class="feature-col">Feature</th>
+              <th class="product-col cai-col">Cai</th>
+              <th class="product-col competitor-col">{competitor.name}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {features.map((feature) => (
+              <tr>
+                <td class="feature-name">{feature.name}</td>
+                <td class="feature-value">
+                  {typeof feature.cai === 'boolean' ? (
+                    feature.cai ? (
+                      <span class="check" aria-label="Yes">&#10003;</span>
+                    ) : (
+                      <span class="cross" aria-label="No">&#10005;</span>
+                    )
+                  ) : (
+                    <span class="qualifier">{feature.cai}</span>
+                  )}
+                </td>
+                <td class="feature-value">
+                  {typeof feature.competitor === 'boolean' ? (
+                    feature.competitor ? (
+                      <span class="check" aria-label="Yes">&#10003;</span>
+                    ) : (
+                      <span class="cross" aria-label="No">&#10005;</span>
+                    )
+                  ) : (
+                    <span class="qualifier">{feature.competitor}</span>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Related comparisons -->
+    {relatedComparisons.length > 0 && (
+      <section class="related-section">
+        <h2>Compare Cai with other tools</h2>
+        <div class="related-links">
+          {relatedComparisons.map((comp) => (
+            <a href={`/vs/${comp.slug}/`} class="related-link">
+              Cai vs {comp.name}
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+  </div>
+</main>
+
+<style>
+  .comparison-page {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #0A0A0A 0%, #111111 100%);
+    padding: 10rem 0 2rem;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Hero */
+  .page-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+    margin-bottom: 1.5rem;
+    line-height: 1.15;
+  }
+
+  .competitor-name {
+    background: linear-gradient(135deg, #A78BFA 0%, #F78595 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .tldr {
+    font-size: 1.15rem;
+    color: #B0B0B0;
+    line-height: 1.7;
+    margin-bottom: 3.5rem;
+    max-width: 700px;
+  }
+
+  /* When to use sections */
+  .when-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .when-section {
+    background: #111111;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 1.75rem;
+  }
+
+  .when-section h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #FFFFFF;
+  }
+
+  .when-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .when-section li {
+    font-size: 0.92rem;
+    color: #B0B0B0;
+    line-height: 1.6;
+    padding: 0.35rem 0;
+    padding-left: 1.2rem;
+    position: relative;
+  }
+
+  .when-section li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #6B6B6B;
+  }
+
+  .when-cai li::before {
+    color: #A78BFA;
+  }
+
+  /* Feature table */
+  .table-section {
+    margin-bottom: 3.5rem;
+  }
+
+  .table-section h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #FFFFFF;
+    margin-bottom: 1.25rem;
+  }
+
+  .table-wrapper {
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  thead {
+    background: #0F0F0F;
+  }
+
+  th {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.9rem 1.25rem;
+    text-align: left;
+    color: #6B6B6B;
+  }
+
+  .product-col {
+    text-align: center;
+    width: 120px;
+  }
+
+  .cai-col {
+    color: #A78BFA;
+  }
+
+  td {
+    padding: 0.75rem 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+  }
+
+  tbody tr:nth-child(odd) {
+    background: #0F0F0F;
+  }
+
+  tbody tr:nth-child(even) {
+    background: #111111;
+  }
+
+  .feature-name {
+    font-size: 0.92rem;
+    color: #E0E0E0;
+  }
+
+  .feature-value {
+    text-align: center;
+    font-size: 0.92rem;
+  }
+
+  .check {
+    color: #4ADE80;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  .cross {
+    color: #F87171;
+    opacity: 0.5;
+    font-size: 1.1rem;
+  }
+
+  .qualifier {
+    color: #B0B0B0;
+    font-size: 0.82rem;
+  }
+
+  /* Related comparisons */
+  .related-section {
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    margin-bottom: 2rem;
+  }
+
+  .related-section h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #6B6B6B;
+    margin-bottom: 1rem;
+  }
+
+  .related-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .related-link {
+    font-size: 0.88rem;
+    color: #A78BFA;
+    text-decoration: none;
+    padding: 0.4rem 0.9rem;
+    border: 1px solid rgba(167, 139, 250, 0.2);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+  }
+
+  .related-link:hover {
+    background: rgba(167, 139, 250, 0.08);
+    border-color: rgba(167, 139, 250, 0.4);
+  }
+
+  /* Mobile */
+  @media (max-width: 640px) {
+    .comparison-page {
+      padding: 8rem 0 2rem;
+    }
+
+    .when-sections {
+      grid-template-columns: 1fr;
+    }
+
+    .product-col {
+      width: 90px;
+    }
+
+    th, td {
+      padding: 0.65rem 0.75rem;
+    }
+
+    .feature-name {
+      font-size: 0.85rem;
+    }
+  }
+</style>

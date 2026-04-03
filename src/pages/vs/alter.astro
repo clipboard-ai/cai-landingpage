@@ -1,0 +1,66 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import ComparisonPage from '../../components/ComparisonPage.astro';
+import Footer from '../../components/Footer.astro';
+
+const data = {
+  competitor: {
+    name: "Alter",
+    url: "https://alterhq.com"
+  },
+  tldr: "Alter and Cai are both native macOS AI assistants that work across apps. Alter is voice-first and cloud-first — it reads your screen context, offers 50+ models, meeting recording, and voice dictation, with paid tiers up to $720. Cai is keyboard-first and local-first — open source, completely free, with a built-in AI model, custom shell actions, and GitHub/Linear integration out of the box.",
+  features: [
+    { name: "Works on selected text", cai: true, competitor: true },
+    { name: "Screen context awareness", cai: false, competitor: "AppSense" },
+    { name: "Voice control & dictation", cai: false, competitor: true },
+    { name: "100% local by default", cai: true, competitor: "Optional (via Ollama)" },
+    { name: "Free and open source", cai: true, competitor: "Free tier (paid: $240/yr)" },
+    { name: "Built-in AI model (no setup)", cai: true, competitor: false },
+    { name: "Cloud AI models (GPT-4, Claude, etc.)", cai: "Via external providers", competitor: "50+ built-in" },
+    { name: "Apple Intelligence support", cai: true, competitor: false },
+    { name: "Meeting recording & transcription", cai: false, competitor: true },
+    { name: "OCR / Image to text", cai: true, competitor: true },
+    { name: "Custom shell actions", cai: true, competitor: false },
+    { name: "GitHub & Linear integration", cai: true, competitor: false },
+    { name: "Clipboard history", cai: true, competitor: false },
+    { name: "Build your own actions", cai: true, competitor: "80+ pre-built" },
+    { name: "Community extensions", cai: true, competitor: false },
+  ],
+  whenCompetitor: {
+    heading: "When to use Alter",
+    points: [
+      "You prefer a voice-first workflow with dictation and voice commands",
+      "You want screen context awareness that reads your active app content",
+      "You need meeting recording and transcription built in",
+      "You need 50+ cloud AI models with automatic model selection",
+      "You want integrations with Google Workspace, Hubspot, Notion",
+    ]
+  },
+  whenCai: {
+    heading: "When to use Cai",
+    points: [
+      "You prefer a keyboard-first workflow — press ⌥C and go",
+      "You want a local-first AI that works without an internet connection",
+      "You want a completely free, open-source tool with no paid tiers",
+      "You need custom shell actions, GitHub issues, and Linear tickets built in",
+      "You want to build your own actions with custom prompts, URLs, and shell commands",
+    ]
+  },
+  relatedComparisons: [
+    { name: "ChatGPT", slug: "chatgpt" },
+    { name: "Raycast", slug: "raycast" },
+    { name: "Maccy", slug: "maccy" },
+  ]
+};
+---
+
+<Layout
+  title="Cai vs Alter — Free Local AI for Mac"
+  description="Compare Cai and Alter for macOS. Both work across apps. Cai is free, open source, and local-first. Alter is cloud-first with paid tiers and meeting recording."
+  keywords="cai vs alter, alter alternative mac, alter ai alternative, free ai mac, local ai assistant mac"
+>
+  <Navbar />
+  <ComparisonPage {...data} />
+  <Footer />
+</Layout>

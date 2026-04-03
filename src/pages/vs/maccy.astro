@@ -1,0 +1,63 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import ComparisonPage from '../../components/ComparisonPage.astro';
+import Footer from '../../components/Footer.astro';
+
+const data = {
+  competitor: {
+    name: "Maccy",
+    url: "https://maccy.app"
+  },
+  tldr: "Maccy is a lightweight, open-source clipboard manager — it stores what you copy and lets you find it fast. Cai does that too, but adds an AI action layer on top: summarize, translate, OCR, create GitHub issues, run shell commands, and more. If you just need clipboard history, Maccy is great. If you want to act on what you copy, Cai picks up where Maccy leaves off.",
+  features: [
+    { name: "Clipboard history", cai: true, competitor: true },
+    { name: "Search clipboard history", cai: true, competitor: true },
+    { name: "Pin clipboard items", cai: true, competitor: true },
+    { name: "AI actions (summarize, translate, etc.)", cai: true, competitor: false },
+    { name: "OCR / Image to text", cai: true, competitor: false },
+    { name: "Custom AI prompts", cai: true, competitor: false },
+    { name: "Shell command execution", cai: true, competitor: false },
+    { name: "GitHub & Linear integration", cai: true, competitor: false },
+    { name: "Built-in AI model", cai: true, competitor: false },
+    { name: "Apple Intelligence support", cai: true, competitor: false },
+    { name: "Community extensions", cai: true, competitor: false },
+    { name: "MCP server for Claude", cai: false, competitor: "Community-built" },
+    { name: "Ultra-lightweight", cai: false, competitor: true },
+    { name: "Free and open source", cai: true, competitor: true },
+  ],
+  whenCompetitor: {
+    heading: "When to use Maccy",
+    points: [
+      "You only need clipboard history and want the lightest possible tool",
+      "You prefer a minimal app that does one thing extremely well",
+      "You want to expose clipboard history to Claude via MCP",
+      "You don't need AI, OCR, or automation features",
+    ]
+  },
+  whenCai: {
+    heading: "When to use Cai",
+    points: [
+      "You want clipboard history plus AI actions on what you copy",
+      "You need OCR, translations, summaries, or smart replies",
+      "You want to create GitHub issues or Linear tickets from any text",
+      "You want a single tool that replaces both a clipboard manager and an AI assistant",
+    ]
+  },
+  relatedComparisons: [
+    { name: "ChatGPT", slug: "chatgpt" },
+    { name: "Raycast", slug: "raycast" },
+    { name: "Alter", slug: "alter" },
+  ]
+};
+---
+
+<Layout
+  title="Cai vs Maccy — Clipboard Manager with AI Actions"
+  description="Compare Cai and Maccy for macOS. Both are free and open source. Maccy manages your clipboard history. Cai adds AI actions, OCR, shell commands, and more on top."
+  keywords="cai vs maccy, maccy alternative, clipboard manager with ai mac, maccy ai, clipboard manager mac"
+>
+  <Navbar />
+  <ComparisonPage {...data} />
+  <Footer />
+</Layout>

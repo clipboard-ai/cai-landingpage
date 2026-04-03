@@ -1,0 +1,61 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import ComparisonPage from '../../components/ComparisonPage.astro';
+import Footer from '../../components/Footer.astro';
+
+const data = {
+  competitor: {
+    name: "ChatGPT",
+    url: "https://chatgpt.com"
+  },
+  tldr: "ChatGPT is a powerful cloud AI chat app — great for deep conversations, research, and complex reasoning. But for quick text actions, you have to switch apps and paste text in. Cai runs AI actions directly on your selected text, locally on your Mac, without leaving your workflow.",
+  features: [
+    { name: "Works inline (no app switch)", cai: true, competitor: false },
+    { name: "100% local / private", cai: true, competitor: false },
+    { name: "Free and open source", cai: true, competitor: "Free tier (limited)" },
+    { name: "Multi-turn conversations", cai: "Basic (Tab follow-up)", competitor: true },
+    { name: "Web search / research", cai: false, competitor: true },
+    { name: "Image generation (DALL-E)", cai: false, competitor: true },
+    { name: "Built-in AI model (no setup)", cai: true, competitor: true },
+    { name: "Apple Intelligence support", cai: true, competitor: false },
+    { name: "OCR / Image to text", cai: true, competitor: true },
+    { name: "Clipboard history", cai: true, competitor: false },
+    { name: "Shell command execution", cai: true, competitor: false },
+    { name: "GitHub & Linear integration", cai: true, competitor: "Via Codex (paid)" },
+  ],
+  whenCompetitor: {
+    heading: "When to use ChatGPT",
+    points: [
+      "You need long-form multi-turn conversations and deep reasoning",
+      "You want GPT-4o, DALL-E, web search, or research mode",
+      "You need MCP integrations or complex multi-step workflows",
+      "You're working on tasks that require back-and-forth iteration",
+    ]
+  },
+  whenCai: {
+    heading: "When to use Cai",
+    points: [
+      "You want instant AI on selected text without switching apps",
+      "Privacy matters — your text stays on your Mac",
+      "You need quick actions: summarize, translate, OCR, reply, create issues",
+      "You want a free, open-source tool with no subscription",
+    ]
+  },
+  relatedComparisons: [
+    { name: "Raycast", slug: "raycast" },
+    { name: "Maccy", slug: "maccy" },
+    { name: "Alter", slug: "alter" },
+  ]
+};
+---
+
+<Layout
+  title="Cai vs ChatGPT — Local AI Actions for Mac"
+  description="Compare Cai and ChatGPT for macOS productivity. Cai works inline on any text, runs 100% locally, and is free and open source. No app switching, no subscription."
+  keywords="cai vs chatgpt, chatgpt alternative mac, local ai mac, ai actions macos, chatgpt desktop alternative"
+>
+  <Navbar />
+  <ComparisonPage {...data} />
+  <Footer />
+</Layout>

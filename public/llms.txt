@@ -27,6 +27,13 @@ Cai is an AI action layer for Mac that lives in your menu bar. Select any text o
 2. Summon — Press ⌥C to open the action menu
 3. Act — Pick an action (summarize, translate, create ticket, run custom prompt, etc.)
 
+## Comparisons
+
+- Cai vs ChatGPT: https://getcai.app/vs/chatgpt/
+- Cai vs Raycast: https://getcai.app/vs/raycast/
+- Cai vs Maccy: https://getcai.app/vs/maccy/
+- Cai vs Alter: https://getcai.app/vs/alter/
+
 ## Links
 
 - Homepage: https://getcai.app

@@ -1,0 +1,64 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import ComparisonPage from '../../components/ComparisonPage.astro';
+import Footer from '../../components/Footer.astro';
+
+const data = {
+  competitor: {
+    name: "Raycast",
+    url: "https://www.raycast.com"
+  },
+  tldr: "Raycast is a powerful Mac launcher that replaces Spotlight — with a massive extension store, window management, snippets, and AI as a paid add-on ($8/mo). Cai is purpose-built for AI text actions: faster to learn, simpler to use, and completely free. If you want an all-in-one productivity hub, Raycast is great. If you want instant AI on your selected text without the complexity, Cai does that out of the box.",
+  features: [
+    { name: "Works inline on selected text", cai: true, competitor: false },
+    { name: "100% local / private by default", cai: true, competitor: false },
+    { name: "Free unlimited AI", cai: true, competitor: "50 msgs free, then $8/mo" },
+    { name: "Built-in AI model (no setup)", cai: true, competitor: false },
+    { name: "Open source", cai: true, competitor: false },
+    { name: "Apple Intelligence support", cai: true, competitor: false },
+    { name: "Launcher / Spotlight replacement", cai: false, competitor: true },
+    { name: "Window management", cai: false, competitor: true },
+    { name: "Extension ecosystem", cai: "Community extensions", competitor: "Large store" },
+    { name: "Clipboard history", cai: true, competitor: true },
+    { name: "OCR / Image to text", cai: true, competitor: false },
+    { name: "Custom shell actions", cai: true, competitor: false },
+    { name: "GitHub & Linear integration", cai: true, competitor: "Via extensions" },
+    { name: "Low learning curve", cai: true, competitor: false },
+  ],
+  whenCompetitor: {
+    heading: "When to use Raycast",
+    points: [
+      "You want a full Spotlight replacement with launcher, snippets, and window management",
+      "You need a massive extension store with thousands of community integrations",
+      "You want an all-in-one productivity hub and don't mind the learning curve",
+      "You're OK paying $8/mo for unlimited AI (free tier has 50 messages)",
+    ]
+  },
+  whenCai: {
+    heading: "When to use Cai",
+    points: [
+      "You want AI actions on selected text without opening a launcher",
+      "You want something fast and simple — press ⌥C and go",
+      "You want a built-in local AI model with zero setup",
+      "You need OCR, custom shell actions, and GitHub/Linear built in — not via plugins",
+      "You want a free, open-source tool — no subscription, no limits",
+    ]
+  },
+  relatedComparisons: [
+    { name: "ChatGPT", slug: "chatgpt" },
+    { name: "Maccy", slug: "maccy" },
+    { name: "Alter", slug: "alter" },
+  ]
+};
+---
+
+<Layout
+  title="Cai vs Raycast — Free AI Actions for Mac"
+  description="Compare Cai and Raycast for AI on macOS. Cai is a free, open-source AI action layer with a built-in local model. Raycast is a launcher with AI as a paid add-on."
+  keywords="cai vs raycast, raycast alternative mac, raycast ai alternative, free raycast alternative, ai actions mac"
+>
+  <Navbar />
+  <ComparisonPage {...data} />
+  <Footer />
+</Layout>
