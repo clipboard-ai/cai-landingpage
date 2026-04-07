@@ -80,6 +80,8 @@ Cai caps the total input sent to the LLM at **50,000 characters** (system prompt
 
 For very long documents, try splitting them into chunks and processing each separately.
 
+> **Using Apple Intelligence?** Apple's Foundation Model has a hard **4K token context window** — much smaller than Cai's 50K character cap. If you're hitting truncation on long inputs, switch to **Ministral 3B** (built-in MLX) or an external provider with a larger context window.
+
 ## App freezes or slows down after copying large text
 
 Cai limits clipboard processing to ~10,000 characters (~2,500 words) to prevent performance issues. If you copy very large documents, Cai silently truncates the text. This is by design — Cai is optimized for short-to-medium text selections, not full documents.

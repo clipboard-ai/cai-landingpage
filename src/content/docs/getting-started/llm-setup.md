@@ -11,6 +11,8 @@ On Macs with an M1 chip or later running **macOS 26+**, Cai uses Apple Intellige
 
 Apple Intelligence handles all AI-powered actions: Summarize, Reply, Fix Grammar, Translate, Explain, and Ask AI.
 
+> **Trade-off:** Apple Intelligence has a hard **4K token context window** — much smaller than typical local models (8K–32K) or cloud providers (128K+). This means long documents and long follow-up conversations may get truncated. For very long inputs, switch to **Ministral 3B** (built-in MLX) or an external provider with a larger context window.
+
 ## Built-in Model (Fallback)
 
 On older macOS versions, Cai ships with a built-in MLX model that runs **in-process** on Apple Silicon — no external server, no subprocess, no configuration needed. Models stream tokens progressively as they're generated, so long responses appear word-by-word instead of waiting for the full reply.
