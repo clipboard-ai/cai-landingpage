@@ -313,8 +313,15 @@ const footerGroups = [
 
   @media (max-width: 480px) {
     .footer-groups {
-      flex-direction: column;
-      gap: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem 1.5rem;
+      width: 100%;
+    }
+
+    .footer-group {
+      align-items: flex-start;
+      text-align: left;
     }
   }
 </style>
