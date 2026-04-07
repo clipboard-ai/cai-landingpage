@@ -31,19 +31,19 @@ description: "Troubleshoot common Cai issues. Fix global hotkey problems, LLM co
 
 Cai generates ICS files from detected text. For best results, include a clear date/time and optionally a location in the copied text. The ICS file opens in your default calendar app, where you can review and edit before saving.
 
-## Built-in model can't start
+## Built-in model uses too much memory
 
-Cai's built-in LLM server uses ports 8690–8699, picking the first available one. If a previous server didn't shut down cleanly, Cai automatically cleans up orphan processes on next launch.
+The built-in MLX model runs in-process and can use ~2 GB of RAM while loaded. To free that memory immediately, switch to **Apple Intelligence** (macOS 26+) or any external provider in Settings — Cai unloads the MLX model and reclaims the RAM as soon as you switch.
 
-If you still see issues, open Terminal:
+If you want a model that uses less RAM, the default **Ministral 3B** (~1.8 GB) is already the lightest in the curated picker. On macOS 26+, switching to **Apple Intelligence** uses far less RAM (~36 MB) since it runs on the Neural Engine.
 
-```bash
-# Find any leftover llama-server processes
-lsof -i :8690-8699 | grep LISTEN
+## Built-in model is slow or unresponsive
 
-# Kill the process (replace <PID> with the actual process ID)
-kill -9 <PID>
-```
+If the built-in MLX model feels slow:
+
+- Stick with the default **Ministral 3B** — it's the lightest and fastest in the curated picker
+- Make sure no other heavy app is using GPU/Neural Engine resources
+- On macOS 26+ with Apple Silicon, switch to **Apple Intelligence** — it uses ~60× less RAM and runs natively on the Neural Engine
 
 ## Apple Intelligence not working
 
@@ -55,18 +55,30 @@ Apple Intelligence requires:
 
 If you meet the requirements but Apple Intelligence isn't showing as a provider option, make sure you've enabled it in System Settings first, then restart Cai.
 
-## Result text looks odd
+## Result text has stray markdown characters
 
-Cai renders results as Markdown. If your LLM returns unexpected formatting, try a different model or adjust your custom prompt to request plain text output.
+Cai renders basic markdown in results, but most actions instruct the LLM to return plain text and Unicode bullets — no `**bold**`, `__italic__`, or markdown tables. A few actions (like Define) may use light markdown intentionally.
+
+If you see stray or unwanted markdown characters in results, it usually means the model is ignoring the formatting instructions:
+
+- Try a different model — smaller models sometimes ignore formatting instructions
+- For custom prompts, add an explicit "Output plain text only, no markdown" line at the end
+- The built-in Ministral 3B and Apple Intelligence are tuned to follow these instructions reliably
 
 ## Built-in model download fails
 
-The built-in model (~2.15 GB) downloads on first launch. If the download fails:
+The built-in MLX model downloads on first launch (size depends on which model you picked). If the download fails:
 
 - Check your internet connection
 - Make sure you have enough disk space
-- Try quitting and relaunching Cai — the download resumes where it left off
-- Check the `~/Library/Application Support/Cai/models/` directory for partial downloads
+- Closing Cai during a download is safe — the download continues in the background and resumes if needed
+- The default Ministral 3B is ~1.8 GB — for slower connections, this is already the smaller of the curated options
+
+## Long documents get truncated
+
+Cai caps the total input sent to the LLM at **50,000 characters** (system prompt + conversation history + your latest message). This prevents memory issues and freezes when summarizing long documents. If your input exceeds the cap, older conversation history is dropped first to make room for the latest message.
+
+For very long documents, try splitting them into chunks and processing each separately.
 
 ## App freezes or slows down after copying large text
 

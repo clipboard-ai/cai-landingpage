@@ -20,7 +20,7 @@ const localProviders = [
     <h2 class="section-title">Bring Your Own <span class="highlight">Brain</span></h2>
     <p class="section-subtitle">
       Works out of the box with a local built-in model.<br />
-      Drag and drop your own model, connect to a local server, or a cloud provider.
+      Load any model from the <a href="https://huggingface.co/mlx-community" target="_blank" rel="noopener noreferrer" class="inline-link">HuggingFace MLX community</a>, connect to a local server, or a cloud provider.
     </p>
 
     <div class="provider-grid">
@@ -39,7 +39,8 @@ const localProviders = [
     </div>
 
     <div class="model-badges">
-      <span class="model-badge built-in">Ministral 3B <span class="badge-tag">built-in</span></span>
+      <span class="model-badge built-in">Ministral 3B <span class="badge-tag">default</span></span>
+      <span class="model-badge built-in">Qwen 2.5 7B <span class="badge-tag">built-in</span></span>
       <span class="model-badge built-in">Apple Intelligence <span class="badge-tag">built-in</span></span>
     </div>
     <div class="model-badges model-badges--secondary">
@@ -53,7 +54,7 @@ const localProviders = [
       <span class="model-badge more">...</span>
     </div>
 
-    <a href="https://github.com/cai-layer/cai#recommended-models" class="models-link" target="_blank" rel="noopener noreferrer">
+    <a href="/docs/getting-started/llm-setup/#choosing-a-model" class="models-link">
       Which model should I use? →
     </a>
   </div>
@@ -94,6 +95,18 @@ const localProviders = [
     max-width: 720px;
     margin: 0 auto 3rem;
     line-height: 1.65;
+  }
+
+  .inline-link {
+    color: var(--accent-light);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(167, 139, 250, 0.3);
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .inline-link:hover {
+    color: #FFFFFF;
+    border-bottom-color: rgba(167, 139, 250, 0.6);
   }
 
   .provider-group-label {

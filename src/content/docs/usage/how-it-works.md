@@ -34,6 +34,10 @@ All text types also get **Ask AI** (⌘1) for free-form AI prompts.
 
 Cai is context-aware — it detects what app you're in (email, Slack, code editor, etc.) and tailors its actions accordingly. For example, **Reply** uses this context to generate an appropriate response based on whether you're replying to an email, a chat message, or a code review comment.
 
+### Type to Reveal Hidden Actions
+
+The default action list is focused per content type — you won't see Reply on a meeting invite, or Fix Grammar on a single word. When you need an action that isn't shown, just **start typing its name**: filter-to-reveal surfaces every applicable action regardless of detection.
+
 ## Examples
 
 - Select `"serendipity"` → Define, Explain, Translate, Search
