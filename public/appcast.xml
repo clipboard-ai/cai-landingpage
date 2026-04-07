@@ -35,6 +35,29 @@
     </item>
 
     <item>
+      <title>Version 1.3.0</title>
+      <description><![CDATA[
+        <h3>Highlights</h3>
+        <ul>
+          <li><strong>In-process MLX-Swift inference</strong> — replaces llama-server, ~15 MB lighter, native streaming, no zombie processes</li>
+          <li><strong>Apple Intelligence support</strong> (macOS 26+) — fully on-device, ~36 MB vs ~2 GB RAM</li>
+          <li><strong>Context Snippets v1</strong> — per-app system prompts via ~/.config/cai/snippets.json</li>
+          <li><strong>Type to reveal hidden actions</strong> — focused defaults, filter to surface anything</li>
+        </ul>
+        <p>Existing users will be guided through a one-time GGUF → MLX migration on first launch (~1.8 GB download for Ministral 3B).</p>
+        <p><a href="https://github.com/cai-layer/cai/releases/tag/v1.3.0">Full release notes →</a></p>
+      ]]></description>
+      <pubDate>Tue, 07 Apr 2026 16:26:05 +0000</pubDate>
+      <enclosure
+        url="https://github.com/cai-layer/cai/releases/download/v1.3.0/Cai-1.3.0-macos.dmg"
+        sparkle:version="6"
+        sparkle:shortVersionString="1.3.0"
+        length="19584613"
+        type="application/octet-stream"
+        sparkle:edSignature="6ds4zrWrH6aIS+GBeDfN7imAF60HPYQEHTzZzfDkhFmwO8757W2ipF6Gua4pYmhTLCRR7gsG9S2InAohFyKvDw==" />
+    </item>
+
+    <item>
       <title>Version 1.2.1</title>
       <description><![CDATA[
         - New: Connectors (Alpha) — Create GitHub issues and Linear tickets directly from your clipboard
