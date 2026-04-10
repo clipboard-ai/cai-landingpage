@@ -36,7 +36,29 @@
         <svg class="apple-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
         <span>Download for Free</span>
       </a>
-      <a href="https://github.com/cai-layer/cai/releases/latest" class="version-info" target="_blank" rel="noopener noreferrer">v1.3.0 &nbsp;|&nbsp; macOS</a>
+      <div class="version-row">
+        <a href="https://github.com/cai-layer/cai/releases/latest" class="version-info" target="_blank" rel="noopener noreferrer">v1.3.0</a>
+        <span class="version-sep">&nbsp;|&nbsp;</span>
+        <button class="brew-link" id="brew-trigger">Install via Homebrew</button>
+      </div>
+    </div>
+
+    <!-- Homebrew modal -->
+    <div class="brew-modal-overlay" id="brew-overlay">
+      <div class="brew-modal">
+        <h3 class="brew-modal-title">Install via Homebrew</h3>
+        <p class="brew-modal-desc">To install Cai, run the following command in your terminal:</p>
+        <div class="brew-command-row">
+          <code class="brew-command">$ brew tap cai-layer/cai && brew install --cask cai</code>
+          <button class="brew-copy-icon" id="brew-copy-icon" aria-label="Copy command">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+        </div>
+        <div class="brew-modal-actions">
+          <button class="brew-btn brew-btn-cancel" id="brew-cancel">Cancel</button>
+          <button class="brew-btn brew-btn-copy" id="brew-copy">Copy</button>
+        </div>
+      </div>
     </div>
 
     <div class="hero-demo">
@@ -57,6 +79,46 @@
     </div>
   </div>
 </section>
+
+<script>
+  const trigger = document.getElementById('brew-trigger');
+  const overlay = document.getElementById('brew-overlay');
+  const cancelBtn = document.getElementById('brew-cancel');
+  const copyBtn = document.getElementById('brew-copy');
+  const copyIcon = document.getElementById('brew-copy-icon');
+  const command = 'brew tap cai-layer/cai && brew install --cask cai';
+
+  function openModal() {
+    overlay?.classList.add('active');
+  }
+
+  function closeModal() {
+    overlay?.classList.remove('active');
+  }
+
+  function copyCommand() {
+    navigator.clipboard.writeText(command).then(() => {
+      if (copyBtn) {
+        copyBtn.textContent = 'Copied!';
+        setTimeout(() => {
+          copyBtn.textContent = 'Copy';
+          closeModal();
+        }, 1200);
+      }
+    });
+  }
+
+  trigger?.addEventListener('click', openModal);
+  cancelBtn?.addEventListener('click', closeModal);
+  copyBtn?.addEventListener('click', copyCommand);
+  copyIcon?.addEventListener('click', copyCommand);
+  overlay?.addEventListener('click', (e) => {
+    if (e.target === overlay) closeModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+  });
+</script>
 
 <style>
   .hero {
@@ -235,10 +297,15 @@
     height: 18px;
   }
 
-  .version-info {
-    display: block;
+  .version-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-top: 1rem;
-    text-align: center;
+    gap: 0;
+  }
+
+  .version-info {
     color: #C0C0C0;
     font-size: 0.85rem;
     font-family: 'SF Mono', 'Fira Code', monospace;
@@ -249,6 +316,139 @@
 
   .version-info:hover {
     color: #FFFFFF;
+  }
+
+  .version-sep {
+    color: #606060;
+    font-size: 0.85rem;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+  }
+
+  .brew-link {
+    background: none;
+    border: none;
+    color: #C0C0C0;
+    font-size: 0.85rem;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.2s ease;
+  }
+
+  .brew-link:hover {
+    color: #FFFFFF;
+  }
+
+  /* Homebrew modal */
+  .brew-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .brew-modal-overlay.active {
+    display: flex;
+  }
+
+  .brew-modal {
+    background: #1A1A1A;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 480px;
+    width: calc(100% - 2rem);
+    text-align: center;
+    animation: scale-in 0.2s ease-out;
+  }
+
+  .brew-modal-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 0.5rem;
+  }
+
+  .brew-modal-desc {
+    font-size: 0.9rem;
+    color: #909090;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+  }
+
+  .brew-command-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .brew-command {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.9rem;
+    color: #E0E0E0;
+    letter-spacing: 0.01em;
+  }
+
+  .brew-copy-icon {
+    background: none;
+    border: none;
+    color: #909090;
+    cursor: pointer;
+    padding: 0.2rem;
+    transition: color 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .brew-copy-icon:hover {
+    color: #FFFFFF;
+  }
+
+  .brew-modal-actions {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .brew-btn {
+    flex: 1;
+    padding: 0.7rem 1.25rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .brew-btn-cancel {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #C0C0C0;
+  }
+
+  .brew-btn-cancel:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+
+  .brew-btn-copy {
+    background: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    color: #1A1A1A;
+  }
+
+  .brew-btn-copy:hover {
+    background: #F0F0F0;
   }
 
   .cta-button:active {
