@@ -83,7 +83,7 @@ const customFeatures = [
     <div class="shell-container">
       <p class="shell-eyebrow">For Power Users: if it runs in <span class="highlight">Terminal</span>, it runs in Cai.</p>
       <div class="shell-commands">
-        <code class="shell-code">$ lsof -ti :3000 | xargs kill -9</code>
+        <code class="shell-code">$ lsof -ti :<span class="shell-var">{'{{selected text}}'}</span> | xargs kill -9</code>
         <code class="shell-code">$ gh pr list --search "<span class="shell-var">{'{{selected text}}'}</span>"</code>
         <code class="shell-code">$ echo -n '<span class="shell-var">{'{{selected text}}'}</span>' | base64</code>
       </div>
