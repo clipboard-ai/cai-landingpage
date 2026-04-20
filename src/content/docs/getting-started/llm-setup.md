@@ -62,8 +62,10 @@ Want to use a different or larger model? Cai works with any OpenAI-compatible se
 | **Open WebUI** | `http://127.0.0.1:8080/v1` | [Install](https://openwebui.com) → Enable OpenAI API |
 | **GPT4All** | `http://127.0.0.1:4891/v1` | [Download](https://gpt4all.io) → Enable API server |
 | **OpenAI** | `https://api.openai.com/v1` | [Get API key](https://platform.openai.com) → Enter in Cai settings |
+| **Anthropic** | `https://api.anthropic.com/v1` | [Get API key](https://console.anthropic.com) → Enter in Cai settings |
 | **Google Gemini** | `https://generativelanguage.googleapis.com/v1beta/openai` | [Get API key](https://aistudio.google.com/apikey) → Enter in Cai settings |
 | **Mistral** | `https://api.mistral.ai/v1` | [Get API key](https://console.mistral.ai) → Enter in Cai settings |
+| **OpenRouter** | `https://openrouter.ai/api/v1` | [Get API key](https://openrouter.ai/keys) → Enter in Cai settings |
 | **Custom** | User-defined | Any OpenAI-compatible server (local or cloud) |
 
 ### How to Configure
