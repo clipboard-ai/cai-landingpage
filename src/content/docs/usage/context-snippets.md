@@ -51,24 +51,27 @@ osascript -e 'id of app "Visual Studio Code"'
 
 ### 3. Add a snippet
 
-Edit `~/.config/cai/snippets.json`:
+Edit `~/.config/cai/snippets.json`. Only three fields are required — `bundleId`, `appName`, and `context`:
 
 ```json
 {
   "version": 1,
   "snippets": [
     {
-      "id": "00000000-0000-0000-0000-000000000001",
       "bundleId": "com.apple.Terminal",
       "appName": "Terminal",
-      "context": "I'm debugging a Rails 7 e-commerce app. Errors are usually from `rails logs`, `rspec`, or `bundle exec`. Assume Ruby/Rails context.",
-      "enabled": true
+      "context": "I'm debugging a Rails 7 app. Errors are usually from `rails logs`, `rspec`, or `bundle exec`. Assume Ruby/Rails context."
     }
   ]
 }
 ```
 
 Save the file.
+
+**Optional fields:**
+
+- `id` — a UUID. Auto-generated if omitted. Only matters once the v1.4 Settings UI ships edit functionality.
+- `enabled` — defaults to `true` if omitted. Set to `false` to keep a snippet around without using it.
 
 ### 4. Restart Cai
 
@@ -80,17 +83,15 @@ Live reload (pick up file changes without restarting) is on the roadmap for a fu
 
 ## Example Snippets
 
-Copy-paste these as starting points. Generate fresh UUIDs with `uuidgen` in Terminal, or use the zeros placeholder (Cai accepts any valid UUID).
+Copy-paste these as starting points. Each snippet needs just three fields.
 
 ### Terminal — Rails/backend debugging
 
 ```json
 {
-  "id": "00000000-0000-0000-0000-000000000001",
   "bundleId": "com.apple.Terminal",
   "appName": "Terminal",
-  "context": "I work on a Rails 7 e-commerce app with Postgres and Sidekiq. When I copy from Terminal, the content is almost always from `rails logs`, `rspec`, `bundle exec`, or `git`. Assume Ruby/Rails context. Be concise — I just need the gist, not a tutorial.",
-  "enabled": true
+  "context": "I work on a Rails 7 e-commerce app with Postgres and Sidekiq. When I copy from Terminal, the content is almost always from `rails logs`, `rspec`, `bundle exec`, or `git`. Assume Ruby/Rails context. Be concise — I just need the gist, not a tutorial."
 }
 ```
 
@@ -98,11 +99,9 @@ Copy-paste these as starting points. Generate fresh UUIDs with `uuidgen` in Term
 
 ```json
 {
-  "id": "00000000-0000-0000-0000-000000000002",
   "bundleId": "com.apple.mail",
   "appName": "Mail",
-  "context": "When I copy from Mail, I'm drafting a reply to a coworker or client. Match the sender's tone — casual if they're casual, formal if they're formal. Keep replies to 2-3 short paragraphs max. No greetings or sign-offs unless the original message has them.",
-  "enabled": true
+  "context": "When I copy from Mail, I'm drafting a reply to a coworker or client. Match the sender's tone — casual if they're casual, formal if they're formal. Keep replies to 2-3 short paragraphs max. No greetings or sign-offs unless the original message has them."
 }
 ```
 
@@ -110,11 +109,9 @@ Copy-paste these as starting points. Generate fresh UUIDs with `uuidgen` in Term
 
 ```json
 {
-  "id": "00000000-0000-0000-0000-000000000003",
   "bundleId": "com.tinyspeck.slackmacgap",
   "appName": "Slack",
-  "context": "When I copy from Slack, I'm replying to a teammate. Match their tone. Keep it under 3 sentences unless the question needs more. Don't use emoji unless the sender used one first. We use BUG: / FEAT: / CHORE: prefixes when referencing issues.",
-  "enabled": true
+  "context": "When I copy from Slack, I'm replying to a teammate. Match their tone. Keep it under 3 sentences unless the question needs more. Don't use emoji unless the sender used one first. We use BUG: / FEAT: / CHORE: prefixes when referencing issues."
 }
 ```
 
@@ -122,11 +119,9 @@ Copy-paste these as starting points. Generate fresh UUIDs with `uuidgen` in Term
 
 ```json
 {
-  "id": "00000000-0000-0000-0000-000000000004",
   "bundleId": "com.microsoft.VSCode",
   "appName": "Visual Studio Code",
-  "context": "When I copy from VS Code, the content is source code or a code review comment. Explain code in plain English without dumbing it down. For reviews, be direct but constructive — point out real issues, suggest concrete improvements, no softening.",
-  "enabled": true
+  "context": "When I copy from VS Code, the content is source code or a code review comment. Explain code in plain English without dumbing it down. For reviews, be direct but constructive — point out real issues, suggest concrete improvements, no softening."
 }
 ```
 
@@ -134,11 +129,9 @@ Copy-paste these as starting points. Generate fresh UUIDs with `uuidgen` in Term
 
 ```json
 {
-  "id": "00000000-0000-0000-0000-000000000005",
   "bundleId": "com.github.GitHubDesktop",
   "appName": "GitHub Desktop",
-  "context": "When I copy from GitHub Desktop, I'm writing an issue title or PR description. Use BUG:, FEAT:, CHORE:, or DOCS: prefixes for titles. Keep titles under 60 characters. Descriptions follow the 'what / why / how' format.",
-  "enabled": true
+  "context": "When I copy from GitHub Desktop, I'm writing an issue title or PR description. Use BUG:, FEAT:, CHORE:, or DOCS: prefixes for titles. Keep titles under 60 characters. Descriptions follow the 'what / why / how' format."
 }
 ```
 
@@ -146,11 +139,9 @@ Copy-paste these as starting points. Generate fresh UUIDs with `uuidgen` in Term
 
 ```json
 {
-  "id": "00000000-0000-0000-0000-000000000006",
   "bundleId": "com.apple.Safari",
   "appName": "Safari",
-  "context": "When I copy from Safari, it's usually a blog post, article, or documentation I'm researching. Summarize for future reference — I want the key takeaway, not a rehash of the whole thing. Bullet points for multiple points, prose for single-idea content.",
-  "enabled": true
+  "context": "When I copy from Safari, it's usually a blog post, article, or documentation I'm researching. Summarize for future reference — I want the key takeaway, not a rehash of the whole thing. Bullet points for multiple points, prose for single-idea content."
 }
 ```
 
@@ -163,11 +154,9 @@ Copy-paste these as starting points. Generate fresh UUIDs with `uuidgen` in Term
   "version": 1,
   "snippets": [
     {
-      "id": "<UUID>",
       "bundleId": "<reverse-DNS app identifier>",
       "appName": "<display name shown in AI prompts>",
-      "context": "<your instructions, ~500 chars works best>",
-      "enabled": true
+      "context": "<your instructions, ~500 chars works best>"
     }
   ]
 }
@@ -177,16 +166,15 @@ Copy-paste these as starting points. Generate fresh UUIDs with `uuidgen` in Term
 |---|---|---|---|
 | `version` | integer | ✅ | Always `1` for now. Future versions will migrate automatically. |
 | `snippets` | array | ✅ | Empty array `[]` is valid (no snippets configured). |
-| `snippets[].id` | UUID string | ✅ | **Must be a valid UUID** (format: `XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX`). Generate one with `uuidgen` in Terminal. |
 | `snippets[].bundleId` | string | ✅ | Reverse-DNS bundle ID. Find with `osascript -e 'id of app "AppName"'`. |
 | `snippets[].appName` | string | ✅ | Display name. Shown in the AI prompt header (`[App context: Terminal]`). |
 | `snippets[].context` | string | ✅ | Your instructions to Cai. Plain text. ~500 chars works best — longer is allowed but small models pay less attention to long instructions. |
-| `snippets[].enabled` | boolean | ✅ | Set to `false` to temporarily disable a snippet without deleting it. |
+| `snippets[].id` | UUID string | ⬜ | Optional. Auto-generated if omitted. Only matters once the v1.4 Settings UI ships edit functionality. Format: `XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX`. |
+| `snippets[].enabled` | boolean | ⬜ | Optional. Defaults to `true`. Set to `false` to keep a snippet around without using it. |
 
 ### Rules
 
 - Each `bundleId` should appear at most once. If you have duplicates, the first **enabled** one wins.
-- Each snippet must have a valid UUID in the `id` field — Cai's JSON decoder rejects anything else and falls back to "no snippets loaded."
 - The whole file loads once at startup. **Restart Cai for changes to take effect.**
 - If the file has a JSON error, Cai keeps running normally — you just won't get per-app enrichment until you fix the file.
 
@@ -243,7 +231,7 @@ If `jq` reports an error, that's the issue. Common causes:
 - Missing comma between fields
 - Trailing comma after the last item in an array
 - Unquoted strings (every key and string value must be in `"double quotes"`)
-- Invalid UUID in the `id` field (must be `XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX` format)
+- Invalid UUID in the optional `id` field (if present, must be `XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX` format — or omit the field entirely)
 
 Fix the file, restart Cai, and the toast will go away.
 

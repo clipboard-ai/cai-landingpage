@@ -284,16 +284,18 @@ const breadcrumbData = {
     margin: 1.25rem 0;
     border-radius: 10px;
     overflow-x: auto;
+    background: #1e1e2e;
   }
 
   .docs-content pre > code {
     display: block;
-    background: #1e1e2e !important;
+    background: transparent !important;
     color: #cdd6f4 !important;
-    border-radius: 10px;
     padding: 1.2rem;
     font-size: 0.85rem;
     line-height: 1.6;
+    width: max-content;
+    min-width: 100%;
   }
 
   /* Tables */
@@ -346,11 +348,19 @@ const breadcrumbData = {
     margin-bottom: 0.5rem;
   }
 
-  /* Horizontal rule */
+  /* Horizontal rule — used as major section separator */
   .docs-content hr {
     border: none;
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
-    margin: 2rem 0;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(167, 139, 250, 0.35) 20%,
+      rgba(247, 133, 149, 0.35) 80%,
+      transparent 100%
+    );
+    margin: 4rem 0;
+    border-radius: 2px;
   }
 
   /* Images */

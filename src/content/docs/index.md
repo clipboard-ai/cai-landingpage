@@ -5,23 +5,23 @@ description: "Documentation for Cai, the AI-powered action layer for macOS. Inst
 
 # Cai Documentation
 
-Turn your clipboard into an AI hub. Select any text, get smart actions.
+Press ⌥C on anything. Run custom actions, locally.
 
 ## Quick Start
 
 1. [Download & install Cai](/docs/getting-started/installation/)
 2. [Set up a local LLM](/docs/getting-started/llm-setup/) (optional — for AI-powered actions)
-3. Select any text and press **⌥C**
+3. Select any text or image and press **⌥C**
 
 ## What is Cai?
 
-Cai is a native macOS menu bar app that detects what's on your clipboard and offers context-aware actions. Copy a meeting invite and it creates a calendar event. Copy an address and it opens Maps. Copy any text and ask your local AI to summarize, translate, or do anything you want — all without leaving your keyboard.
+Cai is a native macOS menu bar app that turns what you select into action. Select a meeting invite and it creates a calendar event. Select an address and it opens Maps. Select any text and ask AI to summarize, translate, or run a shell script — all without leaving your keyboard.
 
-- **Flexible** — Apple Intelligence (recommended), built-in model, local servers, or cloud providers
-- **Privacy first** — your clipboard data never leaves your machine
-- **Context aware** — detects what app you're in and tailors actions to fit (e.g. Reply in email vs Slack)
-- **Keyboard driven** — trigger with ⌥C, navigate and execute with keyboard shortcuts
-- **No accounts, no cloud, no telemetry**
+- **Simple and fast** — one shortcut, one menu, no launcher or bloat
+- **Flexible models** — built-in MLX (default), Apple Intelligence, or any local/cloud provider
+- **Context aware** — Reply adapts to email vs Slack; actions adapt to content type
+- **Keyboard first** — trigger with ⌥C, navigate with arrows, execute with ⌘1–9
+- **Local by default** — no accounts, no forced cloud, no telemetry
 
 ## Guides
 

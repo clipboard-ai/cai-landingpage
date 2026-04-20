@@ -1,6 +1,6 @@
 ---
 title: "Installation"
-description: "Download and install Cai on macOS. Requirements, first launch setup, accessibility permissions, and building from source."
+description: "Download and install Cai on macOS. Requirements, first launch setup, and accessibility permissions."
 ---
 
 # Installation
@@ -10,13 +10,17 @@ description: "Download and install Cai on macOS. Requirements, first launch setu
 1. Download the `.dmg` from the [latest release](https://github.com/cai-layer/cai/releases/latest)
 2. Open the DMG and drag **Cai.app** to your Applications folder
 3. Open the app and grant Accessibility permission (see [First Launch Setup](#first-launch-setup) below)
-4. On macOS 26+, Cai uses Apple Intelligence automatically. On older versions, a built-in model downloads on first launch — or configure your own LLM server in Preferences
+4. A built-in MLX model downloads on first launch. You can switch to Apple Intelligence (macOS 26+) or connect your own provider in Preferences at any time — see [LLM Setup](/docs/getting-started/llm-setup/)
+
+---
 
 ## Requirements
 
 - **macOS 13.0** (Ventura) or later
 - **Accessibility permission** (for the global hotkey ⌥C)
-- **Local LLM server** (optional — Cai includes a built-in model, but you can connect your own local or cloud server)
+- **LLM provider** — Cai includes a built-in model. You can also use Apple Intelligence (macOS 26+) or any local/cloud provider
+
+---
 
 ## First Launch Setup
 
@@ -28,16 +32,8 @@ On first launch, Cai will ask for Accessibility permission. This is required so 
 
 You're all set! Press **⌥C** with any text selected to start using Cai.
 
-## Build from Source
+---
 
-```bash
-git clone https://github.com/cai-layer/cai.git
-cd cai/Cai
-open Cai.xcodeproj
-```
+## Building from Source
 
-In Xcode:
-1. Select the **Cai** scheme and **My Mac** as destination
-2. **Product → Run** (⌘R)
-
-> **Note:** The app requires Accessibility permission and runs without App Sandbox (required for global hotkey and CGEvent posting).
+Want to build Cai yourself or contribute? See [Build from Source](https://github.com/cai-layer/cai#build-from-source) in the repository README.
