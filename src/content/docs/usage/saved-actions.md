@@ -43,6 +43,16 @@ Save a shell command that runs with your clipboard text. Use this to automate wo
 
 > **Caution:** Shell actions execute with your user-level permissions and can modify files, send network requests, and control other applications. Only create shell actions if you understand exactly what the command does. Never paste commands from untrusted sources.
 
+## Auto Replace Selection
+
+For **Prompt** actions, you can enable the **"Auto replace selection"** toggle. When triggered, the action:
+
+1. Dismisses Cai immediately
+2. Runs the LLM in the background
+3. Pastes the result directly over your original selection
+
+This skips the result view entirely. Perfect for actions like "Fix Grammar," "Translate to German," or "Make Professional" where you always want the result to replace the source text.
+
 ## Creating Custom Actions
 
 1. Left-click the **Cai menu bar icon** to open Preferences
@@ -51,7 +61,8 @@ Save a shell command that runs with your clipboard text. Use this to automate wo
    - **Name** — what you'll see in the action list
    - **Type** — Prompt, URL, or Shell
    - **Value** — the prompt instruction, URL template (use `%s` for the clipboard text), or shell command
-4. Click **Save**
+4. For Prompt actions, optionally enable **"Auto replace selection"** to replace the selected text inline
+5. Click **Save**
 
 You can edit or delete existing custom actions from the same screen.
 

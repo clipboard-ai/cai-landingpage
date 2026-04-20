@@ -5,11 +5,26 @@ description: "Send Cai results to any app or service. Configure webhooks, AppleS
 
 # Custom Destinations
 
-By default, Cai copies results to your clipboard. Custom destinations let you send text to any app or service instead — post to Slack, save to Bear, create a GitHub issue, and more.
+By default, Cai copies results to your clipboard. You can also replace your original selection inline, or send results to any app or service.
 
 Destinations can receive AI-processed text (after an action runs) or your raw clipboard text directly.
 
-## Destination Types
+## Replace Selection
+
+**Replace Selection** is a built-in destination that pastes the AI result directly over the text you originally selected, replacing it inline. It's enabled by default and pinned to **⌘1** in the result view.
+
+When you use it, Cai:
+
+1. Dismisses the action window
+2. Reactivates the app you were in
+3. Pastes the AI result over your selection
+4. Restores your original clipboard contents
+
+This is perfect for "fix grammar and replace," "translate in place," or any action where you want the result to overwrite the source text.
+
+> **Safety:** If you switch to a different app while Cai is processing, it won't paste into the wrong window. Instead, it copies the result to your clipboard so you can paste manually.
+
+## Custom Destination Types
 
 | Type              | Use Case                                | Example                                       |
 | ----------------- | --------------------------------------- | --------------------------------------------- |
