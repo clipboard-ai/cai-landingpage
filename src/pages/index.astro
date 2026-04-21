@@ -91,7 +91,7 @@ const customFeatures = [
           <span class="terminal-dot dot-red"></span>
           <span class="terminal-dot dot-yellow"></span>
           <span class="terminal-dot dot-green"></span>
-          <span class="terminal-label">cai — custom action</span>
+          <span class="terminal-label">cai — shell action</span>
         </div>
         <div class="terminal-body">
           <code class="terminal-line">$ lsof -ti :<span class="terminal-var">{'{{selected text}}'}</span> | xargs kill -9</code>
@@ -99,7 +99,20 @@ const customFeatures = [
         </div>
       </div>
 
-      <p class="library-caption">If it runs in Terminal, it runs in Cai.</p>
+      <div class="terminal-window">
+        <div class="terminal-chrome">
+          <span class="terminal-dot dot-red"></span>
+          <span class="terminal-dot dot-yellow"></span>
+          <span class="terminal-dot dot-green"></span>
+          <span class="terminal-label">cai — prompt action</span>
+        </div>
+        <div class="terminal-body">
+          <code class="terminal-line"><span class="terminal-prefix">✦</span> Translate to a git command: <span class="terminal-var">{'{{selected text}}'}</span></code>
+          <code class="terminal-line terminal-example"><span class="terminal-arrow">→</span> "undo last 2 commits" <span class="terminal-arrow">→</span> <span class="terminal-result">git reset --soft HEAD~2</span></code>
+        </div>
+      </div>
+
+      <p class="library-caption">If it runs in Terminal or as a prompt, it runs in Cai.</p>
     </div>
   </section>
 
@@ -259,6 +272,26 @@ const customFeatures = [
 
   .terminal-var {
     color: #A78BFA;
+  }
+
+  .terminal-prefix {
+    color: #A78BFA;
+    margin-right: 0.35rem;
+  }
+
+  .terminal-example {
+    color: #707070;
+    font-size: 0.82rem;
+    padding-left: 1.1rem;
+  }
+
+  .terminal-arrow {
+    color: #505050;
+    margin: 0 0.35rem;
+  }
+
+  .terminal-result {
+    color: #8EC07C;
   }
 
   .library-caption {

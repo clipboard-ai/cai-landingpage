@@ -1,17 +1,13 @@
 ---
 import lmStudioLogo from '../assets/images/logo-lm-studio.png';
 import ollamaLogo from '../assets/images/logo-ollama.png';
-import janAiLogo from '../assets/images/logo-jan-ai.png';
-import gpt4allLogo from '../assets/images/logo-gpt4all.png';
-import openWebUiLogo from '../assets/images/logo-open-webui.png';
-import localAiLogo from '../assets/images/logo-local-ai.png';
+import openRouterLogo from '../assets/images/logo-openrouter.svg';
+import huggingFaceLogo from '../assets/images/logo-hf.svg';
 const localProviders = [
   { name: "LM Studio", logo: lmStudioLogo },
   { name: "Ollama", logo: ollamaLogo },
-  { name: "Jan AI", logo: janAiLogo },
-  // { name: "GPT4All", logo: gpt4allLogo },
-  // { name: "Open WebUI", logo: openWebUiLogo },
-  // { name: "LocalAI", logo: localAiLogo }
+  { name: "OpenRouter", logo: openRouterLogo },
+  { name: "Hugging Face", logo: huggingFaceLogo },
 ];
 ---
 
@@ -119,7 +115,7 @@ const localProviders = [
 
   .provider-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
     max-width: 800px;
     margin: 0 auto 2.5rem;
@@ -245,7 +241,7 @@ const localProviders = [
     }
 
     .provider-grid {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 1rem;
       max-width: 100%;
     }
