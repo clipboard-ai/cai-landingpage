@@ -1,0 +1,71 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import ComparisonPage from '../../components/ComparisonPage.astro';
+import Footer from '../../components/Footer.astro';
+
+// Factual claims checked 2026-04-21. BoltAI supports: Apple Foundation Models (macOS 26+), inline AI on
+// selected text with saved prompts, MCP (local + remote, per-agent), Shell Access Plugin (bash tool for AI),
+// OCR, Screenshot Chat, 300+ models via providers. Pricing: $79 Essential / $99 Pro one-time (was $199).
+// Differentiation must be honest.
+
+const data = {
+  competitor: {
+    name: "BoltAI",
+    url: "https://boltai.com"
+  },
+  tldr: "BoltAI is a native Mac AI app: chat window as the primary interface, plus inline AI that runs saved prompts on selected text via keyboard shortcut. $79 Essential / $99 Pro one-time license. Cai is action-shaped, not chat-shaped: the default interaction is a selection-first action menu with auto-detected content types, a bundled local model (Ministral 3B via MLX, no external server), zero-config GitHub and Linear MCP, YAML community extensions, and first-class custom destinations. Cai is free and MIT-licensed.",
+  features: [
+    { name: "Default primitive", cai: "Select → ⌥C → action menu", competitor: "Chat window + inline (select → hotkey → saved prompt)" },
+    { name: "Content-aware action surfacing", cai: true, competitor: false },
+    { name: "Bundled local AI model (no external server)", cai: "Ministral 3B (MLX, in-process)", competitor: "Ollama / LM Studio required" },
+    { name: "Local AI", cai: true, competitor: "Via Ollama / LM Studio" },
+    { name: "Apple Intelligence (Foundation Models)", cai: true, competitor: true },
+    { name: "Cloud AI models", cai: "Via OpenRouter, API keys (BYO)", competitor: "300+ models, broad provider support" },
+    { name: "MCP support", cai: "Built-in GitHub + Linear (zero-config)", competitor: "Local + remote, per-agent manual config" },
+    { name: "Shell commands", cai: "Custom Shell actions on selection", competitor: "Shell Access Plugin (AI uses bash)" },
+    { name: "URL / shortcut actions on selection", cai: true, competitor: false },
+    { name: "Custom output destinations (webhook, deeplink, AppleScript, shell)", cai: true, competitor: false },
+    { name: "Replace selection inline", cai: true, competitor: true },
+    { name: "Community extensions (shareable YAML repo)", cai: true, competitor: "Agents + Prompt Library (per-user, not a public community repo)" },
+    { name: "OCR / Image to text", cai: true, competitor: true },
+    { name: "Multi-turn chat UI", cai: "Basic (Tab follow-up)", competitor: "Full chat, threads, forks" },
+    { name: "Image generation", cai: false, competitor: "Pro tier" },
+    { name: "Pricing", cai: "Free, MIT", competitor: "$79 Essential / $99 Pro (one-time)" },
+  ],
+  whenCompetitor: {
+    heading: "When to use BoltAI",
+    points: [
+      "You want a polished chat app as your daily AI interface, with threads, forks, and an AI workspace",
+      "You want 300+ cloud models from broad provider support with API-key management",
+      "You want image generation and web browsing plugins (Pro tier)",
+      "You're comfortable paying $79–$99 one-time for a perpetual license",
+    ]
+  },
+  whenCai: {
+    heading: "When to use Cai",
+    points: [
+      "You want action-shaped, not chat-shaped: select, press ⌥C, pick, done",
+      "You want a bundled local model that runs in-process, no Ollama or LM Studio install",
+      "You want GitHub and Linear as zero-config first-class actions, not per-agent MCP setup",
+      "You want custom destinations (webhook, AppleScript, deeplink, shell) as a first-class layer, not one-off scripts",
+      "You want MIT-licensed and open source, with YAML community extensions you can read and share",
+    ]
+  },
+  relatedComparisons: [
+    { name: "Raycast", slug: "raycast" },
+    { name: "ChatGPT", slug: "chatgpt" },
+    { name: "Alter", slug: "alter" },
+  ]
+};
+---
+
+<Layout
+  title="Cai vs BoltAI | Action Layer vs AI Chat on Mac"
+  description="Compare Cai and BoltAI for macOS. BoltAI is a native chat app with inline AI on selection, $79–$99 one-time. Cai is action-shaped: select, press ⌥C, done. Bundled local model, zero-config GitHub/Linear, first-class custom destinations. Free and MIT-licensed."
+  keywords="cai vs boltai, boltai alternative mac, free boltai alternative, selection triggered ai mac, local ai actions mac, ai action layer mac"
+>
+  <Navbar />
+  <ComparisonPage {...data} />
+  <Footer />
+</Layout>

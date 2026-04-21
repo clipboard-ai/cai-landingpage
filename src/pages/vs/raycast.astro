@@ -4,59 +4,67 @@ import Navbar from '../../components/Navbar.astro';
 import ComparisonPage from '../../components/ComparisonPage.astro';
 import Footer from '../../components/Footer.astro';
 
+// Factual claims checked 2026-04-21. Raycast has native Ollama local AI since v1.99 (free for all users),
+// native MCP since v1.98, built-in OCR in Search Screenshots + Clipboard History, Script Commands for shell,
+// and `{selection}` / `{clipboard}` placeholders in AI Commands. Differentiation must be honest.
+
 const data = {
   competitor: {
     name: "Raycast",
     url: "https://www.raycast.com"
   },
-  tldr: "Raycast is a powerful Mac launcher that replaces Spotlight — with a massive extension store, window management, snippets, and AI as a paid add-on ($8/mo). Cai is purpose-built for AI text actions: faster to learn, simpler to use, and completely free. If you want an all-in-one productivity hub, Raycast is great. If you want instant AI on your selected text without the complexity, Cai does that out of the box.",
+  tldr: "Raycast is a full productivity suite: launcher, window management, snippets, ~2,000 extensions, and AI (free local via Ollama, or $8/mo Pro for cloud). Both apps can run on selected text and both have MCP now. Cai is simpler and more focused: a selection-first action layer that auto-detects what you selected, ships a bundled local model with zero install, is MIT-licensed, and routes results anywhere. If you want a full Spotlight replacement, use Raycast. If you want a focused action layer that's free, open-source, and just works on any selection, use Cai.",
   features: [
-    { name: "Works inline on selected text", cai: true, competitor: false },
-    { name: "100% local / private by default", cai: true, competitor: false },
-    { name: "Free unlimited AI", cai: true, competitor: "50 msgs free, then $8/mo" },
-    { name: "Built-in AI model (no setup)", cai: true, competitor: false },
-    { name: "Open source", cai: true, competitor: false },
+    { name: "Default primitive", cai: "Select → ⌥C → action menu", competitor: "Command launcher (type to invoke)" },
+    { name: "Content-aware action surfacing", cai: true, competitor: false },
+    { name: "Bundled local AI model (no external server)", cai: "Ministral 3B (MLX, in-process)", competitor: "Ollama required (separate install)" },
+    { name: "Local AI (free)", cai: true, competitor: "Ollama integration (free)" },
+    { name: "Cloud AI", cai: "Via OpenRouter, API keys (BYO)", competitor: "$8/mo Pro (after 50 free msgs); +$8/mo for frontier" },
+    { name: "MCP support", cai: "Built-in GitHub + Linear (zero-config)", competitor: "Native (v1.98+), per-server manual config" },
     { name: "Apple Intelligence support", cai: true, competitor: false },
+    { name: "Open source (MIT)", cai: true, competitor: false },
+    { name: "Extension authoring", cai: "YAML (any editor, no build)", competitor: "React/TypeScript + build step" },
+    { name: "Extension ecosystem", cai: "Small, growing (YAML)", competitor: "~2,000 extensions" },
+    { name: "Custom output destinations (webhook, deeplink, AppleScript, shell)", cai: true, competitor: "Via per-script code only" },
+    { name: "Replace selection inline", cai: true, competitor: false },
     { name: "Launcher / Spotlight replacement", cai: false, competitor: true },
     { name: "Window management", cai: false, competitor: true },
-    { name: "Extension ecosystem", cai: "Community extensions", competitor: "Large store" },
     { name: "Clipboard history", cai: true, competitor: true },
-    { name: "OCR / Image to text", cai: true, competitor: false },
-    { name: "Custom shell actions", cai: true, competitor: false },
-    { name: "GitHub & Linear integration", cai: true, competitor: "Via extensions" },
-    { name: "Low learning curve", cai: true, competitor: false },
+    { name: "Shell commands on selected text", cai: true, competitor: true },
+    { name: "OCR / Image to text", cai: true, competitor: true },
   ],
   whenCompetitor: {
     heading: "When to use Raycast",
     points: [
-      "You want a full Spotlight replacement with launcher, snippets, and window management",
-      "You need a massive extension store with thousands of community integrations",
-      "You want an all-in-one productivity hub and don't mind the learning curve",
-      "You're OK paying $8/mo for unlimited AI (free tier has 50 messages)",
+      "You want a full Spotlight replacement with launcher, snippets, window management",
+      "You rely on a large extension store and don't mind writing TypeScript (with a build step) to ship your own",
+      "You're happy with a command-launcher workflow: open launcher, type command name, run",
+      "You want Raycast-specific features: Quicklinks, Notes, Focus, Translator, themes",
     ]
   },
   whenCai: {
     heading: "When to use Cai",
     points: [
-      "You want AI actions on selected text without opening a launcher",
-      "You want something fast and simple — press ⌥C and go",
-      "You want a built-in local AI model with zero setup",
-      "You need OCR, custom shell actions, and GitHub/Linear built in — not via plugins",
-      "You want a free, open-source tool — no subscription, no limits",
+      "You want a selection-first workflow: the action menu appears from what you selected, auto-sorted by content type",
+      "You want a bundled local model that works out of the box, no Ollama install required",
+      "You want MIT-licensed and fully open-source, verifiable end-to-end",
+      "You want GitHub and Linear as zero-config built-in actions, not per-server MCP setup",
+      "You want to author extensions in plain YAML, not ship a TypeScript build",
+      "You want to route results anywhere (webhook, AppleScript, deeplink, shell) via a first-class destinations layer",
     ]
   },
   relatedComparisons: [
+    { name: "BoltAI", slug: "boltai" },
     { name: "ChatGPT", slug: "chatgpt" },
-    { name: "Maccy", slug: "maccy" },
     { name: "Alter", slug: "alter" },
   ]
 };
 ---
 
 <Layout
-  title="Cai vs Raycast — Free AI Actions for Mac"
-  description="Compare Cai and Raycast for AI on macOS. Cai is a free, open-source AI action layer with a built-in local model. Raycast is a launcher with AI as a paid add-on."
-  keywords="cai vs raycast, raycast alternative mac, raycast ai alternative, free raycast alternative, ai actions mac"
+  title="Cai vs Raycast | Free Local AI Actions for Mac"
+  description="Compare Cai and Raycast. Both run on selected text, both have MCP, both run local AI. Cai is a focused, MIT-licensed action layer with a bundled local model, zero-config integrations, and YAML extensions. Raycast is a full productivity suite with a launcher and a large extension store."
+  keywords="cai vs raycast, raycast alternative mac, raycast ai alternative, free raycast alternative, ai actions mac, selection triggered ai mac, local ai mac"
 >
   <Navbar />
   <ComparisonPage {...data} />

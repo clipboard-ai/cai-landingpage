@@ -4,61 +4,68 @@ import Navbar from '../../components/Navbar.astro';
 import ComparisonPage from '../../components/ComparisonPage.astro';
 import Footer from '../../components/Footer.astro';
 
+// Factual claims checked 2026-04-21.
+// Alter: voice-first ("Think It. Say It. Done."), with AppSense screen-context awareness,
+// 2000+ service integrations (includes GitHub and Linear among them), 50+ cloud models via providers,
+// local AI via Ollama / LM Studio, meeting recording, x-url-callback bridging.
+// No evidence of native MCP support. No public community extension repo found.
+// Pricing: Free / Local+ $29/yr / Pro $240/yr / Lifetime $720.
+
 const data = {
   competitor: {
     name: "Alter",
     url: "https://alterhq.com"
   },
-  tldr: "Alter and Cai are both native macOS AI assistants that work across apps. Alter is voice-first and cloud-first — it reads your screen context, offers 50+ models, meeting recording, and voice dictation, with paid tiers up to $720. Cai is keyboard-first and local-first — open source, completely free, with a built-in AI model, custom shell actions, and GitHub/Linear integration out of the box.",
+  tldr: "Alter is voice-first: 'Think it. Say it. Done.' It reads your screen (AppSense), records meetings, and reaches 2,000+ services including GitHub and Linear. Free tier available; Pro $240/yr; Lifetime $720. Cai is keyboard-first and selection-triggered: select, press ⌥C, pick an action from a content-aware menu. Cai ships a bundled local model (Ministral 3B via MLX), has zero-config GitHub and Linear built-ins, and is MIT-licensed.",
   features: [
-    { name: "Works on selected text", cai: true, competitor: true },
-    { name: "Screen context awareness", cai: false, competitor: "AppSense" },
-    { name: "Voice control & dictation", cai: false, competitor: true },
-    { name: "100% local by default", cai: true, competitor: "Optional (via Ollama)" },
-    { name: "Free and open source", cai: true, competitor: "Free tier (paid: $240/yr)" },
-    { name: "Built-in AI model (no setup)", cai: true, competitor: false },
-    { name: "Cloud AI models (GPT-4, Claude, etc.)", cai: "Via external providers", competitor: "50+ built-in" },
-    { name: "Apple Intelligence support", cai: true, competitor: false },
+    { name: "Default primitive", cai: "Select → ⌥C → action menu", competitor: "Voice-first (speech → action)" },
+    { name: "Content-aware action surfacing", cai: true, competitor: "Via screen context (AppSense)" },
+    { name: "Bundled local AI model (no external server)", cai: "Ministral 3B (MLX, in-process)", competitor: "Ollama / LM Studio required" },
+    { name: "Local AI", cai: true, competitor: "Via Ollama / LM Studio" },
+    { name: "Cloud AI models", cai: "Via OpenRouter / API keys (BYO)", competitor: "50+ models (Pro)" },
+    { name: "Apple Intelligence (Foundation Models)", cai: true, competitor: false },
+    { name: "MCP support (zero-config GitHub, Linear)", cai: true, competitor: false },
+    { name: "GitHub & Linear integration", cai: "Built-in (zero-config)", competitor: "Via 2,000+ services integration layer" },
+    { name: "Custom shell actions on selection", cai: true, competitor: false },
+    { name: "URL / shortcut actions on selection", cai: true, competitor: "x-url-callback bridging" },
+    { name: "Custom output destinations (webhook, deeplink, AppleScript, shell)", cai: true, competitor: "Via x-url-callback + integrations" },
+    { name: "Community-shareable extensions (YAML)", cai: true, competitor: false },
+    { name: "Voice control / dictation", cai: false, competitor: true },
     { name: "Meeting recording & transcription", cai: false, competitor: true },
     { name: "OCR / Image to text", cai: true, competitor: true },
-    { name: "Custom shell actions", cai: true, competitor: false },
-    { name: "GitHub & Linear integration", cai: true, competitor: false },
-    { name: "Clipboard history", cai: true, competitor: false },
-    { name: "Build your own actions", cai: true, competitor: "80+ pre-built" },
-    { name: "Community extensions", cai: true, competitor: false },
+    { name: "Pricing", cai: "Free, MIT", competitor: "Free / Pro $240/yr / Lifetime $720" },
   ],
   whenCompetitor: {
     heading: "When to use Alter",
     points: [
-      "You prefer a voice-first workflow with dictation and voice commands",
-      "You want screen context awareness that reads your active app content",
+      "You want a voice-first workflow: dictation, voice commands, hands-free control",
       "You need meeting recording and transcription built in",
-      "You need 50+ cloud AI models with automatic model selection",
-      "You want integrations with Google Workspace, Hubspot, Notion",
+      "You want screen context awareness that reads your active app content (AppSense)",
+      "You want 50+ cloud AI models and deep integrations with 2,000+ services out of the box",
     ]
   },
   whenCai: {
     heading: "When to use Cai",
     points: [
-      "You prefer a keyboard-first workflow — press ⌥C and go",
-      "You want a local-first AI that works without an internet connection",
-      "You want a completely free, open-source tool with no paid tiers",
-      "You need custom shell actions, GitHub issues, and Linear tickets built in",
-      "You want to build your own actions with custom prompts, URLs, and shell commands",
+      "You prefer keyboard-first and selection-triggered: press ⌥C on what you selected and go",
+      "You want a bundled local model that works out of the box, no Ollama or LM Studio install",
+      "You want zero-config GitHub and Linear as first-class actions, not via a generic integrations layer",
+      "You want MIT-licensed, open source, and community-shareable YAML extensions",
+      "You want custom shell actions and URL actions as first-class primitives on any selection",
     ]
   },
   relatedComparisons: [
-    { name: "ChatGPT", slug: "chatgpt" },
+    { name: "BoltAI", slug: "boltai" },
     { name: "Raycast", slug: "raycast" },
-    { name: "Maccy", slug: "maccy" },
+    { name: "ChatGPT", slug: "chatgpt" },
   ]
 };
 ---
 
 <Layout
-  title="Cai vs Alter — Free Local AI for Mac"
-  description="Compare Cai and Alter for macOS. Both work across apps. Cai is free, open source, and local-first. Alter is cloud-first with paid tiers and meeting recording."
-  keywords="cai vs alter, alter alternative mac, alter ai alternative, free ai mac, local ai assistant mac"
+  title="Cai vs Alter | Free Local AI for Mac"
+  description="Compare Cai and Alter for macOS. Alter is voice-first with meeting recording, screen context, and 2,000+ service integrations. Cai is keyboard-first and selection-triggered, with a bundled local model, zero-config GitHub and Linear, and YAML community extensions. Free and MIT."
+  keywords="cai vs alter, alter alternative mac, alter ai alternative, free ai mac, local ai assistant mac, selection triggered ai mac"
 >
   <Navbar />
   <ComparisonPage {...data} />
