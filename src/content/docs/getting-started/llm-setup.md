@@ -52,6 +52,8 @@ Available on Macs with an M1 chip or later running **macOS 26+**. Apple Intellig
 Apple Intelligence handles all AI-powered actions: Summarize, Reply, Fix Grammar, Translate, Explain, and Ask AI. Select it from the model picker in **Settings**, no download or API key needed.
 
 > **Trade-off:** Apple Intelligence has a hard **4K token context window**, much smaller than typical local models (8K–32K) or cloud providers (128K+). This means long documents and long follow-up conversations may get truncated. For very long inputs, switch to a built-in MLX model or an external provider with a larger context window.
+>
+> Cai also caps total LLM input at **~50,000 characters** (system prompt + history + message) across all providers to prevent freezes. Oldest history is dropped first when the cap is hit. See [Limits](/docs/usage/how-it-works/#limits).
 
 ---
 

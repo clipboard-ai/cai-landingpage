@@ -91,3 +91,14 @@ Left-click the Cai menu bar icon to access Preferences:
 | **Model Provider** | Built-in, LM Studio, Ollama, Cloud, or Custom | Built-in |
 | **About You** | Personal context for AI responses (e.g. profession, tone) | Empty |
 | **Launch at Login** | Start Cai automatically | On |
+
+## Limits
+
+Cai is optimized for short-to-medium selections, not full documents. Two caps apply:
+
+| Cap | Limit | What happens when exceeded |
+|---|---|---|
+| **Clipboard history entry** | ~10,000 chars (~2,500 words) | Entries are clamped on save |
+| **LLM input** (system + history + message) | ~50,000 chars | Oldest conversation history is dropped first |
+
+Apple Intelligence has a tighter **4K token** context window. For long inputs, switch to Ministral 3B or an external provider. See [troubleshooting](/docs/troubleshooting/common-issues/#long-documents-get-truncated) for details.
