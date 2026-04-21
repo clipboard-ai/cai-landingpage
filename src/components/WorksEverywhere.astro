@@ -59,6 +59,10 @@ const apps = [
         </div>
       ))}
     </div>
+
+    <a href="/docs/usage/context-snippets/" class="snippets-link">
+      Power tip: teach Cai per-app context →
+    </a>
   </div>
 </section>
 
@@ -148,6 +152,21 @@ const apps = [
     font-size: 0.8rem;
     font-weight: 500;
     white-space: nowrap;
+  }
+
+  .snippets-link {
+    display: block;
+    text-align: center;
+    margin-top: 2.5rem;
+    color: #909090;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .snippets-link:hover {
+    color: var(--accent-light);
   }
 
   @media (max-width: 768px) {

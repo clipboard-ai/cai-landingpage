@@ -1,24 +1,36 @@
 ---
 const faqs = [
   {
+    question: "Is Cai really free?",
+    answer: "<p>Yes. Cai is free and open source — no subscription, no trial, no account required. If you choose to use a cloud model (like OpenAI or OpenRouter), you'll need their API key, but the app itself is free.</p>"
+  },
+  {
+    question: "How is Cai different from other tools?",
+    answer: "<p>Clipboard managers store and organize what you copy; Cai acts on it. And unlike ChatGPT or other AI tools that need you to switch to a separate app, Cai runs directly on your selected text in any app, without breaking your flow. Connect GitHub or Linear, then create issues or tickets without leaving what you're doing. It's a custom-action layer that runs locally on your Mac by default.</p><p>Detailed comparisons: <a href='/vs/maccy/'>vs Maccy</a>, <a href='/vs/chatgpt/'>vs ChatGPT</a>, <a href='/vs/raycast/'>vs Raycast</a>, <a href='/vs/boltai/'>vs Bolt AI</a>, <a href='/vs/alter/'>vs Alter</a>.</p>"
+  },
+  {
+    question: "Does Cai work offline?",
+    answer: "<p>Yes. The built-in models, Apple Intelligence, and local LLM providers all run on-device — everything works without internet. Cloud providers need internet, but that's optional.</p>"
+  },
+  {
     question: "Is Cai secure?",
     answer: "<p>Yes. By default, Cai runs locally on your Mac and nothing leaves the device. If you connect a cloud model, your selected text is sent only to that provider. The choice is yours.</p>"
   },
   {
-    question: "How is Cai different from other tools?",
-    answer: "<p>Clipboard managers store and organize what you copy; Cai acts on it. And unlike ChatGPT or other AI tools that need you to switch to a separate app, Cai runs directly on your selected text in any app, without breaking your flow. Connect GitHub or Linear, then create issues or tickets without leaving what you're doing. It's a custom-action layer that runs locally on your Mac by default.</p>"
+    question: "What models does Cai support?",
+    answer: "<p>Cai ships with Ministral 3B, Qwen 2.5 7B, Apple Intelligence on macOS 26+, local servers (LM Studio, Ollama) and cloud APIs like <a href='https://openrouter.ai' target='_blank' rel='noopener noreferrer'>OpenRouter</a>. You can also load any MLX model from the <a href='https://huggingface.co/mlx-community' target='_blank' rel='noopener noreferrer'>HuggingFace MLX community</a>. More info in our <a href='/docs/getting-started/llm-setup/'>docs</a>.</p>"
+  },
+  {
+    question: "How do I create custom actions?",
+    answer: "<p>You can create custom actions and destinations using AI prompts, URL templates, shell scripts, webhooks, deeplinks, and more. Open Cai's settings → Custom Actions to start. Full guide in the <a href='/docs/usage/saved-actions/'>docs</a>.</p><p>Browse community-shared actions at <a href='https://github.com/cai-layer/cai-extensions' target='_blank' rel='noopener noreferrer'>cai-extensions</a>.</p>"
+  },
+  {
+    question: "How do I connect GitHub or Linear?",
+    answer: "<p>Open Cai's settings → Connectors, paste a GitHub personal access token or Linear API key, and test the connection. \"Create GitHub Issue\" and \"Create Linear Ticket\" then appear in your action list. Step-by-step guide in the <a href='/docs/usage/connectors/'>docs</a>.</p>"
   },
   {
     question: "Why does Cai need Accessibility permissions?",
     answer: "<p>Cai uses the system hotkey ⌥C to copy your selected text via a simulated ⌘C. macOS requires Accessibility access for apps that interact with system-level keyboard commands. This is what lets Cai work in every app, from Safari to Slack to Terminal.</p><p>To enable it, open <strong>System Settings → Privacy & Security → Accessibility</strong> and toggle Cai on.</p>"
-  },
-  {
-    question: "What models does Cai support?",
-    answer: "<p>Cai ships with Ministral 3B built in as the default, on par with Apple Intelligence for most actions, with zero setup. The curated picker also includes Qwen 2.5 7B for Macs with 16 GB+ RAM. Cai supports Apple Intelligence on macOS 26+ (M1 or later), local servers like LM Studio, Ollama, or Jan AI, OpenAI-compatible cloud providers, and <a href='https://openrouter.ai' target='_blank' rel='noopener noreferrer'>OpenRouter</a> (400+ models through a single API key).</p><p>You can also load any model from the <a href='https://huggingface.co/mlx-community' target='_blank' rel='noopener noreferrer'>HuggingFace mlx-community</a> by entering its repo ID in Settings.</p>"
-  },
-  {
-    question: "How do I create custom actions?",
-    answer: "<p>Open Cai's settings and go to Custom Actions. You can create prompt actions (saved AI instructions), URL actions (templates with %s for your selected text), or shell actions that run commands on your selected text. Once saved, they appear in your action list for one-tap access.</p><p>You can also create custom destinations to route results anywhere: webhooks, deeplinks, AppleScript, or shell commands.</p><p>Browse and install actions shared by the community at <a href='https://github.com/cai-layer/cai-extensions' target='_blank' rel='noopener noreferrer'>cai-extensions</a>.</p>"
   }
 ];
 
