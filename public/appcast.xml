@@ -35,6 +35,29 @@
     </item>
 
     <item>
+      <title>Version 1.4.0</title>
+      <description><![CDATA[
+        <h3>Highlights</h3>
+        <ul>
+          <li><strong>Bring your own key: OpenRouter + Anthropic</strong> — point Cai at Claude, GPT, Gemini, DeepSeek, or any of OpenRouter's 400+ models</li>
+          <li><strong>Fire-and-forget workflows</strong> — Replace Selection destination (pinned to ⌘1) + auto-replace toggle on custom actions. A first taste of Cai running in the background.</li>
+          <li><strong>Resizable main panel</strong> — drag any edge or corner, Cai remembers your size</li>
+        </ul>
+        <p>Plus log redaction, paste-back reliability, MCP token fixes, and more.</p>
+        <p>Huge thanks to <a href="https://github.com/kilabyte">@kilabyte</a> for the paste-back workflow, resizable panel, and OpenRouter provider contributions.</p>
+        <p><a href="https://github.com/cai-layer/cai/releases/tag/v1.4.0">Full release notes →</a></p>
+      ]]></description>
+      <pubDate>Wed, 22 Apr 2026 00:05:16 +0000</pubDate>
+      <enclosure
+        url="https://github.com/cai-layer/cai/releases/download/v1.4.0/Cai-1.4.0-macos.dmg"
+        sparkle:version="7"
+        sparkle:shortVersionString="1.4.0"
+        length="19709235"
+        type="application/octet-stream"
+        sparkle:edSignature="BoAACaw6DZg2TvOnml+Tnm0XpRC0FVPvFUBjW4WFjI+kmuOWO+Ca82g2ALuMHWaSCA2wf3AUogvO4Jk7SGIQAw==" />
+    </item>
+
+    <item>
       <title>Version 1.3.0</title>
       <description><![CDATA[
         <h3>Highlights</h3>
