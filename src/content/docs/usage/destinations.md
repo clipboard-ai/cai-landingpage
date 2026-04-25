@@ -26,12 +26,12 @@ This is perfect for "fix grammar and replace," "translate in place," or any acti
 
 ## Custom Destination Types
 
-| Type              | Use Case                                | Example                                       |
-| ----------------- | --------------------------------------- | --------------------------------------------- |
-| **Webhook**       | Send to any API via HTTP POST/PUT/PATCH | Post to a Slack channel, create a Notion page |
-| **AppleScript**   | Control any macOS app                   | Add to Things, create an OmniFocus task       |
-| **URL Scheme**    | Open deep links with your text          | Save to Bear, open in Obsidian                |
-| **Shell Command** | Run terminal commands                   | `gh issue create`, pipe to a script           |
+| Type              | Use Case                                | Example                                            |
+| ----------------- | --------------------------------------- | -------------------------------------------------- |
+| **Webhook**       | Send to any API via HTTP POST/PUT/PATCH | Post to a Slack channel, create a Notion page      |
+| **AppleScript**   | Control any macOS app                   | Add to Things, Shortcuts, create an OmniFocus task |
+| **URL Scheme**    | Open deep links with your text          | Save to Bear, open in Obsidian                     |
+| **Shell Command** | Run terminal commands and scripts       | Append to a log file, pipe to a script             |
 
 > **Caution:** Shell Command and AppleScript destinations execute code on your Mac with your user-level permissions. They can modify files, send network requests, and control other applications. Only create these destinations if you understand exactly what the script does. Never paste commands from untrusted sources. The authors of Cai are not responsible for any damage or data loss caused by user-created scripts.
 
@@ -42,7 +42,9 @@ Use these placeholders in your destination templates:
 - **`{{result}}`**: your selected text or AI-processed text (auto-escaped for the destination type)
 - **`{{field_key}}`**: value from a setup field (e.g. `{{api_key}}` for API tokens)
 
-Text is automatically escaped based on the destination type — JSON encoding for webhooks, percent-encoding for URL schemes, AppleScript string escaping for AppleScript, and raw text for shell commands.
+Text is automatically escaped based on the destination type — JSON encoding for webhooks, percent-encoding for URL schemes, AppleScript string escaping for AppleScript, and single-quote wrapping for shell commands.
+
+> **Shell destinations differ from Shell custom actions.** In **destinations**, `{{result}}` is auto-wrapped in single quotes — write `curl -d {{result}}`, not `curl -d '{{result}}'`. In **custom actions**, you wrap the placeholder yourself (see [Custom Actions](/docs/usage/saved-actions/)).
 
 ## Setup Fields
 
@@ -67,10 +69,14 @@ Enable **"Show in action list"** to make a destination appear as a direct action
 
 ## Examples
 
-### Create a GitHub Issue
+### Append to a Daily Journal
 
 - **Type:** Shell Command
-- **Command:** `gh issue create --title "From Cai" --body "{{result}}"`
+- **Command:** `echo "[$(date '+%Y-%m-%d %H:%M')] {{result}}" >> ~/journal.md`
+
+Appends the result to a Markdown file with a timestamp — great for logging quick notes, ideas, or AI-generated summaries throughout the day.
+
+> **Sending to GitHub or Linear?** Use the [GitHub or Linear connector](/docs/usage/connectors/) instead of shelling out to `gh` — they provide structured forms, duplicate detection, and proper API integration.
 
 ### Save to Bear
 

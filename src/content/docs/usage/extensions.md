@@ -133,6 +133,24 @@ setup:
     secret: false
 ```
 
+### Shell Action
+
+Runs a shell command with your selected text. Shell actions can't be installed via clipboard for safety — create them locally in Cai's Custom Actions settings or install them through the in-app extension browser.
+
+```yaml
+# cai-extension
+name: Kill Port
+description: Kill the process running on a given port number
+author: your-github-username
+version: "1.0"
+tags: [developer, system]
+icon: xmark.circle.fill
+type: shell
+shell: lsof -ti :{{result}} | xargs kill -9 && echo "Killed process on port {{result}}"
+```
+
+Use `{{result}}` for your selected text. Note: substitution is **raw**, not escaped — always quote it (`'{{result}}'`) when the text may contain spaces or special characters.
+
 ### Deeplink Destination
 
 Opens a URL scheme / deep link with the result text:
@@ -152,11 +170,13 @@ deeplink: "bear://x-callback-url/create?text={{result}}"
 
 ### Template Placeholders
 
-| Placeholder     | Used in      | Description                                                        |
-| --------------- | ------------ | ------------------------------------------------------------------ |
-| `%s`            | URL actions  | Replaced with clipboard text (URL-encoded)                         |
-| `{{result}}`    | Destinations | Replaced with the text to send (auto-escaped per destination type) |
-| `{{field_key}}` | Destinations | Replaced with user-configured setup field value                    |
+| Placeholder     | Used in                               | Description                                                                                                                                                                |
+| --------------- | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `%s`            | URL actions (`type: url`)             | Replaced with selected text, **URL-encoded** automatically                                                                                                                 |
+| `{{result}}`    | Shell, webhook, deeplink, AppleScript | Replaced with selected text. Escaping varies by type: JSON for webhooks, percent-encoding for deeplinks, AppleScript escaping for AppleScript, **raw/unescaped for shell** |
+| `{{field_key}}` | Any destination with `setup:`         | Replaced with user-configured setup field value (from Keychain or UserDefaults)                                                                                            |
+
+> **Shell actions are raw.** `{{result}}` is substituted verbatim into shell commands. Always wrap it in quotes (`"{{result}}"` or `'{{result}}'`), and for URL-encoded use cases prefer a URL action over a shell action. See [cai-extensions shell examples](https://github.com/cai-layer/cai-extensions/tree/main/extensions) for working patterns.
 
 ### Setup Fields
 
