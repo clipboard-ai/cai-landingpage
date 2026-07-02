@@ -12,6 +12,28 @@
          Then fill in the enclosure attributes below. -->
 
     <item>
+      <title>Version 1.5.2</title>
+      <description><![CDATA[
+        <h3>Highlights</h3>
+        <ul>
+          <li><strong>Press Return to send</strong> — optional Slack/ChatGPT-style submit in Ask AI (off by default).</li>
+          <li><strong>Snappier, more reliable clipboard capture</strong> — Option+C no longer freezes on large items, and a copy made right before you quit is never lost.</li>
+        </ul>
+        <p>Also fixes custom OpenAI-compatible endpoints ending in <code>/v1</code>.</p>
+        <p><em>Updating from 1.5.1 or earlier? Due to a signing-key change you'll need to download this one manually from <a href="https://getcai.app">getcai.app</a> once. Auto-updates resume afterward.</em></p>
+        <p><a href="https://github.com/cai-layer/cai/releases/tag/v1.5.2">Full release notes →</a></p>
+      ]]></description>
+      <pubDate>Thu, 02 Jul 2026 21:45:56 +0000</pubDate>
+      <enclosure
+        url="https://github.com/cai-layer/cai/releases/download/v1.5.2/Cai-1.5.2-update.dmg"
+        sparkle:version="10"
+        sparkle:shortVersionString="1.5.2"
+        length="20312553"
+        type="application/octet-stream"
+        sparkle:edSignature="W5wZOUs4RYOITIa6kYxaVaE3Xx9/ZLDOOPUbMLZkCzjg4FnFyFSaKEBqtVvICYQNyU6M0WrE0krxaWsO7Q86DA==" />
+    </item>
+
+    <item>
       <title>Version 1.2.0</title>
       <description><![CDATA[
         - Apple Intelligence compatibility
