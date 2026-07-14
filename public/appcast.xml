@@ -12,6 +12,25 @@
          Then fill in the enclosure attributes below. -->
 
     <item>
+      <title>Version 1.5.3</title>
+      <description><![CDATA[
+        <h3>Fixed</h3>
+        <ul>
+          <li><strong>Model selection reverting on restart</strong> — Apple Intelligence (or any non-default model) now stays selected after you quit and relaunch Cai.</li>
+        </ul>
+        <p><a href="https://github.com/cai-layer/cai/releases/tag/v1.5.3">Full release notes →</a></p>
+      ]]></description>
+      <pubDate>Tue, 14 Jul 2026 18:26:55 +0000</pubDate>
+      <enclosure
+        url="https://github.com/cai-layer/cai/releases/download/v1.5.3/Cai-1.5.3-update.dmg"
+        sparkle:version="11"
+        sparkle:shortVersionString="1.5.3"
+        length="20303775"
+        type="application/octet-stream"
+        sparkle:edSignature="I5SPstrsoQX40CX0KhPi+jnACC2qsCpo3QLNJYuBiT/ev4kWgekhvmLddVeJeBFVdNe/WqRyFdWGzhKBrI74Aw==" />
+    </item>
+
+    <item>
       <title>Version 1.5.2</title>
       <description><![CDATA[
         <h3>Highlights</h3>
