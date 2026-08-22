@@ -4,7 +4,9 @@
 
 ## What is Cai?
 
-Cai is a macOS menu bar app. Select any text or image, press ⌥C, and run smart actions in one keystroke: AI prompts, terminal scripts, URL shortcuts, summaries, translations, OCR, GitHub issues (via MCP), Linear tickets. Save chains of actions: pipe a selection through an AI prompt, a script, and a destination with a single keystroke. It is selection-triggered and content-aware: Cai detects what you selected (code, email, address, image) and surfaces the right actions automatically.
+Cai is a macOS menu bar app. Select any text or image, press ⌥C, and run smart actions in one keystroke: AI prompts, terminal scripts, URL shortcuts, summaries, translations, OCR, GitHub issues, Linear tickets. Save chains of actions: pipe a selection through an AI prompt, a script, and a destination with a single keystroke. It is selection-triggered and content-aware: Cai detects what you selected (code, email, address, image) and surfaces the right actions automatically.
+
+Cai is also an MCP server: coding agents (Claude Code, Cursor, Codex, or any MCP-capable agent) can author Cai actions over MCP. The agent can only propose. Every proposal waits for approval as a reviewable diff with capability chips computed from the action itself. Once approved, the action runs locally from ⌥C without the agent, offline, with no per-run tokens.
 
 Unlike clipboard managers, Cai acts on your selection. It doesn't just store it. Unlike AI chat apps, it works inline without switching apps.
 
@@ -16,7 +18,10 @@ Ships with a built-in local AI model (Ministral 3B via MLX). No API key, no acco
 - Action chains: pipe one selection through AI prompts, scripts, destinations, and Apple Shortcuts in any order, saved as a single ⌥C action
 - Built-in local AI model (Ministral 3B via MLX). Works offline, no external server needed.
 - Apple Intelligence support (macOS 26+, M1 or later)
-- Create GitHub issues and Linear tickets from any app (via MCP, zero-config)
+- Agent-authored actions: Claude Code, Cursor, or Codex write actions over MCP; you approve a diff once, then the action runs locally from ⌥C forever, no agent and no tokens involved
+- Named secrets: store API tokens once, reference them in terminal scripts as {{secrets.NAME}}; values stay in the macOS Keychain, never visible to the model or the agent
+- On-demand macOS permissions: actions can use Calendar, Contacts, and Reminders; Cai asks the first time an action needs access
+- Create GitHub issues and Linear tickets from any app (built-in connectors)
 - Image to text (OCR) from screenshots and images
 - Replace Selection: paste AI results back over your original selection, in place
 - Custom actions: AI prompts, terminal/shell scripts, URL shortcuts
@@ -37,6 +42,7 @@ Ships with a built-in local AI model (Ministral 3B via MLX). No API key, no acco
 - Action-shaped, not chat-shaped. You select text, hit ⌥C, and pick an action. No prompt typing.
 - Selection-triggered, not command-launched. Cai already knows what you selected and shows the right actions.
 - One keystroke, multi-step. Save chains of actions and run them like any other action.
+- Agent-built, human-approved. Your coding agent writes the action; nothing runs until you approve the diff. After that it runs without the agent, offline, no tokens.
 - Local by default. Built-in model, no account required. Free and MIT-licensed.
 
 ## Comparisons
@@ -53,7 +59,9 @@ Ships with a built-in local AI model (Ministral 3B via MLX). No API key, no acco
 - Documentation: https://getcai.app/docs/
 - Action Chains guide: https://getcai.app/docs/usage/action-chains/
 - Custom Actions guide: https://getcai.app/docs/usage/saved-actions/
-- Custom Destinations guide: https://getcai.app/docs/usage/destinations/
+- Agent-Authored Actions guide: https://getcai.app/docs/usage/agent-actions/
+- Secrets guide: https://getcai.app/docs/usage/secrets/
+- Destinations guide: https://getcai.app/docs/usage/destinations/
 - GitHub: https://github.com/cai-layer/cai
 - Extensions: https://github.com/cai-layer/cai-extensions
 - Release Notes: https://github.com/cai-layer/cai/releases

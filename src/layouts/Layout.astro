@@ -12,8 +12,8 @@ interface Props {
 
 const {
   title,
-  description = "Cai is a free, open-source AI action layer for macOS. Select any text or image, press ⌥C, and run smart actions or chain them into pipelines: AI prompts, terminal scripts, OCR, GitHub issues, Linear tickets, Slack. Built-in local AI, no account needed. MIT licensed.",
-  keywords = "local AI macOS, AI actions macOS, macOS AI menu bar app, local LLM macOS app, AI action layer mac, AI action chains, chain AI actions mac, AI workflow mac, AI automation macOS, multi-step AI actions, open source AI macOS, Raycast alternative free, PopClip AI alternative, Apple Intelligence alternative, Shortcuts alternative with AI, clipboard AI mac, clipboard AI alternative, MLX macOS app, offline AI macOS, macOS text actions, create GitHub issues from terminal, create Linear tickets from clipboard, run terminal scripts on selected text, run shell scripts mac, selection triggered AI mac, smart actions mac, LM Studio, Ollama",
+  description = "Cai is a free, open-source AI action layer for macOS. Select any text or image, press ⌥C, and run smart actions or chains: AI prompts, terminal scripts, OCR, GitHub issues, Linear tickets. Let Claude Code, Cursor, or Codex write actions for you: approve once, run them locally with no tokens. Built-in local AI, no account needed. MIT licensed.",
+  keywords = "local AI macOS, AI actions macOS, macOS AI menu bar app, local LLM macOS app, AI action layer mac, AI action chains, chain AI actions mac, AI workflow mac, AI automation macOS, multi-step AI actions, open source AI macOS, agent authored actions, MCP server macOS, Claude Code actions mac, Cursor MCP, Codex MCP, agent automation macOS, Raycast alternative free, PopClip AI alternative, Apple Intelligence alternative, Shortcuts alternative with AI, clipboard AI mac, clipboard AI alternative, MLX macOS app, offline AI macOS, macOS text actions, create GitHub issues from terminal, create Linear tickets from clipboard, run terminal scripts on selected text, run shell scripts mac, selection triggered AI mac, smart actions mac, LM Studio, Ollama",
   noIndex = false,
   ogImage = "/images/social-media-sharing.png?v=2",
   viewTransitions = false
@@ -39,7 +39,7 @@ const structuredData = {
   "url": siteUrl,
   "image": fullOgImage,
   "downloadUrl": "https://github.com/cai-layer/cai/releases/latest",
-  "softwareVersion": "1.3.0",
+  "softwareVersion": "1.5.3",
   "datePublished": "2025-01-01",
   "author": {
     "@type": "Organization",
@@ -49,9 +49,11 @@ const structuredData = {
   "screenshot": new URL("/images/social-media-sharing.png", siteUrl).toString(),
   "featureList": [
     "Selection-triggered AI actions: select text, press ⌥C, pick an action",
+    "Agent-authored actions: Claude Code, Cursor, or Codex write actions over MCP; you approve a diff once, then they run locally with no agent and no tokens",
     "Action chains: pipe a selection through AI prompts, scripts, and destinations in one keystroke",
     "Built-in local AI model (Ministral 3B via MLX). No API key, no account needed.",
-    "Create GitHub issues and Linear tickets via MCP from any selected text or image",
+    "Create GitHub issues and Linear tickets from any selected text or image",
+    "Named secrets: API tokens stay in the macOS Keychain, referenced as {{secrets.NAME}} in terminal scripts",
     "Image to text OCR",
     "Custom actions: AI prompts, terminal/shell scripts, URL shortcuts",
     "Custom destinations: webhooks, deeplinks, AppleScript, shell commands",
