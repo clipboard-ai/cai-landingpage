@@ -4,7 +4,7 @@ import { ViewTransitions } from 'astro:transitions';
 interface Props {
   title: string;
   description?: string;
-  keywords?: string;
+  keywords?: string; // deprecated: Google ignores the keywords meta tag; accepted so /vs/ pages keep compiling, no longer rendered
   noIndex?: boolean;
   ogImage?: string;
   viewTransitions?: boolean;
@@ -12,8 +12,7 @@ interface Props {
 
 const {
   title,
-  description = "Cai is a free, open-source AI action layer for macOS. Select any text or image, press ⌥C, and run smart actions or chains: AI prompts, terminal scripts, OCR, GitHub issues, Linear tickets. Let Claude Code, Cursor, or Codex write actions for you: approve once, run them locally with no tokens. Built-in local AI, no account needed. MIT licensed.",
-  keywords = "local AI macOS, AI actions macOS, macOS AI menu bar app, local LLM macOS app, AI action layer mac, AI action chains, chain AI actions mac, AI workflow mac, AI automation macOS, multi-step AI actions, open source AI macOS, agent authored actions, MCP server macOS, Claude Code actions mac, Cursor MCP, Codex MCP, agent automation macOS, Raycast alternative free, PopClip AI alternative, Apple Intelligence alternative, Shortcuts alternative with AI, clipboard AI mac, clipboard AI alternative, MLX macOS app, offline AI macOS, macOS text actions, create GitHub issues from terminal, create Linear tickets from clipboard, run terminal scripts on selected text, run shell scripts mac, selection triggered AI mac, smart actions mac, LM Studio, Ollama",
+  description = "Free, open-source AI action layer for macOS. Select anything, press ⌥C, run AI actions, scripts, and chains. Built by your agent, approved by you, run locally.",
   noIndex = false,
   ogImage = "/images/social-media-sharing.png?v=2",
   viewTransitions = false
@@ -81,7 +80,6 @@ const organizationData = {
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
-    <meta name="keywords" content={keywords} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Cai" />
     <meta name="theme-color" content="#A78BFA" />

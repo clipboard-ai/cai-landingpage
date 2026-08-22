@@ -1,6 +1,6 @@
 ---
 title: "Context Snippets"
-description: "Teach Cai per-app context so every AI action gets smarter. Tell Cai 'when I copy from Terminal, assume Rails' or 'when I copy from Slack, match the sender's tone' — and Cai adapts automatically."
+description: "Teach Cai per-app context so every AI action gets smarter: when you copy from Terminal, assume Rails; from Slack, match the sender's tone."
 ---
 
 # Context Snippets
