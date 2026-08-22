@@ -5,5 +5,8 @@ import pagefind from "astro-pagefind";
 export default defineConfig({
   site: "https://getcai.app",
   trailingSlash: "always",
+  redirects: {
+    "/docs/usage/custom-actions/": "/docs/usage/how-it-works/#ask-ai",
+  },
   integrations: [pagefind()],
 });

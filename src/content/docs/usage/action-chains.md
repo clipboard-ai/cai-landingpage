@@ -40,7 +40,7 @@ A few chains you can build today:
 - **Selection → Summarize → Slack.** Inline LLM step ("summarize in 2 sentences"), then a Slack webhook destination. Long messages turn into digest pings.
 - **Article URL → fetch → Slack TLDR.** Shell action that `curl`s the URL, an inline LLM step ("TLDR in 3 bullets"), then a Slack webhook. Drop a link, get a digest in your team channel.
 - **Selection → Save to Things.** Apple Shortcut step that creates a Things to-do from text input. Cai becomes a launcher for your existing automations.
-- **Bug report → GitHub issue → Linear ticket.** Two MCP destinations chained: file the same context to both trackers in one trigger.
+- **Bug report → GitHub issue → Linear ticket.** Two connector destinations chained: file the same context to both trackers in one trigger.
 - **Code → Explain → Append to journal.** AI prompt action that explains a code snippet, then a shell destination that appends the explanation to a daily Markdown log.
 
 ## Adding a step
@@ -84,6 +84,6 @@ Chains that include an `|llm:"…"` filter or an inline LLM step are automatical
 ## Related
 
 - [Custom Actions](/docs/usage/saved-actions/) — the building blocks: prompt, URL, and shell actions
-- [Custom Destinations](/docs/usage/destinations/) — webhooks, AppleScript, URL schemes, shell commands
-- [Connectors](/docs/usage/connectors/) — GitHub and Linear MCP destinations you can chain into
+- [Destinations](/docs/usage/destinations/) — webhooks, AppleScript, URL schemes, shell commands
+- [Connectors](/docs/usage/connectors/) — GitHub and Linear destinations you can chain into
 - [How It Works](/docs/usage/how-it-works/) — the core ⌥C flow

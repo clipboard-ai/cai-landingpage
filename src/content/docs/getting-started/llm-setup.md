@@ -112,40 +112,11 @@ Not sure which model to pick? Here's how to think about it.
 
 Every model has three knobs: size, speed, and quality. Bigger models are smarter but slower and use more RAM. Smaller models are faster and lighter but make more mistakes.
 
-For Cai's typical workloads (summarize, translate, fix grammar, reply), even small models do really well. You don't need a 70B-parameter model to fix a typo.
+For Cai's typical workloads (summarize, translate, fix grammar, reply), even small models do really well. You don't need a 70B-parameter model to fix a typo. The [curated table above](#curated-models) maps models to RAM tiers; on macOS 26+ with Apple Silicon, Apple Intelligence is the lightest option of all.
 
-### By Mac Specs
+### Quantization (4-bit vs 8-bit)
 
-| Your Mac                   | Recommended model                   | Why                                                        |
-| -------------------------- | ----------------------------------- | ---------------------------------------------------------- |
-| **8 GB RAM**               | Ministral 3B _(default)_            | Best quality-to-size ratio, on par with Apple Intelligence |
-| **16 GB+ RAM**             | Qwen 2.5 7B                         | Highest quality, slower — for capable Macs                 |
-| **macOS 26+, M1 or later** | Apple Intelligence                  | Native, ~36 MB RAM, runs on Neural Engine                  |
-| **Beyond curated**         | Any HuggingFace mlx-community model | Paste a repo ID in Settings (see above)                    |
-
-### Understanding Quantization (4-bit vs 8-bit)
-
-You'll see things like `4bit` or `8bit` in HuggingFace model names. **Quantization** is how the model's weights are stored. Lower bits = smaller files, less RAM, faster, with slightly less accuracy.
-
-| Format          | RAM         | Speed   | Quality                  | Use when                                           |
-| --------------- | ----------- | ------- | ------------------------ | -------------------------------------------------- |
-| **4-bit**       | ~½ of 8-bit | Fastest | Very good for most tasks | **Default choice** — best balance for everyday use |
-| **8-bit**       | 2× of 4-bit | Slower  | Slightly more accurate   | You need maximum quality and have plenty of RAM    |
-| **fp16 / bf16** | 4× of 4-bit | Slowest | Original quality         | Almost never needed for chat/text actions          |
-
-**Concrete example: Llama 3.2 3B**
-
-- `4bit` → ~1.8 GB RAM, fast on M1
-- `8bit` → ~3.5 GB RAM, slightly more nuanced answers
-- `fp16` → ~6 GB RAM, marginal improvement
-
-**Rule of thumb:**
-
-- **Start with 4-bit.** It's what 95% of users want. Modern quantization (especially MLX's GPTQ-style) is so good you usually can't tell the difference.
-- **Try 8-bit** if you notice the model making factual errors, getting confused on long context, or you're doing serious coding/reasoning tasks. The quality bump is real but small.
-- **Skip fp16** unless you're benchmarking. The RAM cost isn't worth it for short-form actions.
-
-For Cai specifically (short prompts, quick actions), **4-bit is almost always the right choice**.
+You'll see `4bit` or `8bit` in HuggingFace model names: it's how the model's weights are stored. Lower bits means smaller download, less RAM, and faster inference, with slightly less accuracy. **Start with 4-bit** — for Cai's short prompts and quick actions you usually can't tell the difference. Try 8-bit only if you notice quality issues and have RAM to spare; skip fp16 entirely.
 
 ### Browse More Models
 

@@ -1,9 +1,9 @@
 ---
-title: "Custom Destinations"
+title: "Destinations"
 description: "Send Cai results to any app or service. Configure webhooks, AppleScript, URL schemes, and shell commands for automated workflows."
 ---
 
-# Custom Destinations
+# Destinations
 
 By default, Cai copies results to your clipboard. You can also replace your original selection inline, or send results to any app or service.
 
@@ -23,6 +23,10 @@ When you use it, Cai:
 This is perfect for "fix grammar and replace," "translate in place," or any action where you want the result to overwrite the source text.
 
 > **Safety:** If you switch to a different app while Cai is processing, it won't paste into the wrong window. Instead, it copies the result to your clipboard so you can paste manually.
+
+## Show in Cai
+
+**Show in Cai** is the default result sink: an action or chain that doesn't send its output anywhere ends here, and the result opens in Cai's result view instead of vanishing. You can also pick it explicitly as a chain step or destination when you want to see a result before deciding what to do with it. Kept results can be paged with **←/→**.
 
 ## Custom Destination Types
 
@@ -46,17 +50,7 @@ Text is automatically escaped based on the destination type — JSON encoding fo
 
 ### Filter pipeline (advanced)
 
-For explicit transforms — or to inject an LLM step inline — use the filter syntax: `{{var|filter|filter:"arg"}}`.
-
-| Filter | What it does |
-|---|---|
-| `raw` | Pass through unchanged (opt out of auto-escaping) |
-| `shell` | Single-quote wrap and escape |
-| `json` | Escape for JSON string contexts |
-| `url_encode` | Percent-encode for URLs |
-| `llm:"directive"` | Run the value through the local LLM with the directive as the system prompt |
-
-Useful patterns:
+For explicit transforms — or to inject an LLM step inline — use the filter syntax: `{{var|filter|filter:"arg"}}`. The full filter reference lives in [Custom Actions → Filter pipeline](/docs/usage/saved-actions/#filter-pipeline-advanced). Useful patterns here:
 
 - `{"text": "{{result|llm:\"summarize in one sentence\"}}"}` — webhook body that summarizes before sending
 - `bear://x-callback-url/create?text={{result|llm:\"format as markdown notes\"}}` — Bear deeplink that reformats first
@@ -78,7 +72,7 @@ Destinations have a **"Then run"** field, just like custom actions. After the de
 
 ## Creating a Destination
 
-1. Left-click the **Cai menu bar icon** to open Preferences
+1. Left-click the **Cai menu bar icon** to open Settings
 2. Click **Destinations**
 3. Click **+** to add a new destination
 4. Choose a **type** (Webhook, AppleScript, URL Scheme, or Shell Command)

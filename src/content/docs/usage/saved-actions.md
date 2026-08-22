@@ -52,6 +52,8 @@ Shell actions use `{{result}}` as the placeholder for your selected text. **Cai 
 
 > **Homebrew tools work directly.** Cai puts `/opt/homebrew/bin` (Apple Silicon) and `/usr/local/bin` (Intel) on PATH for shell actions, so `gh`, `jq`, `kubectl`, `rg`, etc. resolve without hardcoded paths. Tools managed by **nvm**, **pyenv**, **conda**, or **asdf** are not on PATH (they require interactive shell hooks) — use the absolute path or a wrapper script for those.
 
+> **Secrets:** Need an API token in a shell command? Store it once in **Settings → Secrets** and reference it as `{{secrets.NAME}}` — the value stays in the Keychain and is resolved only at run time. See [Secrets](/docs/usage/secrets/).
+
 > **Caution:** Shell actions execute with your user-level permissions and can modify files, send network requests, and control other applications. Only create shell actions if you understand exactly what the command does. Never paste commands from untrusted sources.
 
 #### Filter pipeline (advanced)
@@ -102,7 +104,7 @@ This skips the result view entirely. Perfect for actions like "Fix Grammar," "Tr
 
 ## Creating Custom Actions
 
-1. Left-click the **Cai menu bar icon** to open Preferences
+1. Left-click the **Cai menu bar icon** to open Settings
 2. Click **Actions** and switch to the **Custom** tab
 3. Click the add button and fill in:
    - **Name**: what you'll see in the action list
@@ -142,7 +144,7 @@ Custom actions appear when you **type to filter** in the action window:
 
 ## Requirements
 
-- **Prompt actions** require a running [local LLM server](/docs/getting-started/llm-setup/)
+- **Prompt actions** need a configured [LLM provider](/docs/getting-started/llm-setup/) — the built-in model works out of the box
 - **URL actions** work without any LLM — they just open your browser
 - **Shell actions** work without any LLM — they execute the command directly
 - **[Action chain](/docs/usage/action-chains/) steps** with inline LLM directives or actions of type Prompt require an LLM

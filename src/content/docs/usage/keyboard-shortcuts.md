@@ -26,17 +26,25 @@ Cai is designed to be used entirely from the keyboard.
 
 ## Ask AI
 
-| Shortcut | Action                                       |
-| -------- | -------------------------------------------- |
-| **⌘↵**   | Submit your question                         |
-| **↵**    | Copy result (when viewing a result) and exit |
-| **Tab**  | Ask a follow-up question on the result       |
-| **Esc**  | Back to action list                          |
+| Shortcut | Action              |
+| -------- | ------------------- |
+| **⌘↵**   | Submit your question |
+| **Esc**  | Back to action list |
+
+## Result View
+
+| Shortcut | Action                                         |
+| -------- | ---------------------------------------------- |
+| **↵**    | Copy result and exit                           |
+| **⌘1**   | Replace your original selection with the result |
+| **Tab**  | Ask a follow-up question on the result         |
+| **← →**  | Page through kept results                      |
+| **Esc**  | Back to action list                            |
 
 ## Menu Bar
 
 | Action                           | How                               |
 | -------------------------------- | --------------------------------- |
-| Open Preferences                 | Left-click the Cai menu bar icon  |
+| Open Settings                    | Left-click the Cai menu bar icon  |
 | Context menu                     | Right-click the Cai menu bar icon |
 | Open Settings from action window | Click the Cai logo in the footer  |

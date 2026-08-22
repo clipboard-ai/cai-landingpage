@@ -17,7 +17,7 @@ description: "Troubleshoot common Cai issues. Fix global hotkey problems, LLM co
   ```bash
   curl http://127.0.0.1:1234/v1/models
   ```
-- Check that the URL in Preferences matches your server's address and port
+- Check that the URL in Settings matches your server's address and port
 - Ollama uses port `11434`, LM Studio uses `1234`. Make sure you selected the right provider
 - If using a Custom URL, make sure it includes the full path (e.g., `http://127.0.0.1:1234/v1`)
 
@@ -85,3 +85,26 @@ For very long documents, try splitting them into chunks and processing each sepa
 ## App freezes or slows down after copying large text
 
 Cai limits clipboard processing to ~10,000 characters (~2,500 words) to prevent performance issues. If you copy very large documents, Cai silently truncates the text. This is by design — Cai is optimized for short-to-medium text selections, not full documents.
+
+## Agent proposals aren't arriving
+
+Your coding agent is connected but proposals never show up in Cai:
+
+- Make sure Cai is running — the agent talks to a helper that hands proposals to the app
+- Re-copy the config command from **Settings → Connections → Agents** into your agent's MCP configuration; a hand-edited path is the most common culprit
+- Restart the agent session after changing its MCP configuration — most agents only read it at startup
+
+See [Agent-Authored Actions](/docs/usage/agent-actions/) for the full setup.
+
+## An action can't access Calendar, Contacts, or Reminders
+
+macOS permission prompts appear only the first time an action needs a grant. If you declined one, or the prompt never appeared:
+
+- Open **Settings → Connections → System Access** in Cai and check the grant's status — the **Open** button takes you to the right pane in System Settings
+- Enable Cai there, then run the action again
+
+See [System Access](/docs/usage/system-access/) for what each grant is used for.
+
+## "{{secrets.NAME}} can't be used here"
+
+Secrets work only in **shell commands** for now. Referencing one in a prompt, URL, webhook, or through a template filter is blocked so the value can't leave the Keychain path Cai protects. Move the secret into a shell step, or see [Secrets](/docs/usage/secrets/) for the details.

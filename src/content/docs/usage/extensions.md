@@ -9,12 +9,12 @@ Community extensions are pre-built [custom actions](/docs/usage/saved-actions) a
 
 ## How to Install
 
-1. Open **Settings > Community Extensions**
-2. Browse available extensions
+1. Open **Settings → Extensions**
+2. Browse available extensions — use the **tag filter chips** to narrow the catalog to a category (writing, developer, productivity, …)
 3. Click **Install** on the extension you want
 4. The extension is added as a custom action or destination in your Cai settings
 
-To uninstall, go back to Community Extensions and click the extension again.
+To uninstall, go back to Settings → Extensions and click **Installed** on the extension.
 
 > **Tip:** You can also install extensions by copying a `# cai-extension` YAML snippet to your clipboard. Cai detects it automatically and shows a trust confirmation dialog. This is useful for installing extensions shared outside the community repository.
 
@@ -59,7 +59,7 @@ Every `extension.yaml` must start with `# cai-extension` on the first line and i
 | `version`     | Version string, quoted (e.g. `"1.0"`)                                            |
 | `tags`        | Array of lowercase tags for search/filtering                                     |
 | `icon`        | [SF Symbol](https://developer.apple.com/sf-symbols/) name (e.g. `envelope.fill`) |
-| `type`        | `prompt`, `url`, `webhook`, or `deeplink`                                        |
+| `type`        | `prompt`, `url`, `shell`, `webhook`, `deeplink`, or `applescript` (`shell` and `applescript` can't be installed via clipboard) |
 
 ### Prompt Action
 
@@ -149,7 +149,7 @@ type: shell
 shell: lsof -ti :{{result}} | xargs kill -9 && echo "Killed process on port {{result}}"
 ```
 
-Use `{{result}}` for your selected text. As of v1.5, `{{result}}` is **single-quote-wrapped and escaped automatically** in shell extensions — write it bare. For explicit transforms, use the [filter pipeline](/docs/usage/saved-actions/#filter-pipeline-advanced): `{{result|raw}}`, `{{result|url_encode}}`, `{{result|llm:"summarize"}}`.
+Use `{{result}}` for your selected text. It is **single-quote-wrapped and escaped automatically** in shell extensions — write it bare. For explicit transforms, use the [filter pipeline](/docs/usage/saved-actions/#filter-pipeline-advanced): `{{result|raw}}`, `{{result|url_encode}}`, `{{result|llm:"summarize"}}`.
 
 ### Deeplink Destination
 
@@ -174,7 +174,7 @@ deeplink: "bear://x-callback-url/create?text={{result}}"
 | --------------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | `%s`            | URL actions (`type: url`)             | Replaced with selected text, **URL-encoded** automatically                                                                               |
 | `{{result}}`    | Shell, webhook, deeplink, AppleScript | Replaced with selected text. Escaping is **automatic per type**: JSON for webhooks, percent-encoding for deeplinks, AppleScript escaping for AppleScript, single-quote wrapping for shell |
-| `{{result\|filter}}` | Same as above                    | Explicit filter pipeline. Filters: `raw`, `shell`, `json`, `url_encode`, `llm:"directive"`. See [filter pipeline](/docs/usage/saved-actions/#filter-pipeline-advanced) |
+| `{{result\|filter}}` | Same as above                    | Explicit filter pipeline — see the [filter reference](/docs/usage/saved-actions/#filter-pipeline-advanced) |
 | `{{field_key}}` | Any destination with `setup:`         | Replaced with user-configured setup field value (from Keychain or UserDefaults)                                                          |
 
 > **Safe-by-default substitution.** `{{result}}` picks the right escaping for the surface — JSON for webhooks, percent-encoding for deeplinks, single-quote wrapping for shell. To opt out, use `{{result|raw}}`. For URL building, prefer a URL action (`%s`) over shell. See [cai-extensions shell examples](https://github.com/cai-layer/cai-extensions/tree/main/extensions) for working patterns.
@@ -203,7 +203,7 @@ Reference them in your templates with `{{key_name}}`.
 
 The easiest way to share a custom action or destination you've built:
 
-1. Open **Settings > Custom Actions** (or **Custom Destinations**)
+1. Open **Settings → Actions → Custom** (or **Settings → Destinations**)
 2. Click the **share icon** (↗) on the custom action or destination you want to share
 3. Cai copies the extension YAML to your clipboard and opens the community repo
 4. Fork the repo, create a folder under `extensions/` with a kebab-case name (e.g. `professional-email`)

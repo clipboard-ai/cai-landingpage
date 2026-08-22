@@ -13,6 +13,8 @@ description: "Learn how Cai detects clipboard content, offers smart actions, and
 4. Pick an action with **↑↓** arrows or **⌘1–9**
 5. The result is auto-copied to your clipboard. Just **⌘V** to paste. Or press **⌘1** to replace your original selection inline. You can also send it to an [output destination](/docs/usage/destinations/) like Slack, Bear, or a webhook.
 
+While an action works, a **Running** pill shows progress. Results are never lost: if an action doesn't send its output anywhere, it shows in Cai, and you can page through kept results with **←/→**.
+
 ## Content Types & Actions
 
 Cai automatically detects what you copied and offers the right actions:
@@ -28,7 +30,7 @@ Cai automatically detects what you copied and offers the right actions:
 | **Long Text** | 100+ characters | Summarize, Reply, Fix Grammar, Translate, Search |
 | **Image** | Clipboard image or screenshot | Extract Text (OCR), then all text actions |
 
-All text types also get **Ask AI** (⌘1) for free-form AI prompts.
+All text types also get [**Ask AI**](#ask-ai) for free-form AI prompts.
 
 ### Context Awareness
 
@@ -67,6 +69,16 @@ You can also explicitly hide built-in actions you don't use under **Settings →
 - Define
 - Ask AI (your own prompt)
 
+### Ask AI
+
+Ask AI runs any prompt against your selected text — it appears for every content type, first in the list unless you've pinned custom actions ahead of it:
+
+1. Select text, press **⌥C**, and choose **Ask AI**
+2. Type your instruction ("translate to Spanish", "extract all emails", "convert to a markdown table")
+3. Press **⌘↵** to submit; the result is auto-copied to your clipboard
+
+It works out of the box with the [built-in model](/docs/getting-started/llm-setup/), and you can press **⌘N** for a New Chat without any selection.
+
 ### Follow-up Questions
 
 After any AI action returns a result, press **Tab** to ask a follow-up question. The full conversation history is sent to the LLM, so it has context from the previous result. You can chain multiple follow-ups in a single session.
@@ -87,22 +99,15 @@ Press **⌘0** in the action window to open clipboard history. Features include:
 
 ## Settings
 
-Left-click the Cai menu bar icon to access Preferences. Top-level screens:
+Left-click the Cai menu bar icon to access Settings. Main screens:
 
-- **General** — translation language, search URL, maps provider, model provider, "About You", launch at login
+- **General** — translation language (default English), search URL (default Brave Search), maps provider (Apple or Google Maps), model provider (Built-in by default), launch at login
+- **Personalization** — "About You" (global context for AI responses) and [Context Snippets](/docs/usage/context-snippets/) (per-app context)
 - **Actions** — tabbed: **Custom** (your prompts, URLs, shell scripts) and **Built-in** (toggle visibility of Define, Search, etc.). Pin, drag-to-reorder, and chain via ["Then run"](/docs/usage/action-chains/)
 - **Destinations** — webhooks, AppleScript, URL schemes, shell commands. Same chaining surface as Actions
-- **Connectors** — GitHub, Linear, and other MCP-backed integrations
-- **Context Snippets** — per-app system-prompt overrides
-
-| Setting | Description | Default |
-|---|---|---|
-| **Translation Language** | Target language for translations | English |
-| **Search URL** | Base URL for web searches | Brave Search |
-| **Maps Provider** | Apple Maps or Google Maps | Apple Maps |
-| **Model Provider** | Built-in, LM Studio, Ollama, Cloud, or Custom | Built-in |
-| **About You** | Personal context for AI responses (e.g. profession, tone) | Empty |
-| **Launch at Login** | Start Cai automatically | On |
+- **Connections** — tabbed: **Agents** ([agent-authored actions](/docs/usage/agent-actions/) via Claude Code, Cursor, or Codex), **Tools** ([GitHub and Linear connectors](/docs/usage/connectors/)), and **System Access** ([macOS grants](/docs/usage/system-access/): Calendar, Contacts, Reminders, Accessibility, Automation)
+- **Secrets** — Keychain-backed tokens for shell actions, referenced as [`{{secrets.NAME}}`](/docs/usage/secrets/)
+- **Extensions** — browse and install [community extensions](/docs/usage/extensions/)
 
 ## Limits
 
