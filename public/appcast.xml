@@ -12,6 +12,33 @@
          Then fill in the enclosure attributes below. -->
 
     <item>
+      <title>Version 1.6.0</title>
+      <description><![CDATA[
+        <h3>Highlights</h3>
+        <ul>
+          <li><strong>Your coding agent can build your Cai actions</strong> — connect Claude Code, Cursor, or Codex once; every proposal waits for your approval as a reviewable diff, then runs locally from ⌥C.</li>
+          <li><strong>Cai shows its work</strong> — capability chips on every action, a Running pill, and results that always land somewhere.</li>
+          <li><strong>Calendar &amp; Contacts</strong> — actions can use them, with all macOS grants in Connections → System Access.</li>
+        </ul>
+        <h3>Also</h3>
+        <ul>
+          <li>Named secrets for shell actions, stored in the Keychain.</li>
+          <li>Mail, Notes, and Reminders destinations work again in the official build.</li>
+          <li>Failures no longer show a success checkmark, and shell actions can't hang.</li>
+        </ul>
+        <p><a href="https://github.com/cai-layer/cai/releases/tag/v1.6.0">Full release notes →</a></p>
+      ]]></description>
+      <pubDate>Sat, 22 Aug 2026 16:22:00 +0000</pubDate>
+      <enclosure
+        url="https://github.com/cai-layer/cai/releases/download/v1.6.0/Cai-1.6.0-update.dmg"
+        sparkle:version="12"
+        sparkle:shortVersionString="1.6.0"
+        length="24703121"
+        type="application/octet-stream"
+        sparkle:edSignature="q7mAqF9s5vqYMOaHgfmKxxn46aeL1H4Ie0fxX4B+EcI7tEJZZH7uNhslGfZVVpUVbsXbX4lc4TyUmYaQtgToDg==" />
+    </item>
+
+    <item>
       <title>Version 1.5.3</title>
       <description><![CDATA[
         <h3>Fixed</h3>

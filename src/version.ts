@@ -8,5 +8,5 @@
  * The appcast.xml in public/ is separate — it's Sparkle's feed and needs the
  * full history of versions, not just the latest.
  */
-export const CAI_VERSION = "1.5.3";
+export const CAI_VERSION = "1.6.0";
 export const CAI_DMG_URL = `https://github.com/cai-layer/cai/releases/download/v${CAI_VERSION}/Cai-${CAI_VERSION}-macos.dmg`;
