@@ -11,8 +11,11 @@ interface Props {
   backgroundColor?: string;
   id?: string;
   actions?: Array<{ name: string; description: string; highlight?: boolean; secondary?: boolean }>;
+  caption?: string;
   linkHref?: string;
   linkText?: string;
+  secondaryLinkHref?: string;
+  secondaryLinkText?: string;
 }
 
 const {
@@ -25,8 +28,11 @@ const {
   backgroundColor = '#ffffff',
   id,
   actions,
+  caption,
   linkHref,
-  linkText
+  linkText,
+  secondaryLinkHref,
+  secondaryLinkText
 } = Astro.props;
 
 const imageSrc = typeof mediaSrc === 'string' ? mediaSrc : mediaSrc.src;
@@ -38,11 +44,19 @@ const imageSrc = typeof mediaSrc === 'string' ? mediaSrc : mediaSrc.src;
       <h2 class="demo-title" set:html={title} />
       {subtitle && <p class="demo-subtitle" set:html={subtitle} />}
       {actions && <ActionBadges actions={actions} />}
-      {linkHref && linkText && (
-        <a href={linkHref} class="section-link" target="_blank" rel="noopener noreferrer">
-          {linkText}
-        </a>
-      )}
+      {caption && <p class="section-caption">{caption}</p>}
+      <div class="section-links">
+        {linkHref && linkText && (
+          <a href={linkHref} class="section-link">
+            {linkText}
+          </a>
+        )}
+        {secondaryLinkHref && secondaryLinkText && (
+          <a href={secondaryLinkHref} class="section-link section-link-secondary" target="_blank" rel="noopener noreferrer">
+            {secondaryLinkText}
+          </a>
+        )}
+      </div>
     </div>
 
     <div class="demo-media">
@@ -112,6 +126,21 @@ const imageSrc = typeof mediaSrc === 'string' ? mediaSrc : mediaSrc.src;
     line-height: 1.65;
   }
 
+  .section-caption {
+    text-align: center;
+    margin: 2rem auto 0;
+    color: #707070;
+    font-size: 0.95rem;
+    font-style: italic;
+  }
+
+  .section-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 2rem;
+  }
+
   .section-link {
     display: block;
     text-align: center;
@@ -124,6 +153,10 @@ const imageSrc = typeof mediaSrc === 'string' ? mediaSrc : mediaSrc.src;
 
   .section-link:hover {
     color: #FFFFFF;
+  }
+
+  .section-link-secondary {
+    color: #909090;
   }
 
   .demo-media {

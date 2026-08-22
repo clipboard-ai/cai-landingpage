@@ -24,13 +24,15 @@ const quickActions = [
   { name: "...", description: "And more" },
 ];
 
-const customFeatures = [
-  { name: "Custom Prompts", description: "Save AI prompts and shell commands for one-tap access", highlight: true },
-  { name: "URL Actions", description: "Search Google Drive, Jira, Stack Overflow; any URL with %s becomes an action", highlight: true },
-  { name: "Custom Scripts", description: "Run scripts and CLI tools via terminal on your selected text", highlight: true },
-  { name: "Custom Destinations", description: "Route results to Slack, Notion, or any app via webhooks, deeplinks, and AppleScript", highlight: true },
-  { name: "Community Extensions", description: "Browse and install actions shared by others", secondary: true },
-  { name: "Keyboard-First", description: "Type to filter, ⌘1–9 to run. No mouse needed.", secondary: true },
+const actionTypes = [
+  { name: "MCP", description: "Connect Claude Code, Cursor, Codex, or any MCP-capable agent; it proposes, you approve", highlight: true },
+  { name: "LLM", description: "AI prompts on your selection, local by default", highlight: true },
+  { name: "Shell", description: "Run scripts and CLI tools on your selected text", highlight: true },
+  { name: "Webhook", description: "Send results to Slack, Notion, or any HTTP endpoint", highlight: true },
+  { name: "AppleScript", description: "Control any macOS app with the result", highlight: true },
+  { name: "Secrets", description: "API tokens from the Keychain via {{secrets.NAME}}, never in the action text", secondary: true },
+  { name: "URL", description: "Any URL with %s becomes an action: search Jira, Maps, Stack Overflow", secondary: true },
+  { name: "...", description: "Deeplinks, Apple Shortcuts, and more", secondary: true },
 ];
 ---
 
@@ -49,39 +51,28 @@ const customFeatures = [
 
   <FeatureCards />
 
-  <!-- Demo Section 1: Run quick actions -->
-  <DemoSection
-    id="quick-actions"
-    title='<span class="highlight">Smart actions</span>, ready-to-use.'
-    subtitle="Cai reads what you selected (meetings, addresses, code, images) and surfaces the right actions automatically."
-    actions={quickActions}
-    mediaType="video"
-    mediaSrc="/videos/cai-builtin-actions.mp4"
-    posterSrc="/videos/cai-builtin-actions-poster.webp"
-    mediaAlt="Run quick actions demo"
-    backgroundColor="#111111"
-  />
-
-  <!-- Demo Section 2: Custom commands & actions -->
+  <!-- Demo Section 1: agent-authored / custom actions -->
   <DemoSection
     id="custom-commands"
-    title='Make it <span class="highlight">yours</span>.' 
-    subtitle="Build your own custom actions, pipe them and route results anywhere."
-    actions={customFeatures}
+    title='Agent-authored <span class="highlight">actions</span>.'
+    subtitle="Let your agent build your actions, from one-shot prompts to full pipelines, and route results anywhere."
+    actions={actionTypes}
+    caption="If your agent can build it, Cai can run it."
     mediaType="video"
     mediaSrc="/videos/cai-custom-actions.mp4"
     posterSrc="/videos/cai-custom-actions-poster.webp"
     mediaAlt="Custom commands and actions demo"
-    backgroundColor="#0F0F0F"
-    linkHref="https://github.com/cai-layer/cai-extensions"
-    linkText="Browse community extensions →"
+    backgroundColor="#111111"
+    linkHref="/docs/usage/agent-actions/"
+    linkText="How agent-authored actions work →"
+    secondaryLinkHref="https://github.com/cai-layer/cai-extensions"
+    secondaryLinkText="Browse community extensions →"
   />
 
   <!-- Action chains -->
   <section class="chain-section" id="chains">
     <div class="chain-container">
-      <p class="chain-eyebrow">Action chains</p>
-      <h2 class="chain-title">Build your own <span class="highlight">pipelines</span>.</h2>
+      <h2 class="chain-title">One keystroke, <span class="highlight">multi-step</span>.</h2>
       <p class="chain-subtitle">
         Pipe a selection through AI, scripts, destinations, and Apple Shortcuts (in any order). Save the chain once, run it anywhere.
       </p>
@@ -91,14 +82,14 @@ const customFeatures = [
         <div class="chain-flow">
           <span class="chip chip-input">selection</span>
           <span class="chain-arrow">→</span>
-          <span class="chip chip-action">Translate to German</span>
+          <span class="chip chip-action">Translate to Spanish</span>
           <span class="chain-arrow">→</span>
           <span class="chip chip-destination">Replace Selection</span>
         </div>
       </div>
 
       <div class="chain-card">
-        <p class="chain-card-title"><span class="chain-trigger">⌥C</span>URL to Slack TLDR</p>
+        <p class="chain-card-title"><span class="chain-trigger">⌥C</span>URL to Discord TLDR</p>
         <div class="chain-flow">
           <span class="chip chip-input">selection</span>
           <span class="chain-arrow">→</span>
@@ -106,13 +97,38 @@ const customFeatures = [
           <span class="chain-arrow">→</span>
           <span class="chip chip-llm">summarize</span>
           <span class="chain-arrow">→</span>
-          <span class="chip chip-destination">Send to Slack</span>
+          <span class="chip chip-destination">Send to Discord</span>
         </div>
       </div>
 
-      <p class="chain-caption">If you can describe it in steps, Cai can run it.</p>
+      <div class="chain-card">
+        <p class="chain-card-title"><span class="chain-trigger">⌥C</span>Stack trace to ticket</p>
+        <div class="chain-flow">
+          <span class="chip chip-input">selection</span>
+          <span class="chain-arrow">→</span>
+          <span class="chip chip-llm">extract error + repro</span>
+          <span class="chain-arrow">→</span>
+          <span class="chip chip-action">Create Linear Ticket</span>
+          <span class="chain-arrow">→</span>
+          <span class="chip chip-destination">Slack ping</span>
+        </div>
+      </div>
+
     </div>
   </section>
+
+  <!-- Demo Section 2: built-in actions -->
+  <DemoSection
+    id="quick-actions"
+    title='<span class="highlight">Built-in actions</span>, ready to use.'
+    subtitle="Cai reads what you selected (meetings, addresses, code, images) and surfaces the right actions automatically."
+    actions={quickActions}
+    mediaType="video"
+    mediaSrc="/videos/cai-builtin-actions.mp4"
+    posterSrc="/videos/cai-builtin-actions-poster.webp"
+    mediaAlt="Run built-in actions demo"
+    backgroundColor="#0F0F0F"
+  />
 
   <FeatureBento />
   <LLMProviders />
@@ -173,15 +189,6 @@ const customFeatures = [
     max-width: 880px;
     margin: 0 auto;
     padding: 0 1.5rem;
-  }
-
-  .chain-eyebrow {
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: #808080;
-    margin: 0 0 1rem;
   }
 
   .chain-title {

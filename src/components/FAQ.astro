@@ -6,7 +6,7 @@ const faqs = [
   },
   {
     question: "How is Cai different from other tools?",
-    answer: "<p>Clipboard managers store and organize what you copy; Cai acts on it. And unlike ChatGPT or other AI tools that need you to switch to a separate app, Cai runs directly on your selected text in any app, without breaking your flow. Connect GitHub or Linear, then create issues or tickets without leaving what you're doing. It's a custom-action layer that runs locally on your Mac by default.</p><p>Detailed comparisons: <a href='/vs/maccy/'>vs Maccy</a>, <a href='/vs/chatgpt/'>vs ChatGPT</a>, <a href='/vs/raycast/'>vs Raycast</a>, <a href='/vs/boltai/'>vs Bolt AI</a>, <a href='/vs/alter/'>vs Alter</a>.</p>"
+    answer: "<p>Clipboard managers store and organize what you copy; Cai acts on it. And unlike ChatGPT or other AI tools that need you to switch to a separate app, Cai runs directly on your selected text in any app, without breaking your flow. Connect GitHub or Linear, then create issues or tickets without leaving what you're doing. It's a custom-action layer that runs locally on your Mac by default. And it's the only one your coding agent can build actions for: authored over MCP, approved by you, then run offline with no tokens.</p><p>Detailed comparisons: <a href='/vs/maccy/'>vs Maccy</a>, <a href='/vs/chatgpt/'>vs ChatGPT</a>, <a href='/vs/raycast/'>vs Raycast</a>, <a href='/vs/boltai/'>vs Bolt AI</a>, <a href='/vs/alter/'>vs Alter</a>.</p>"
   },
   {
     question: "Does Cai work offline?",
@@ -22,7 +22,11 @@ const faqs = [
   },
   {
     question: "How do I create custom actions?",
-    answer: "<p>You can create custom actions and destinations using AI prompts, URL templates, shell scripts, webhooks, deeplinks, and more. Open Cai's settings → Custom Actions to start. Full guide in the <a href='/docs/usage/saved-actions/'>docs</a>.</p><p>Browse community-shared actions at <a href='https://github.com/cai-layer/cai-extensions' target='_blank' rel='noopener noreferrer'>cai-extensions</a>.</p>"
+    answer: "<p>You can create custom actions and destinations using AI prompts, URL templates, shell scripts, webhooks, deeplinks, and more. Open <strong>Settings → Actions</strong> to start, or let your coding agent write them for you. Full guide in the <a href='/docs/usage/saved-actions/'>docs</a>.</p><p>Browse community-shared actions at <a href='https://github.com/cai-layer/cai-extensions' target='_blank' rel='noopener noreferrer'>cai-extensions</a>.</p>"
+  },
+  {
+    question: "Can my coding agent write Cai actions?",
+    answer: "<p>Yes. Cai is an MCP server: connect Claude Code, Cursor, Codex, or any MCP-capable agent from <strong>Settings → Connections → Agents</strong>, describe the action you want, and the agent writes it. The agent can only propose: every action arrives as a reviewable diff with the risky parts flagged, and nothing runs until you approve it. Once approved, it runs from ⌥C on its own: locally, offline, no agent and no tokens involved. Full guide in the <a href='/docs/usage/agent-actions/'>docs</a>.</p>"
   },
   {
     question: "Can Cai chain multiple actions together?",
@@ -30,7 +34,7 @@ const faqs = [
   },
   {
     question: "How do I connect GitHub or Linear?",
-    answer: "<p>Open Cai's settings → Connectors, paste a GitHub personal access token or Linear API key, and test the connection. \"Create GitHub Issue\" and \"Create Linear Ticket\" then appear in your action list. Step-by-step guide in the <a href='/docs/usage/connectors/'>docs</a>.</p>"
+    answer: "<p>Open <strong>Settings → Connections → Tools</strong>, paste a GitHub personal access token or Linear API key, and test the connection. \"Create GitHub Issue\" and \"Create Linear Ticket\" then appear in your action list. Step-by-step guide in the <a href='/docs/usage/connectors/'>docs</a>.</p>"
   },
   {
     question: "Why ⌥C?",
