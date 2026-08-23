@@ -2,39 +2,43 @@
 const faqs = [
   {
     question: "Is Cai really free?",
-    answer: "<p>Yes. Cai is free and open source — no subscription, no per-run tokens, no trial, no account required. Actions run on the built-in local model at zero marginal cost, forever. If you choose to use a cloud model (like OpenAI or OpenRouter), you'll need their API key, but the app itself is free.</p>"
+    answer: "<p>Yes. Cai is free and open source: no subscription, no account, no per-run tokens on the built-in local model. If you choose to use a cloud model (like OpenAI or OpenRouter), you'll need their API key, but the app itself is free.</p>"
   },
   {
     question: "How is Cai different from other tools?",
-    answer: "<p>Clipboard managers store and organize what you copy; Cai acts on it. And unlike ChatGPT or other AI tools that need you to switch to a separate app, Cai runs directly on your selected text in any app, without breaking your flow. Connect GitHub or Linear, then create issues or tickets without leaving what you're doing. It's a custom-action layer that runs locally on your Mac by default. And it's the only one your coding agent can build actions for: authored over MCP, approved by you, then run offline with no tokens.</p><p>Detailed comparisons: <a href='/vs/maccy/'>vs Maccy</a>, <a href='/vs/chatgpt/'>vs ChatGPT</a>, <a href='/vs/raycast/'>vs Raycast</a>, <a href='/vs/boltai/'>vs Bolt AI</a>, <a href='/vs/alter/'>vs Alter</a>.</p>"
+    answer: "<p>Clipboard managers store what you copy; Cai acts on it. Chat apps make you switch windows; Cai runs directly on your selection, in any app. And it's built for your coding agent: actions proposed over MCP, approved by you as a diff, then run from ⌥C without the agent on the local model by default, so runs cost nothing.</p><p>Detailed comparisons: <a href='/vs/maccy/'>vs Maccy</a>, <a href='/vs/chatgpt/'>vs ChatGPT</a>, <a href='/vs/raycast/'>vs Raycast</a>, <a href='/vs/boltai/'>vs Bolt AI</a>, <a href='/vs/alter/'>vs Alter</a>.</p>"
   },
   {
-    question: "Does Cai work offline?",
-    answer: "<p>Yes. The built-in models, Apple Intelligence, and local LLM providers all run on-device — everything works without internet. Cloud providers need internet, but that's optional.</p>"
-  },
-  {
-    question: "Is Cai secure?",
-    answer: "<p>By default, Cai runs locally and nothing leaves your Mac. If you connect a cloud model, your selected text is sent only to that provider.</p><p>Same story for agents: they can only propose. Every proposed action arrives as a reviewable diff, risky parts (running code, sending your selection to a URL, replacing it unseen) are flagged and need an explicit acknowledgment before Approve unlocks, and capability chips show what an action can really do, computed from the action itself. Secrets stay in the macOS Keychain, where even the agent never sees them.</p>"
-  },
-  {
-    question: "What models does Cai support?",
-    answer: "<p>Cai ships with Ministral 3B, Qwen 2.5 7B, Apple Intelligence on macOS 26+, local servers (LM Studio, Ollama) and cloud APIs like <a href='https://openrouter.ai' target='_blank' rel='noopener noreferrer'>OpenRouter</a>. You can also load any MLX model from the <a href='https://huggingface.co/mlx-community' target='_blank' rel='noopener noreferrer'>HuggingFace MLX community</a>. More info in our <a href='/docs/getting-started/llm-setup/'>docs</a>.</p>"
+    question: "What tools can I use Cai with?",
+    answer: "<p>Almost anything. GitHub and Linear are <a href='/docs/usage/connectors/'>built-in connectors</a> (paste a token, done). Anything with a CLI works through shell actions: gh, kubectl, jq, ffmpeg, whatever Homebrew installed. <a href='/docs/usage/destinations/'>Destinations</a> reach the rest: webhooks (Slack, Notion), AppleScript (Things, OmniFocus), deeplinks (Bear, Obsidian), and Apple Shortcuts.</p>"
   },
   {
     question: "How do I create custom actions?",
-    answer: "<p>Three ways. Build them by hand in <strong>Settings → Actions</strong> (AI prompts, URL templates, shell scripts, webhooks, and more). Let your coding agent write them: connect Claude Code, Cursor, Codex, or any MCP-capable agent from <strong>Settings → Connections → Agents</strong>, describe what you want, approve the proposed action, and it runs from ⌥C on its own, locally, offline, no tokens. Or install one from <a href='https://github.com/cai-layer/cai-extensions' target='_blank' rel='noopener noreferrer'>community extensions</a>.</p><p>Guides: <a href='/docs/usage/saved-actions/'>custom actions</a> · <a href='/docs/usage/agent-actions/'>agent-authored actions</a>.</p>"
-  },
-  {
-    question: "What does Cai need to run?",
-    answer: "<p><strong>macOS 14</strong> (Sonoma) or later. The built-in local model needs <strong>Apple Silicon</strong> (M1 or later) and 8 GB of RAM. On an Intel Mac, connect <a href='https://lmstudio.ai' target='_blank' rel='noopener noreferrer'>LM Studio</a>, <a href='https://ollama.com' target='_blank' rel='noopener noreferrer'>Ollama</a>, or a cloud provider instead. Accessibility permission is required for the ⌥C hotkey.</p>"
+    answer: "<p>Three ways. Build them by hand in <strong>Settings → Actions</strong> (AI prompts, URL templates, shell scripts, webhooks, and more). Let your coding agent write them: connect Claude Code, Cursor, Codex, or any MCP-capable agent from <strong>Settings → Connections → Agents</strong>, describe what you want, approve the proposed action, and it runs from ⌥C without the agent in the loop. Prompt actions default to the built-in local model, so they cost nothing. Or install one from <a href='https://github.com/cai-layer/cai-extensions' target='_blank' rel='noopener noreferrer'>community extensions</a>.</p><p>Guides: <a href='/docs/usage/saved-actions/'>custom actions</a> · <a href='/docs/usage/agent-actions/'>agent-authored actions</a>.</p>"
   },
   {
     question: "Can Cai chain multiple actions together?",
     answer: "<p>Yes. Save a chain like <em>\"selection → fetch URL → summarize → send to Slack\"</em> and run the whole pipeline with ⌥C. Chain any combination of AI prompts, terminal scripts, custom destinations, and Apple Shortcuts in any order. One keystroke, multi-step. Full syntax and recipes in the <a href='/docs/usage/action-chains/'>Action Chains</a> guide.</p>"
   },
   {
-    question: "How do I connect GitHub or Linear?",
-    answer: "<p>Open <strong>Settings → Connections → Tools</strong>, paste a GitHub personal access token or Linear API key, and test the connection. \"Create GitHub Issue\" and \"Create Linear Ticket\" then appear in your action list. Step-by-step guide in the <a href='/docs/usage/connectors/'>docs</a>.</p>"
+    question: "Do I have to use AI to use Cai?",
+    answer: "<p>No. Shell actions, URL templates, webhooks, deeplinks, and Apple Shortcuts all run without any model involved. The AI actions are there when you want them, on the built-in local model by default.</p>"
+  },
+  {
+    question: "Does Cai work offline?",
+    answer: "<p>Yes. The built-in models, Apple Intelligence, and local LLM providers all run on-device, so AI actions work without internet. Actions that call the network (connectors, webhooks, URL fetches) still need it, as you'd expect.</p>"
+  },
+  {
+    question: "Is Cai secure?",
+    answer: "<p>Yes. By default everything runs locally and nothing leaves your Mac; cloud models are opt-in. Agents can only propose: every action arrives as a reviewable diff with the risky parts flagged, and secrets stay in the macOS Keychain, the agent only ever sees a {{secrets.NAME}} placeholder. Details in the <a href='/docs/usage/agent-actions/'>agent-authored actions</a> and <a href='/docs/usage/secrets/'>secrets</a> docs.</p>"
+  },
+  {
+    question: "What models does Cai support?",
+    answer: "<p>Cai ships with Ministral 3B, Qwen 2.5 7B, Apple Intelligence on macOS 26+, local servers (LM Studio, Ollama), and cloud APIs: Anthropic, <a href='https://openrouter.ai' target='_blank' rel='noopener noreferrer'>OpenRouter</a>, or any OpenAI-compatible endpoint. You can also load any MLX model from the <a href='https://huggingface.co/mlx-community' target='_blank' rel='noopener noreferrer'>HuggingFace MLX community</a>. More info in our <a href='/docs/getting-started/llm-setup/'>docs</a>.</p>"
+  },
+  {
+    question: "What are Cai's system requirements?",
+    answer: "<p><strong>macOS 14</strong> (Sonoma) or later. The built-in local model needs <strong>Apple Silicon</strong> (M1 or later) and 8 GB of RAM. On an Intel Mac, connect <a href='https://lmstudio.ai' target='_blank' rel='noopener noreferrer'>LM Studio</a>, <a href='https://ollama.com' target='_blank' rel='noopener noreferrer'>Ollama</a>, or a cloud provider instead. Accessibility permission is required for the ⌥C hotkey.</p>"
   },
   {
     question: "Why ⌥C?",
@@ -42,7 +46,7 @@ const faqs = [
   },
   {
     question: "Why does Cai need Accessibility permissions?",
-    answer: "<p>Cai uses the system hotkey ⌥C to copy your selected text via a simulated ⌘C. macOS requires Accessibility access for apps that interact with system-level keyboard commands. This is what lets Cai work in every app, from Safari to Slack to Terminal.</p><p>To enable it, open <strong>System Settings → Privacy & Security → Accessibility</strong> and toggle Cai on.</p>"
+    answer: "<p>Cai uses the system hotkey ⌥C to copy your selected text via a simulated ⌘C. macOS requires Accessibility access for apps that interact with system-level keyboard commands. This is what lets Cai work in every app, from Safari to Slack to Terminal. Everything else (Calendar, Contacts, Reminders) is only requested when an action first needs it, never up front.</p><p>To enable it, open <strong>System Settings → Privacy & Security → Accessibility</strong> and toggle Cai on.</p>"
   }
 ];
 
