@@ -47,7 +47,7 @@ const imageSrc = typeof mediaSrc === 'string' ? mediaSrc : mediaSrc.src;
       {caption && <p class="section-caption">{caption}</p>}
       <div class="section-links">
         {linkHref && linkText && (
-          <a href={linkHref} class="section-link">
+          <a href={linkHref} class="section-link" target={linkHref.startsWith('http') ? '_blank' : undefined} rel={linkHref.startsWith('http') ? 'noopener noreferrer' : undefined}>
             {linkText}
           </a>
         )}
