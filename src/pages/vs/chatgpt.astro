@@ -4,6 +4,11 @@ import Navbar from '../../components/Navbar.astro';
 import ComparisonPage from '../../components/ComparisonPage.astro';
 import Footer from '../../components/Footer.astro';
 
+// Factual claims checked 2026-08-23. ChatGPT macOS: "Work with Apps" reads/edits content in coding apps,
+// terminals, and Notes; the 2026 desktop app folds in Codex (runs commands in local repos with approval);
+// GitHub connector + MCP apps/dev mode exist. Differentiation must be honest.
+// Cai terminology: GitHub/Linear are token-based connectors (NOT MCP); Cai's MCP is the agent-authoring server (v1.6.0).
+
 const data = {
   competitor: {
     name: "ChatGPT",
@@ -11,12 +16,14 @@ const data = {
   },
   tldr: "ChatGPT is a cloud AI chat app, great for deep conversations, research, and complex reasoning. For quick text actions, you switch apps and paste text in. Cai runs actions directly on your selected text, locally on your Mac, without leaving your workflow.",
   features: [
-    { name: "Works inline on selected text (no app switch)", cai: true, competitor: false },
+    { name: "Works inline on selected text (no app switch)", cai: true, competitor: "Work with Apps (coding apps, Notes)" },
     { name: "100% local, private by default", cai: true, competitor: false },
     { name: "Free and open source (MIT)", cai: true, competitor: "Free tier (limited)" },
     { name: "No account required", cai: true, competitor: false },
-    { name: "Shell command execution", cai: true, competitor: false },
-    { name: "GitHub & Linear integration", cai: true, competitor: false },
+    { name: "Agent-authored actions (Claude Code, Cursor, Codex over MCP)", cai: "Approve a diff with capability chips; runs offline from ⌥C, no tokens", competitor: "Custom GPTs / agents run in ChatGPT's cloud" },
+    { name: "Shell command execution", cai: "Custom shell actions on selection", competitor: "Via Codex (coding workflows)" },
+    { name: "GitHub & Linear integration", cai: "Built-in (create issues from selection)", competitor: "Via connectors and MCP apps" },
+    { name: "Secrets in actions ({{secrets.NAME}}, Keychain)", cai: true, competitor: false },
     { name: "Apple Intelligence support", cai: true, competitor: false },
     { name: "OCR / Image to text on selection", cai: true, competitor: false },
     { name: "Action chains on selected text (AI → script → destination)", cai: true, competitor: false },

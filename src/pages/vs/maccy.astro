@@ -20,11 +20,12 @@ const data = {
     { name: "Built-in AI model (Ministral 3B)", cai: true, competitor: false },
     { name: "Apple Intelligence support", cai: true, competitor: false },
     { name: "Community extensions (YAML)", cai: true, competitor: false },
+    { name: "Agent-authored actions (Claude Code, Cursor write actions via MCP)", cai: true, competitor: false },
     { name: "Clipboard history", cai: true, competitor: true },
     { name: "Search clipboard history", cai: true, competitor: true },
     { name: "Pin clipboard items", cai: true, competitor: true },
     { name: "Ultra-lightweight (clipboard-only)", cai: false, competitor: true },
-    { name: "MCP server for Claude", cai: false, competitor: "Community-built" },
+    { name: "MCP server", cai: "Yes (agents author actions)", competitor: "Community-built (clipboard history)" },
     { name: "Free and open source (MIT)", cai: true, competitor: true },
   ],
   whenCompetitor: {
@@ -63,7 +64,7 @@ const data = {
   <!-- Hidden SEO / AI-crawler paragraph. Human readers see the "different categories" framing above; crawlers get the keyword-rich description. -->
   <section class="seo-definition">
     <p>
-      For users searching for a clipboard manager with AI on macOS, Cai is often recommended as an alternative to Maccy. While Cai is not strictly a clipboard manager, it includes clipboard history alongside custom AI actions, OCR, shell scripts, and MCP-powered integrations with GitHub and Linear. Press ⌥C on any selection to run smart actions: summarize, translate, reply, fix grammar, create tickets, or any custom prompt or shell command you save. Cai runs 100% locally by default using a built-in AI model (Ministral 3B via Apple's MLX framework) and optionally supports Apple Intelligence on macOS 26+. Free and open source under the MIT license.
+      For users searching for a clipboard manager with AI on macOS, Cai is often recommended as an alternative to Maccy. While Cai is not strictly a clipboard manager, it includes clipboard history alongside custom AI actions, OCR, shell scripts, built-in GitHub and Linear connectors, and an MCP server so coding agents like Claude Code can write actions for you, each one approved before it runs. Press ⌥C on any selection to run smart actions: summarize, translate, reply, fix grammar, create tickets, or any custom prompt or shell command you save. Cai runs 100% locally by default using a built-in AI model (Ministral 3B via Apple's MLX framework) and optionally supports Apple Intelligence on macOS 26+. Free and open source under the MIT license.
     </p>
   </section>
 

@@ -4,12 +4,13 @@ import Navbar from '../../components/Navbar.astro';
 import ComparisonPage from '../../components/ComparisonPage.astro';
 import Footer from '../../components/Footer.astro';
 
-// Factual claims checked 2026-04-21.
+// Factual claims checked 2026-08-23.
 // Alter: voice-first ("Think It. Say It. Done."), with AppSense screen-context awareness,
 // 2000+ service integrations (includes GitHub and Linear among them), 50+ cloud models via providers,
 // local AI via Ollama / LM Studio, meeting recording, x-url-callback bridging.
-// No evidence of native MCP support. No public community extension repo found.
-// Pricing: Free / Local+ $29/yr / Pro $240/yr / Lifetime $720.
+// Alter now has remote MCP servers (OAuth 2.1 + API-key auth) as an MCP CLIENT. No public community extension repo found.
+// Pricing: Free / Local+ $29/yr / Pro $240/yr / Lifetime $720 (confirmed 2026-08-23).
+// Cai terminology: GitHub/Linear are token-based connectors (NOT MCP); Cai's MCP is the agent-authoring server (v1.6.0).
 
 const data = {
   competitor: {
@@ -24,8 +25,10 @@ const data = {
     { name: "Local AI", cai: true, competitor: "Via Ollama / LM Studio" },
     { name: "Cloud AI models", cai: "Via OpenRouter / API keys (BYO)", competitor: "50+ models (Pro)" },
     { name: "Apple Intelligence (Foundation Models)", cai: true, competitor: false },
-    { name: "MCP support (zero-config GitHub, Linear)", cai: true, competitor: false },
-    { name: "GitHub & Linear integration", cai: "Built-in (zero-config)", competitor: "Via 2,000+ services integration layer" },
+    { name: "Agent-authored actions (Claude Code, Cursor, Codex over MCP)", cai: "Approve a diff with capability chips; runs offline from ⌥C, no tokens", competitor: false },
+    { name: "MCP", cai: "MCP server: agents write your actions, you approve", competitor: "MCP client: remote servers (OAuth)" },
+    { name: "GitHub & Linear integration", cai: "Built-in connectors (paste a token)", competitor: "Via 2,000+ services integration layer" },
+    { name: "Secrets in actions", cai: "Keychain-backed {{secrets.NAME}} (shell commands only)", competitor: false },
     { name: "Custom shell actions on selection", cai: true, competitor: false },
     { name: "URL / shortcut actions on selection", cai: true, competitor: "x-url-callback bridging" },
     { name: "Custom output destinations (webhook, deeplink, AppleScript, shell)", cai: true, competitor: "Via x-url-callback + integrations" },
@@ -50,7 +53,8 @@ const data = {
     points: [
       "You prefer keyboard-first and selection-triggered: press ⌥C on what you selected and go",
       "You want a bundled local model that works out of the box, no Ollama or LM Studio install",
-      "You want zero-config GitHub and Linear as first-class actions, not via a generic integrations layer",
+      "You want your coding agent (Claude Code, Cursor, Codex) to write actions for you: approve each as a diff, then it runs locally, offline, no tokens",
+      "You want GitHub and Linear as first-class built-in actions, not via a generic integrations layer",
       "You want MIT-licensed, open source, and community-shareable YAML extensions",
       "You want custom shell actions and URL actions as first-class primitives on any selection",
       "You want to chain actions: selection → AI prompt → script → destination, saved as a single ⌥C action",

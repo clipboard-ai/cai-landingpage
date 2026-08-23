@@ -4,23 +4,28 @@ import Navbar from '../../components/Navbar.astro';
 import ComparisonPage from '../../components/ComparisonPage.astro';
 import Footer from '../../components/Footer.astro';
 
-// Factual claims checked 2026-04-21. Raycast has native Ollama local AI since v1.99 (free for all users),
-// native MCP since v1.98, built-in OCR in Search Screenshots + Clipboard History, Script Commands for shell,
-// and `{selection}` / `{clipboard}` placeholders in AI Commands. Differentiation must be honest.
+// Factual claims checked 2026-08-23. Raycast has native Ollama local AI since v1.99 (free for all users),
+// free cloud AI via BYOK (own Anthropic/OpenAI/Google/OpenRouter keys, no Pro needed), native MCP client
+// since v1.98, built-in OCR in Search Screenshots + Clipboard History, Script Commands for shell, and
+// `{selection}` / `{clipboard}` placeholders in AI Commands. Differentiation must be honest.
+// Cai terminology: GitHub/Linear are token-based connectors (NOT MCP); Cai's MCP is the agent-authoring server (v1.6.0).
 
 const data = {
   competitor: {
     name: "Raycast",
     url: "https://www.raycast.com"
   },
-  tldr: "Raycast is a full productivity suite: launcher, window management, snippets, ~2,000 extensions, and AI (free local via Ollama, or $8/mo Pro for cloud). Both apps can run on selected text and both have MCP now. Cai is simpler and more focused: a selection-first action layer that auto-detects what you selected, ships a bundled local model with zero install, is MIT-licensed, and routes results anywhere. If you want a full Spotlight replacement, use Raycast. If you want a focused action layer that's free, open-source, and just works on any selection, use Cai.",
+  tldr: "Raycast is a full productivity suite: launcher, window management, snippets, ~2,000 extensions, and AI (free local via Ollama, free cloud with your own API keys, or $8/mo Pro). Both apps can run on selected text and both speak MCP, in opposite directions: Raycast calls MCP tools from its AI chat; Cai is an MCP server your coding agent connects to, writing actions you approve once and run forever from ⌥C. Cai is simpler and more focused: a selection-first action layer that auto-detects what you selected, ships a bundled local model with zero install, is MIT-licensed, and routes results anywhere. If you want a full Spotlight replacement, use Raycast. If you want a focused action layer that's free, open-source, and just works on any selection, use Cai.",
   features: [
     { name: "Default primitive", cai: "Select → ⌥C → action menu", competitor: "Command launcher (type to invoke)" },
     { name: "Content-aware action surfacing", cai: true, competitor: false },
     { name: "Bundled local AI model (no external server)", cai: "Ministral 3B (MLX, in-process)", competitor: "Ollama required (separate install)" },
     { name: "Local AI (free)", cai: true, competitor: "Ollama integration (free)" },
-    { name: "Cloud AI", cai: "Via OpenRouter, API keys (BYO)", competitor: "$8/mo Pro (after 50 free msgs); +$8/mo for frontier" },
-    { name: "MCP support", cai: "Built-in GitHub + Linear (zero-config)", competitor: "Native (v1.98+), per-server manual config" },
+    { name: "Cloud AI", cai: "Via OpenRouter, API keys (BYO)", competitor: "Free via BYOK (own keys), or $8/mo Pro; +$8/mo advanced models" },
+    { name: "Agent-authored actions (Claude Code, Cursor, Codex over MCP)", cai: "Approve a diff with capability chips; runs offline from ⌥C, no tokens", competitor: false },
+    { name: "MCP", cai: "MCP server: agents write your actions, you approve", competitor: "MCP client: @-mention servers in AI chat (v1.98+)" },
+    { name: "GitHub & Linear issue creation", cai: "Built-in connectors (paste a token)", competitor: "Via extensions / MCP servers" },
+    { name: "Secrets in actions", cai: "Keychain-backed {{secrets.NAME}} (shell commands only)", competitor: "Per-extension preferences" },
     { name: "Apple Intelligence support", cai: true, competitor: false },
     { name: "Open source (MIT)", cai: true, competitor: false },
     { name: "Extension authoring", cai: "YAML (any editor, no build)", competitor: "React/TypeScript + build step" },
@@ -49,7 +54,8 @@ const data = {
       "You want a selection-first workflow: the action menu appears from what you selected, auto-sorted by content type",
       "You want a bundled local model that works out of the box, no Ollama install required",
       "You want MIT-licensed and fully open-source, verifiable end-to-end",
-      "You want GitHub and Linear as zero-config built-in actions, not per-server MCP setup",
+      "You want your coding agent (Claude Code, Cursor, Codex) to write actions for you: approve each as a diff, then it runs locally, offline, no tokens",
+      "You want GitHub and Linear as built-in actions, not per-server setup",
       "You want to author extensions in plain YAML, not ship a TypeScript build",
       "You want to route results anywhere (webhook, AppleScript, deeplink, shell) via a first-class destinations layer",
       "You want to chain actions: selection → AI prompt → script → Slack or webhook, saved as one ⌥C action",

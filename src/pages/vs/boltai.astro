@@ -4,17 +4,19 @@ import Navbar from '../../components/Navbar.astro';
 import ComparisonPage from '../../components/ComparisonPage.astro';
 import Footer from '../../components/Footer.astro';
 
-// Factual claims checked 2026-04-21. BoltAI supports: Apple Foundation Models (macOS 26+), inline AI on
-// selected text with saved prompts, MCP (local + remote, per-agent), Shell Access Plugin (bash tool for AI),
-// OCR, Screenshot Chat, 300+ models via providers. Pricing: $79 Essential / $99 Pro one-time (was $199).
+// Factual claims checked 2026-08-23. BoltAI supports: Apple Foundation Models (macOS 26+), inline AI on
+// selected text with saved prompts, MCP client (local + remote, per-agent, Pro tier), Shell Access Plugin
+// (bash tool for AI), OCR, Screenshot Chat, 300+ models via providers, and reworked AI Workflows
+// (template + agent + post-process). Pricing: $79 Essential / $99 Pro one-time (confirmed 2026-08-23).
 // Differentiation must be honest.
+// Cai terminology: GitHub/Linear are token-based connectors (NOT MCP); Cai's MCP is the agent-authoring server (v1.6.0).
 
 const data = {
   competitor: {
     name: "BoltAI",
     url: "https://boltai.com"
   },
-  tldr: "BoltAI is a native Mac AI app: chat window as the primary interface, plus inline AI that runs saved prompts on selected text via keyboard shortcut. $79 Essential / $99 Pro one-time license. Cai is action-shaped, not chat-shaped: the default interaction is a selection-first action menu with auto-detected content types, a bundled local model (Ministral 3B via MLX, no external server), zero-config GitHub and Linear MCP, YAML community extensions, and first-class custom destinations. Cai is free and MIT-licensed.",
+  tldr: "BoltAI is a native Mac AI app: chat window as the primary interface, plus inline AI that runs saved prompts on selected text via keyboard shortcut. $79 Essential / $99 Pro one-time license. Cai is action-shaped, not chat-shaped: the default interaction is a selection-first action menu with auto-detected content types, a bundled local model (Ministral 3B via MLX, no external server), built-in GitHub and Linear connectors, YAML community extensions, and first-class custom destinations. Since v1.6, coding agents like Claude Code can write Cai actions over MCP; you approve each one. Cai is free and MIT-licensed.",
   features: [
     { name: "Default primitive", cai: "Select → ⌥C → action menu", competitor: "Chat window + inline (select → hotkey → saved prompt)" },
     { name: "Content-aware action surfacing", cai: true, competitor: false },
@@ -22,11 +24,14 @@ const data = {
     { name: "Local AI", cai: true, competitor: "Via Ollama / LM Studio" },
     { name: "Apple Intelligence (Foundation Models)", cai: true, competitor: true },
     { name: "Cloud AI models", cai: "Via OpenRouter, API keys (BYO)", competitor: "300+ models, broad provider support" },
-    { name: "MCP support", cai: "Built-in GitHub + Linear (zero-config)", competitor: "Local + remote, per-agent manual config" },
+    { name: "Agent-authored actions (Claude Code, Cursor, Codex over MCP)", cai: "Approve a diff with capability chips; runs offline from ⌥C, no tokens", competitor: false },
+    { name: "MCP", cai: "MCP server: agents write your actions, you approve", competitor: "MCP client: local + remote, per-agent config (Pro)" },
+    { name: "GitHub & Linear issue creation", cai: "Built-in connectors (paste a token)", competitor: "Via MCP servers (Pro)" },
+    { name: "Secrets in actions", cai: "Keychain-backed {{secrets.NAME}} (shell commands only)", competitor: "Encrypted API key storage" },
     { name: "Shell commands", cai: "Custom Shell actions on selection", competitor: "Shell Access Plugin (AI uses bash)" },
     { name: "URL / shortcut actions on selection", cai: true, competitor: false },
     { name: "Custom output destinations (webhook, deeplink, AppleScript, shell)", cai: true, competitor: false },
-    { name: "Action chains (multi-step AI pipelines on selection)", cai: true, competitor: false },
+    { name: "Action chains (AI → script → destination on selection)", cai: true, competitor: "AI Workflows (template + post-process)" },
     { name: "Replace selection inline", cai: true, competitor: true },
     { name: "Community extensions (shareable YAML repo)", cai: true, competitor: "Agents + Prompt Library (per-user, not a public community repo)" },
     { name: "OCR / Image to text", cai: true, competitor: true },
@@ -48,7 +53,8 @@ const data = {
     points: [
       "You want action-shaped, not chat-shaped: select, press ⌥C, pick, done",
       "You want a bundled local model that runs in-process, no Ollama or LM Studio install",
-      "You want GitHub and Linear as zero-config first-class actions, not per-agent MCP setup",
+      "You want your coding agent (Claude Code, Cursor, Codex) to write actions for you: approve each as a diff, then it runs locally, offline, no tokens",
+      "You want GitHub and Linear as first-class built-in actions, not per-agent MCP setup",
       "You want custom destinations (webhook, AppleScript, deeplink, shell) as a first-class layer, not one-off scripts",
       "You want MIT-licensed and open source, with YAML community extensions you can read and share",
       "You want to chain actions: selection → AI prompt → script → destination, all triggered by one ⌥C",
