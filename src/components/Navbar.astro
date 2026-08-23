@@ -22,8 +22,9 @@ import { CAI_DMG_URL } from '../version';
         <svg class="apple-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
         <span>Download</span>
       </a>
-      <a href="https://github.com/cai-layer/cai" class="github-button" target="_blank" rel="noopener noreferrer" aria-label="View on GitHub">
+      <a href="https://github.com/cai-layer/cai" class="github-button" target="_blank" rel="noopener noreferrer" aria-label="Star Cai on GitHub">
         <img src={githubLogo.src} alt="GitHub" class="github-icon" />
+        <span class="github-stars" id="github-stars" hidden></span>
       </a>
     </div>
   </div>
@@ -145,6 +146,31 @@ import { CAI_DMG_URL } from '../version';
     object-fit: contain;
   }
 
+  .github-stars {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-left: 0.5rem;
+    font-family: 'General Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    letter-spacing: 0.01em;
+  }
+
+  .github-stars::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    /* GitHub's star-fill octicon in their dark-mode starred gold (#e3b341) */
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23e3b341'%3E%3Cpath d='M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z'/%3E%3C/svg%3E") no-repeat center / contain;
+  }
+
+  .github-stars[hidden] {
+    display: none;
+  }
+
   @media (max-width: 968px) {
     .nav-menu {
       display: none;
@@ -182,3 +208,31 @@ import { CAI_DMG_URL } from '../version';
     }
   }
 </style>
+
+<script>
+  // Live GitHub star count in the navbar button. Fails silently: the span stays
+  // hidden if the API is unreachable or rate-limited. Cached for an hour.
+  (async () => {
+    const el = document.getElementById('github-stars');
+    if (!el) return;
+    const CACHE_KEY = 'cai-gh-stars';
+    const format = (n: number) => (n >= 1000 ? (n / 1000).toFixed(1).replace(/\.0$/, '') + 'k' : String(n));
+    try {
+      const cached = JSON.parse(sessionStorage.getItem(CACHE_KEY) || 'null');
+      let stars = cached && Date.now() - cached.t < 3600_000 ? cached.n : null;
+      if (stars === null) {
+        const res = await fetch('https://api.github.com/repos/cai-layer/cai');
+        if (!res.ok) return;
+        stars = (await res.json()).stargazers_count;
+        sessionStorage.setItem(CACHE_KEY, JSON.stringify({ n: stars, t: Date.now() }));
+      }
+      // Below the threshold a small count reads as anti-proof; the bare icon is neutral.
+      // The count reveals itself automatically once it's worth showing.
+      const SHOW_THRESHOLD = 500;
+      if (typeof stars === 'number' && stars >= SHOW_THRESHOLD) {
+        el.textContent = format(stars);
+        el.hidden = false;
+      }
+    } catch {}
+  })();
+</script>

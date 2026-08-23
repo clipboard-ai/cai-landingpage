@@ -10,7 +10,7 @@ import { CAI_VERSION, CAI_DMG_URL } from '../version';
         <!-- Run <span class="highlight">custom actions</span>, locally. -->
       </h1>
       <p class="hero-subtitle">
-        Fire-and-forget actions, built by your agent. Run them anywhere with <span class="kbd"><span class="highlight">⌥C</span></span>.
+        Fire-and-forget actions, built by your agent or by you.<br class="subtitle-break" /> Run them anywhere with <span class="kbd"><span class="highlight">⌥C</span></span>.
       </p>
 
       <div class="trust-badges">
@@ -20,7 +20,7 @@ import { CAI_VERSION, CAI_DMG_URL } from '../version';
         </a>
         <div class="trust-badge">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-          <span>100% Local</span>
+          <span>Local by Default</span>
         </div>
         <div class="trust-badge">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 L13.5 8.5 L19 10 L13.5 11.5 L12 17 L10.5 11.5 L5 10 L10.5 8.5 Z"/></svg>
@@ -523,6 +523,11 @@ import { CAI_VERSION, CAI_DMG_URL } from '../version';
 
     .hero-subtitle {
       font-size: 1.1rem;
+    }
+
+    /* On narrow screens the text wraps naturally; a forced break would orphan words */
+    .subtitle-break {
+      display: none;
     }
 
     .trust-badges {

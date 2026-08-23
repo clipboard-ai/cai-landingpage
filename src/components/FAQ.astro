@@ -2,7 +2,7 @@
 const faqs = [
   {
     question: "Is Cai really free?",
-    answer: "<p>Yes. Cai is free and open source — no subscription, no trial, no account required. If you choose to use a cloud model (like OpenAI or OpenRouter), you'll need their API key, but the app itself is free.</p>"
+    answer: "<p>Yes. Cai is free and open source — no subscription, no per-run tokens, no trial, no account required. Actions run on the built-in local model at zero marginal cost, forever. If you choose to use a cloud model (like OpenAI or OpenRouter), you'll need their API key, but the app itself is free.</p>"
   },
   {
     question: "How is Cai different from other tools?",
@@ -14,7 +14,7 @@ const faqs = [
   },
   {
     question: "Is Cai secure?",
-    answer: "<p>Yes. By default, Cai runs locally on your Mac and nothing leaves the device. If you connect a cloud model, your selected text is sent only to that provider. The choice is yours.</p>"
+    answer: "<p>By default, Cai runs locally and nothing leaves your Mac. If you connect a cloud model, your selected text is sent only to that provider.</p><p>Same story for agents: they can only propose. Every proposed action arrives as a reviewable diff, risky parts (running code, sending your selection to a URL, replacing it unseen) are flagged and need an explicit acknowledgment before Approve unlocks, and capability chips show what an action can really do, computed from the action itself. Secrets stay in the macOS Keychain, where even the agent never sees them.</p>"
   },
   {
     question: "What models does Cai support?",
@@ -22,11 +22,11 @@ const faqs = [
   },
   {
     question: "How do I create custom actions?",
-    answer: "<p>You can create custom actions and destinations using AI prompts, URL templates, shell scripts, webhooks, deeplinks, and more. Open <strong>Settings → Actions</strong> to start, or let your coding agent write them for you. Full guide in the <a href='/docs/usage/saved-actions/'>docs</a>.</p><p>Browse community-shared actions at <a href='https://github.com/cai-layer/cai-extensions' target='_blank' rel='noopener noreferrer'>cai-extensions</a>.</p>"
+    answer: "<p>Three ways. Build them by hand in <strong>Settings → Actions</strong> (AI prompts, URL templates, shell scripts, webhooks, and more). Let your coding agent write them: connect Claude Code, Cursor, Codex, or any MCP-capable agent from <strong>Settings → Connections → Agents</strong>, describe what you want, approve the proposed action, and it runs from ⌥C on its own, locally, offline, no tokens. Or install one from <a href='https://github.com/cai-layer/cai-extensions' target='_blank' rel='noopener noreferrer'>community extensions</a>.</p><p>Guides: <a href='/docs/usage/saved-actions/'>custom actions</a> · <a href='/docs/usage/agent-actions/'>agent-authored actions</a>.</p>"
   },
   {
-    question: "Can my coding agent write Cai actions?",
-    answer: "<p>Yes. Cai is an MCP server: connect Claude Code, Cursor, Codex, or any MCP-capable agent from <strong>Settings → Connections → Agents</strong>, describe the action you want, and the agent writes it. The agent can only propose: every action arrives as a reviewable diff with the risky parts flagged, and nothing runs until you approve it. Once approved, it runs from ⌥C on its own: locally, offline, no agent and no tokens involved. Full guide in the <a href='/docs/usage/agent-actions/'>docs</a>.</p>"
+    question: "What does Cai need to run?",
+    answer: "<p><strong>macOS 14</strong> (Sonoma) or later. The built-in local model needs <strong>Apple Silicon</strong> (M1 or later) and 8 GB of RAM. On an Intel Mac, connect <a href='https://lmstudio.ai' target='_blank' rel='noopener noreferrer'>LM Studio</a>, <a href='https://ollama.com' target='_blank' rel='noopener noreferrer'>Ollama</a>, or a cloud provider instead. Accessibility permission is required for the ⌥C hotkey.</p>"
   },
   {
     question: "Can Cai chain multiple actions together?",
